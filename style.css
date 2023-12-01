@@ -147,7 +147,7 @@ header .logo
 .social li a
 {
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 200px;
   filter: invert(1);
   transform: scale(1);
   transition: 0.5s;
