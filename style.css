@@ -61,10 +61,36 @@ body, html {
 }
 
 .social li {
-  margin: 0 10px;
+  margin: 0 15px; /* Увеличенный промежуток между иконками */
+}
+
+.social li a {
+  display: inline-block;
+  transition: all 0.3s ease; /* Плавный переход для анимации */
 }
 
 .social li a img {
-  width: 20px;
+  width: 20px; /* Или любой другой размер, который вам нужен */
   height: auto;
+  filter: grayscale(100%); /* Черно-белый фильтр для эффекта при наведении */
+}
+
+.social li a:hover img {
+  filter: grayscale(0) hue-rotate(20deg); /* Цветное изображение при наведении */
+  transform: scale(1.1); /* Небольшое увеличение размера */
+}
+
+.social li a:hover img {
+  /* ...предыдущие стили... */
+  position: relative;
+  animation: glitch 0.3s linear infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
 }
