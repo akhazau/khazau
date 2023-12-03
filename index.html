@@ -5,60 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css" type="text/css">
-  <title>KHAZAU</title>
-  <link rel="icon" href="/mediaico.png" type="image/x-icon">
-  <script type="text/javascript">
-    // JavaScript code here
-  </script>
+    <title>KHAZAU</title>
+    <link rel="icon" href="media/mediaico.png" type="image/x-icon">
   </head>
   <body>
-     <section class="showcase">
-       <header>
-         <h2 class="logo">KHAZAU</h2>
-         <div class="toggle"></div>
-       </header>
-     <video id="showreel" muted loop autoplay>
-    <source src="bgv.webm" type="video/mp4">
-</video>
- <div class="overlay"></div>
-       <div class="text">
-         <h2>Film</h2>
-
-         <p>MIKITA KHAZAU</p>
-         <p>ARTTOM KHAZAU</p>
-
-
-         <a href="color">khazau.com/color</a>
-        <button id="muteButton"> </button> <!-- Add a button for muting/unmuting the video -->
-       </div>
-
-     </section>
+    <section class="showcase">
+      <header>
+        <h2 class="logo">KHAZAU</h2>
+      </header>
+      <div class="text">
+        <p>Ваше случайное предложение здесь</p>
+      </div>
+    </section>
    
-      <ul class="social">
-         <li><a href="#"><img src="icon/linkedin.svg"></a></li>
-         <li><a href="#"><img src="icon/whatsapp.svg"></a></li>
-         <li><a href="#"><img src="icon/instagram.svg"></a></li>
-       </ul>
-  <script>
-      const menuToggle = document.querySelector('.toggle');
-      const showcase = document.querySelector('.showcase');
-      const video = document.getElementById('showreel');
-      const muteButton = document.getElementById('muteButton');
-
-      menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        showcase.classList.toggle('active');
-      });
-
-      muteButton.addEventListener('click', () => {
-        if (video.muted) {
-          video.muted = false; // Unmute the video
-          muteButton.textContent = 'Mute'; // Change the button text to ""
-        } else {
-          video.muted = true; // Mute the video
-          muteButton.textContent = ''; // Change the button text to ""
-        }
-      });
-  </script>
+    <ul class="social">
+      <li><a href="#"><img src="icon/linkedin.svg"></a></li>
+      <li><a href="#"><img src="icon/whatsapp.svg"></a></li>
+      <li><a href="#"><img src="icon/instagram.svg"></a></li>
+    </ul>
   </body>
 </html>
