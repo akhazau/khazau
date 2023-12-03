@@ -23,7 +23,7 @@ body, html {
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: moveGradient 1s infinite linear; /* Добавьте это свойство */
+  animation: moveGradient 5s infinite linear;
 }
 
 @keyframes moveGradient {
@@ -31,48 +31,12 @@ body, html {
   100% { background-position: 100% 50%; }
 }
 
-/* Остальные стили остаются без изменений */
-
-
-
-@keyframes changeText {
-  0%, 33% { content: 'Mikita Khazau'; }
-  34%, 66% { content: 'Arttom Khazau'; }
-  67%, 100% { content: 'since 2020'; }
-}
-
-
 .text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.5rem;
-}
-
-.social {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.social li {
-  margin: 0 auto; /* Используйте здесь желаемое расстояние между иконками */
-  list-style: none;
-}
-
-.social li a img {
-  width: 20px; /* Или любой другой размер, который вам нужен */
-  height: auto;
-}
-
-
-.text {
-  /* Ваши стили для позиционирования и размера текста остаются прежними */
   opacity: 1;
   transition: opacity 1s ease-in-out;
 }
@@ -85,3 +49,22 @@ body, html {
   opacity: 0;
 }
 
+.social {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.social li {
+  margin: 0 10px;
+}
+
+.social li a img {
+  width: 20px;
+  height: auto;
+}
