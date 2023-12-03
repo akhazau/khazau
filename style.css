@@ -41,6 +41,11 @@ body, html {
   transition: opacity 1s ease-in-out;
 }
 
+.text p {
+  text-align: center;
+  /* Остальные стили */
+}
+
 .fade-in {
   opacity: 1;
 }
