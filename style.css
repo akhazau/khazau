@@ -80,6 +80,10 @@ body, html {
   transform: scale(1.1); /* Небольшое увеличение размера */
 }
 
+.social {
+  transform: translateX(-10px); /* Подвинуть влево на 10px */
+}
+
 .social li a:hover img {
   /* ...предыдущие стили... */
   position: relative;
