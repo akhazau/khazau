@@ -3,19 +3,21 @@ body, html {
   padding: 0;
   height: 100%;
   background-color: white;
+  font-family: 'Bowlby One', sans-serif; /* Изменение шрифта */
 }
 
 .showcase {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   height: 100vh;
   text-align: center;
 }
 
 .logo {
-  margin: 0;
-  font-size: 2rem;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem; /* Увеличенный размер */
   color: black;
   background: linear-gradient(90deg, #8360c3, #2ebf91);
   background-clip: text;
