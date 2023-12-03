@@ -28,14 +28,24 @@
       <li><a href="#"><img src="media/batman.svg"></a></li>
     </ul>
     <script>
-  const phrases = ['since 2020', 'Mikita Khazau', 'Arttom Khazau', 'since 2020'];
+  const phrases = ['since 2020', 'Mikita Khazau', 'Arttom Khazau'];
   let currentPhraseIndex = 0;
   const textElement = document.getElementById('changingText');
 
-  setInterval(() => {
-    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-    textElement.textContent = phrases[currentPhraseIndex];
-  }, 3000); // меняется каждые 3 секунды
+  function changeText() {
+    textElement.classList.remove('fade-in');
+    textElement.classList.add('fade-out');
+
+    setTimeout(() => {
+      currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+      textElement.textContent = phrases[currentPhraseIndex];
+      textElement.classList.remove('fade-out');
+      textElement.classList.add('fade-in');
+    }, 1000); // синхронизируйте это время с продолжительностью анимации fade-out
+  }
+
+  setInterval(changeText, 4000); // меняется каждые 4 секунды, включая время анимации
 </script>
+
   </body>
 </html>
