@@ -36,11 +36,11 @@ body, html {
 
 
 @keyframes changeText {
-  0%, 25% { content: 'since 2020'; }
-  26%, 50% { content: 'Mikita Khazau'; }
-  51%, 75% { content: 'Arttom Khazau'; }
-  76%, 100% { content: 'since 2020'; }
+  0%, 33% { content: 'Mikita Khazau'; }
+  34%, 66% { content: 'Arttom Khazau'; }
+  67%, 100% { content: 'since 2020'; }
 }
+
 
 .text {
   position: absolute;
@@ -61,7 +61,7 @@ body, html {
 }
 
 .social li {
-  margin: 0 10px; /* Используйте здесь желаемое расстояние между иконками */
+  margin: 0 auto; /* Используйте здесь желаемое расстояние между иконками */
   list-style: none;
 }
 
