@@ -23,7 +23,16 @@ body, html {
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  animation: moveGradient 5s infinite linear; /* Добавьте это свойство */
 }
+
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Остальные стили остаются без изменений */
+
 
 
 @keyframes changeText {
