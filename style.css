@@ -23,7 +23,7 @@ body, html {
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: moveGradient 5s infinite linear; /* Добавьте это свойство */
+  animation: moveGradient 1s infinite linear; /* Добавьте это свойство */
 }
 
 @keyframes moveGradient {
