@@ -3,7 +3,7 @@ body, html {
   padding: 0;
   height: 100%;
   background-color: white;
-  font-family: 'Bowlby One', sans-serif; /* Изменение шрифта */
+  font-family: 'Bowlby One', sans-serif;
 }
 
 .showcase {
@@ -14,10 +14,11 @@ body, html {
 
 .logo {
   position: absolute;
-  top: 10px;
+  top: 20px; /* Немного отступ от верха */
   left: 50%;
   transform: translateX(-50%);
-  font-size: 4rem; /* Увеличенный размер */
+  font-size: 6rem; /* Значительно увеличенный размер */
+  font-family: 'Bowlby One', sans-serif;
   color: black;
   background: linear-gradient(90deg, #8360c3, #2ebf91);
   background-clip: text;
@@ -27,6 +28,9 @@ body, html {
   animation: moveGradient 5s infinite linear;
   background-size: 200% 200%;
 }
+
+/* Остальные стили остаются прежними */
+
 
 @keyframes moveGradient {
   0% { background-position: 0% 50%; }
