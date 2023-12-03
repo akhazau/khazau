@@ -10,6 +10,7 @@
     <link rel="icon" href="media/icoo.png" type="image/x-icon">
   </head>
   <body>
+    <div class="text" id="changingText">since 2020</div>
     <section class="showcase">
       <header>
         <h2 class="logo">KHAZAU</h2>
@@ -26,5 +27,15 @@
       <li><a href="#"><img src="media/homer.svg"></a></li>
       <li><a href="#"><img src="media/batman.svg"></a></li>
     </ul>
+    <script>
+  const phrases = ['since 2020', 'Mikita Khazau', 'Arttom Khazau', 'since 2020'];
+  let currentPhraseIndex = 0;
+  const textElement = document.getElementById('changingText');
+
+  setInterval(() => {
+    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+    textElement.textContent = phrases[currentPhraseIndex];
+  }, 3000); // меняется каждые 3 секунды
+</script>
   </body>
 </html>

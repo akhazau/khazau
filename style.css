@@ -13,53 +13,55 @@ body, html {
 }
 
 .logo {
+  font-size: 4rem;
   position: absolute;
-  top: 20px; /* Немного отступ от верха */
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 6rem; /* Значительно увеличенный размер */
-  font-family: 'Bowlby One', sans-serif;
-  color: black;
   background: linear-gradient(90deg, #8360c3, #2ebf91);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: moveGradient 5s infinite linear;
-  background-size: 200% 200%;
 }
 
-/* Остальные стили остаются прежними */
-
-
-@keyframes moveGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.text p {
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 1.5rem;
-  opacity: 0;
-  animation: fadeIn 5s ease-in-out forwards;
+  animation: changeText 12s infinite;
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+@keyframes changeText {
+  0%, 25% { content: 'since 2020'; }
+  26%, 50% { content: 'Mikita Khazau'; }
+  51%, 75% { content: 'Arttom Khazau'; }
+  76%, 100% { content: 'since 2020'; }
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
 }
 
 .social {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
 }
 
 .social li {
-  list-style: none;
+  display: inline-block;
+  margin: 0 5px;
 }
 
-.social li a {
-  display: inline-block;
-  margin-right: 10px;
+.social li a img {
+  width: 20px;
+  height: auto;
 }
