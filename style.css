@@ -52,20 +52,23 @@ body, html {
 
 .social {
   position: absolute;
+  left: 0;
+  right: 0;
   bottom: 10px;
-  width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .social li {
-  display: inline-block;
-  margin: 0 5px;
+  margin: 0 10px; /* Используйте здесь желаемое расстояние между иконками */
 }
 
 .social li a img {
-  width: 20px;
+  width: 20px; /* Или любой другой размер, который вам нужен */
   height: auto;
 }
+
 
 .text {
   /* Ваши стили для позиционирования и размера текста остаются прежними */
