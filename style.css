@@ -23,12 +23,13 @@ body, html {
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: moveGradient 1s infinite linear;
+  background-size: 200% auto; /* Добавьте это свойство */
+  animation: moveGradient 5s infinite linear;
 }
 
 @keyframes moveGradient {
   0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  100% { background-position: -100% 50%; } /* Измените на -100% для создания эффекта "перемещения" */
 }
 
 .text {
