@@ -12,30 +12,22 @@ body {
   padding-top: 150px; /* Добавление пространства сверху */
   font-family: 'Poppins', sans-serif; /* Шрифт Poppins из Google Fonts */
 }
-
-.flip-card-front img {
-  max-width: 10%; /* или другой процент/пиксели для ограничения ширины */
-  max-height: 10%; /* или другая величина для ограничения высоты */
-  display: block;
-  margin: auto; /* Центрирование изображения */
-}
-
-/* Основной контейнер */
 .flip-card {
   perspective: 1000px;
+  width: 300px; /* Ширина, которая соответствует вашему изображению */
+  height: 200px; /* Высота, которая соответствует вашему изображению */
+  margin: auto; /* Центрирование блока */
 }
 
-/* Внутренний контейнер, который будет переворачиваться */
 .flip-card-inner {
   position: relative;
-  width: 50px; /* Установите желаемую ширину */
-  height: 20px; /* Установите желаемую высоту */
+  width: 100%;
+  height: 100%;
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
 
-/* Стили для передней и задней сторон */
 .flip-card-front, .flip-card-back {
   position: absolute;
   width: 100%;
@@ -43,16 +35,18 @@ body {
   backface-visibility: hidden;
 }
 
-/* Стили для задней стороны */
+.flip-card-front img {
+  width: 15%; /* Изображение заполняет весь контейнер */
+  height: 15%;
+  object-fit: cover; /* Обеспечивает сохранение пропорций изображения */
+}
+
 .flip-card-back {
   background-color: #2980b9;
   color: white;
   transform: rotateY(180deg);
 }
 
-/* Стиль для активации переворота по клику */
 .flip-card-inner.is-flipped {
   transform: rotateY(180deg);
 }
-
-
