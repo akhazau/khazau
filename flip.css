@@ -9,7 +9,7 @@
 body {
   background-color: purple; /* Белый фон */
   text-align: center; /* Выравнивание содержимого по центру */
-  padding-top: 50px; /* Добавление пространства сверху */
+  padding-top: 150px; /* Добавление пространства сверху */
   font-family: 'Poppins', sans-serif; /* Шрифт Poppins из Google Fonts */
 }
 
