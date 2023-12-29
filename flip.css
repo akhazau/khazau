@@ -7,15 +7,17 @@
 
 /* Основные стили для body */
 body {
-  background-color: purple; /* Белый фон */
+  background-color: purple; /* Подправил комментарий */
   text-align: center; /* Выравнивание содержимого по центру */
   padding-top: 150px; /* Добавление пространства сверху */
   font-family: 'Poppins', sans-serif; /* Шрифт Poppins из Google Fonts */
 }
+
+/* Стили для переворачивающейся карты */
 .flip-card {
   perspective: 1000px;
-  width: 200px; /* Ширина, которая соответствует вашему изображению */
-  height: 300px; /* Высота, которая соответствует вашему изображению */
+  width: 200px; /* Ширина карты */
+  height: 300px; /* Высота карты */
   margin: auto; /* Центрирование блока */
 }
 
@@ -36,42 +38,48 @@ body {
 }
 
 .flip-card-front img {
-  width: 100%; /* Изображение заполняет весь контейнер */
+  width: 100%;
   height: 100%;
   object-fit: cover; /* Обеспечивает сохранение пропорций изображения */
 }
 
 .flip-card-back {
-  background-color: #2980b9; /* Фоновый цвет */
+  background-color: transparent; /* Сделаем фон полностью прозрачным */
   color: white;
   transform: rotateY(180deg);
-  opacity: 0.5; /* Делает фон полупрозрачным */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px; /* Отступы внутри */
 }
 
 .flip-card-inner.is-flipped {
   transform: rotateY(180deg);
 }
 
-/* Ваши текущие стили... */
-
-/* ... */
-
-/* Новые стили для интерфейса добавления заметок */
-.note-input textarea {
-  width: 100%;
+/* Стили для элементов ввода на обратной стороне */
+.flip-card-back textarea {
+  width: 80%;
   margin-bottom: 10px;
 }
 
-.note-input button {
+.flip-card-back button {
   padding: 10px;
-  background-color: #2980b9;
-  color: white;
-  border: none;
+  background-color: #555; /* Цвет фона кнопки */
+  color: white; /* Цвет текста кнопки */
+  border: none; /* Удаление рамки кнопки */
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
-.flip-card-back #noteContainer {
-  color: white; /* Цвет текста заметки */
-  padding: 20px; /* Отступы */
-  /* Другие стили для текста заметки */
+/* Стили для заметки после добавления */
+#noteContainer {
+  background-color: #fff; /* Фон заметки */
+  color: #333; /* Цвет текста заметки */
+  width: 80%;
+  padding: 10px;
+  word-wrap: break-word;
+  text-align: left;
+  margin-top: 10px;
 }

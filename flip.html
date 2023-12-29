@@ -9,35 +9,30 @@
     <link rel="stylesheet" href="flip.css">
 </head>
 <body>
-   <!-- Интерфейс для добавления заметок -->
-   <div class="note-input">
-      <textarea id="noteText" placeholder="Введите вашу заметку здесь..."></textarea>
-      <button onclick="addNote()">Добавить заметку</button>
-   </div>
-
-   <!-- Переворачивающаяся карта -->
    <div class="flip-card">
       <div class="flip-card-inner">
          <div class="flip-card-front">
             <img src="media/av.png" alt="Front Image">
          </div>
          <div class="flip-card-back">
-            <!-- Контейнер для отображения заметки -->
-            <div id="noteContainer">Обратная сторона</div>
+            <!-- Содержимое обратной стороны -->
+            <textarea id="noteText" placeholder="Введите вашу заметку здесь..."></textarea>
+            <button onclick="addNote()">Добавить заметку</button>
+            <div id="noteContainer"></div>
          </div>
       </div>
    </div>
 
    <script>
-   // Обработчик клика для переворачивания карты
    document.querySelector('.flip-card').addEventListener('click', function() {
       this.querySelector('.flip-card-inner').classList.toggle('is-flipped');
    });
 
-   // Функция для добавления заметки
    function addNote() {
-      var noteText = document.getElementById("noteText").value; // Получение текста заметки
-      document.getElementById("noteContainer").innerText = noteText; // Добавление текста в контейнер на обратной стороне
+      var noteText = document.getElementById("noteText").value;
+      var noteContainer = document.getElementById("noteContainer");
+      noteContainer.innerText = noteText;
+      document.getElementById("noteText").value = ''; // Очистка поля ввода после добавления заметки
    }
    </script>
 </body>
