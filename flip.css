@@ -42,9 +42,10 @@ body {
 }
 
 .flip-card-back {
-  background-color: #2980b9;
+  background-color: #2980b9; /* Фоновый цвет */
   color: white;
   transform: rotateY(180deg);
+  opacity: 0.5; /* Делает фон полупрозрачным */
 }
 
 .flip-card-inner.is-flipped {
