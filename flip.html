@@ -23,19 +23,21 @@
          </div>
          <div class="flip-card-back">
             <!-- Контейнер для отображения заметки -->
-            <div id="noteContainer"></div>
+            <div id="noteContainer">Обратная сторона</div>
          </div>
       </div>
    </div>
 
    <script>
+   // Обработчик клика для переворачивания карты
    document.querySelector('.flip-card').addEventListener('click', function() {
       this.querySelector('.flip-card-inner').classList.toggle('is-flipped');
    });
 
+   // Функция для добавления заметки
    function addNote() {
-      var noteText = document.getElementById("noteText").value;
-      document.getElementById("noteContainer").innerText = noteText;
+      var noteText = document.getElementById("noteText").value; // Получение текста заметки
+      document.getElementById("noteContainer").innerText = noteText; // Добавление текста в контейнер на обратной стороне
    }
    </script>
 </body>
