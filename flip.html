@@ -9,7 +9,23 @@
     <link rel="stylesheet" href="flip.css"> <!-- Подключение вашего CSS файла -->
 </head>
 <body>
-   <img src="media/av.png" type="image/photo" alt="Описание изображения" class="center-image">
-    <!-- Другой контент может быть добавлен здесь -->
+   <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="media/av.png" alt="Front Image">
+        </div>
+        <div class="flip-card-back">
+          <!-- Содержимое обратной стороны -->
+          <p>Обратная сторона</p>
+        </div>
+      </div>
+   </div>
+   <script>
+document.querySelector('.flip-card').addEventListener('click', function() {
+  this.querySelector('.flip-card-inner').classList.toggle('is-flipped');
+});
+</script>
+
+   <!-- Дополнительный контент может быть добавлен здесь -->
 </body>
 </html>
