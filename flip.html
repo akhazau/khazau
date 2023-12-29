@@ -20,6 +20,11 @@
             <button onclick="addNote()">Добавить заметку</button>
             <div id="noteContainer"></div>
          </div>
+         <div class="flip-card-back">
+  <textarea id="noteText" placeholder="Введите вашу заметку здесь..." onclick="event.stopPropagation()"></textarea>
+  <button onclick="addNote(); event.stopPropagation()">Добавить заметку</button>
+  <div id="noteContainer"></div>
+</div>
       </div>
    </div>
 
@@ -28,11 +33,15 @@
       this.querySelector('.flip-card-inner').classList.toggle('is-flipped');
    });
 
-   function addNote() {
-      var noteText = document.getElementById("noteText").value;
-      var noteContainer = document.getElementById("noteContainer");
-      noteContainer.innerText = noteText;
-      document.getElementById("noteText").value = ''; // Очистка поля ввода после добавления заметки
+   function addNote(event) {
+  var noteText = document.getElementById("noteText").value;
+  document.getElementById("noteContainer").innerText = noteText;
+  // Очищаем поле ввода после добавления заметки
+  document.getElementById("noteText").value = '';
+  // Предотвращаем всплытие события к родителю
+  if (event) {
+    event.stopPropagation();
+  }
    }
    </script>
 </body>
