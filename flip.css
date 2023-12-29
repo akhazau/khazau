@@ -27,8 +27,8 @@ img.center-image {
 /* Внутренний контейнер, который будет переворачиваться */
 .flip-card-inner {
   position: relative;
-  width: 300px; /* Установите желаемую ширину */
-  height: 200px; /* Установите желаемую высоту */
+  width: 50px; /* Установите желаемую ширину */
+  height: 20px; /* Установите желаемую высоту */
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
