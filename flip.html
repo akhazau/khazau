@@ -6,26 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Flip u Memory</title>
     <link rel="icon" href="media/ico.gif" type="image/x-icon">
-    <link rel="stylesheet" href="flip.css"> <!-- Подключение вашего CSS файла -->
+    <link rel="stylesheet" href="flip.css">
 </head>
 <body>
+   <!-- Интерфейс для добавления заметок -->
+   <div class="note-input">
+      <textarea id="noteText" placeholder="Введите вашу заметку здесь..."></textarea>
+      <button onclick="addNote()">Добавить заметку</button>
+   </div>
+
+   <!-- Переворачивающаяся карта -->
    <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="media/av.png" alt="Front Image">
-        </div>
-        <div class="flip-card-back">
-          <!-- Содержимое обратной стороны -->
-          <p>Обратная сторона</p>
-        </div>
+         <div class="flip-card-front">
+            <img src="media/av.png" alt="Front Image">
+         </div>
+         <div class="flip-card-back">
+            <!-- Контейнер для отображения заметки -->
+            <div id="noteContainer"></div>
+         </div>
       </div>
    </div>
-   <script>
-document.querySelector('.flip-card').addEventListener('click', function() {
-  this.querySelector('.flip-card-inner').classList.toggle('is-flipped');
-});
-</script>
 
-   <!-- Дополнительный контент может быть добавлен здесь -->
+   <script>
+   document.querySelector('.flip-card').addEventListener('click', function() {
+      this.querySelector('.flip-card-inner').classList.toggle('is-flipped');
+   });
+
+   function addNote() {
+      var noteText = document.getElementById("noteText").value;
+      document.getElementById("noteContainer").innerText = noteText;
+   }
+   </script>
 </body>
 </html>

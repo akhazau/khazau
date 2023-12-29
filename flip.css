@@ -51,3 +51,27 @@ body {
 .flip-card-inner.is-flipped {
   transform: rotateY(180deg);
 }
+
+/* Ваши текущие стили... */
+
+/* ... */
+
+/* Новые стили для интерфейса добавления заметок */
+.note-input textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.note-input button {
+  padding: 10px;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.flip-card-back #noteContainer {
+  color: white; /* Цвет текста заметки */
+  padding: 20px; /* Отступы */
+  /* Другие стили для текста заметки */
+}
