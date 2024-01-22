@@ -1,24 +1,34 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+@font-face {
+    font-family: "LoveFrom, Serif L 400";
+    src: url("media/Web Fonts/c3ddb99244adbafbc39209439dad58c8.eot");
+    src: url("media/Web Fonts/c3ddb99244adbafbc39209439dad58c8.eot?#iefix") format("embedded-opentype"),
+         url("media/Web Fonts/c3ddb99244adbafbc39209439dad58c8.woff") format("woff"),
+         url("media/Web Fonts/c3ddb99244adbafbc39209439dad58c8.woff2") format("woff2"),
+         url("media/Web Fonts/c3ddb99244adbafbc39209439dad58c8.ttf") format("truetype"),
+         url("media/Web Fonts/c3ddb99244adbafbc39209439dad58c8.svg#LoveFrom, Serif L 400") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Основные стили для body */
 body {
-  background-color: purple; /* Подправил комментарий */
-  text-align: center; /* Выравнивание содержимого по центру */
-  padding-top: 150px; /* Добавление пространства сверху */
-  font-family: 'Poppins', sans-serif; /* Шрифт Poppins из Google Fonts */
+  background-color: purple;
+  text-align: center;
+  padding-top: 150px;
+  font-family: "LoveFrom, Serif L 400", Arial, sans-serif;
 }
 
-/* Стили для переворачивающейся карты */
 .flip-card {
   perspective: 1000px;
-  width: 200px; /* Ширина карты */
-  height: 300px; /* Высота карты */
-  margin: auto; /* Центрирование блока */
+  width: 200px;
+  height: 300px;
+  margin: auto;
 }
 
 .flip-card-inner {
@@ -40,25 +50,24 @@ body {
 .flip-card-front img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Обеспечивает сохранение пропорций изображения */
+  object-fit: cover;
 }
 
 .flip-card-back {
-  background-color: transparent; /* Сделаем фон полностью прозрачным */
+  background-color: transparent;
   color: white;
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15px; /* Отступы внутри */
+  padding: 15px;
 }
 
 .flip-card-inner.is-flipped {
   transform: rotateY(180deg);
 }
 
-/* Стили для элементов ввода на обратной стороне */
 .flip-card-back textarea {
   width: 80%;
   margin-bottom: 10px;
@@ -66,17 +75,16 @@ body {
 
 .flip-card-back button {
   padding: 10px;
-  background-color: #555; /* Цвет фона кнопки */
-  color: white; /* Цвет текста кнопки */
-  border: none; /* Удаление рамки кнопки */
+  background-color: #555;
+  color: white;
+  border: none;
   cursor: pointer;
   margin-bottom: 10px;
 }
 
-/* Стили для заметки после добавления */
 #noteContainer {
-  background-color: #fff; /* Фон заметки */
-  color: #333; /* Цвет текста заметки */
+  background-color: #fff;
+  color: #333;
   width: 80%;
   padding: 10px;
   word-wrap: break-word;

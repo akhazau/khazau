@@ -1,48 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>.flip your memory</title>
-    <link rel="icon" href="media/ico.gif" type="image/x-icon">
-    <link rel="stylesheet" href="flip.css">
-</head>
-<body>
-   <div class="flip-card">
-      <div class="flip-card-inner">
-         <div class="flip-card-front">
-            <img src="media/av.png" alt="Front Image">
-         </div>
-         <div class="flip-card-back">
-            <!-- Содержимое обратной стороны -->
-            <textarea id="noteText" placeholder="Введите вашу заметку здесь..."></textarea>
-            <button onclick="addNote()">Добавить заметку</button>
-            <div id="noteContainer"></div>
-         </div>
-         <div class="flip-card-back">
-  <textarea id="noteText" placeholder="Введите вашу заметку здесь..." onclick="event.stopPropagation()"></textarea>
-  <button onclick="addNote(); event.stopPropagation()">Добавить заметку</button>
-  <div id="noteContainer"></div>
-</div>
+    <style type="text/css">
+      @font-face {
+          font-family: "LoveFrom, Serif L 400";
+          src: url("media/Web Fonts/c3ddb99244adbafbc39209439dad58c8.eot");
+          src: url("media/Web Fonts/c3ddb99244adbafbc39209439dad58c8.eot?#iefix") format("embedded-opentype"),
+               url("media/Web Fonts/c3ddb99244adbafbc39209439dad58c8.woff") format("woff"),
+               url("media/Web Fonts/c3ddb99244adbafbc39209439dad58c8.woff2") format("woff2"),
+               url("media/Web Fonts/c3ddb99244adbafbc39209439dad58c8.ttf") format("truetype"),
+               url("media/Web Fonts/c3ddb99244adbafbc39209439dad58c8.svg#LoveFrom, Serif L 400") format("svg");
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+      }
+
+      body {
+          font-family: "LoveFrom, Serif L 400", Arial, sans-serif;
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet"> -->
+    <title>KHAZAU</title>
+    <link rel="icon" href="media/icoo.png" type="image/x-icon">
+  </head>
+  <body>
+    <div class="text" id="changingText">Since 2020</div>
+    <section class="showcase">
+      <header>
+        <h2 class="logo">KHAZAU</h2>
+      </header>
+      <div class="text">
+        <p></p>
       </div>
-   </div>
+    </section>
+    <ul class="social">
+      <li><a href="https://khazau.com/color"><img src="media/punisher.svg"></a></li>
+      <li><a href="https://www.linkedin.com/in/arttomkhazov"><img src="media/scream.svg"></a></li>
+      <li><a href="https://linkedin.com/in/mikita-khazau"><img src="media/homer.svg"></a></li>
+      <li><a href="https://www.hexacore.io"><img src="media/batman.svg"></a></li>
+    </ul>
+    <script>
+      const phrases = ['"A dedicated video production crew begins filming innovative web3 game developers at Hexacore but soon becomes entangled in political and financial chaos, leaving the fate of both the documentary and the startup uncertain in an unpredictable world."', 'Mikita Khazau', 'Arttom Khazau'];
+      let currentPhraseIndex = 0;
+      const textElement = document.getElementById('changingText');
 
-   <script>
-   document.querySelector('.flip-card').addEventListener('click', function() {
-      this.querySelector('.flip-card-inner').classList.toggle('is-flipped');
-   });
+      function changeText() {
+        textElement.classList.remove('fade-in');
+        textElement.classList.add('fade-out');
 
-   function addNote(event) {
-  var noteText = document.getElementById("noteText").value;
-  document.getElementById("noteContainer").innerText = noteText;
-  // Очищаем поле ввода после добавления заметки
-  document.getElementById("noteText").value = '';
-  // Предотвращаем всплытие события к родителю
-  if (event) {
-    event.stopPropagation();
-  }
-   }
-   </script>
-</body>
+        setTimeout(() => {
+          currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+          textElement.textContent = phrases[currentPhraseIndex];
+          textElement.classList.remove('fade-out');
+          textElement.classList.add('fade-in');
+        }, 1000); // синхронизируйте это время с продолжительностью анимации fade-out
+      }
+
+      setInterval(changeText, 4000); // меняется каждые 4 секунды, включая время анимации
+    </script>
+    <div>Fonts made from <a href="http://www.onlinewebfonts.com">Web Fonts</a> is licensed by CC BY 4.0</div>
+  </body>
 </html>
