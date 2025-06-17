@@ -1,0 +1,38 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #12100E;
+  color: white;
+  font-family: 'Georgia', serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #12100E;
+}
+
+.scroll-button {
+  font-size: 96px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: color 0.4s ease, transform 0.4s ease;
+  text-align: center;
+}
+
+.scroll-button:hover {
+  color: #E6FF00;
+  transform: scale(1.05);
+}
+
+.form-wrapper {
+  padding: 60px 20px;
+  background: #fff;
+  color: #000;
+}
