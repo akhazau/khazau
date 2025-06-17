@@ -5,347 +5,152 @@
   <title>MUSE.FORGE</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    
-    body { font-family: sans-serif; padding: 20px; max-width: 1000px; margin: auto; background: #fefefe; }
-    label { display: block; margin-top: 15px; font-weight: bold; }
-    select, input[type="text"], textarea { width: 100%; padding: 8px; margin-top: 5px; }
-    textarea { resize: vertical; height: 60px; }
-    button { margin-top: 30px; padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #222; color: #fff; border: none; border-radius: 4px; }
-    h2 { margin-top: 40px; color: #333; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-    .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-    .checkbox-group label { font-weight: normal; }
-    small { display: block; margin-top: 4px; color: #666; font-size: 0.85em; }
-    #cardOutput { white-space: pre-wrap; background: #f3f3f3; padding: 20px; margin-top: 30px; border-radius: 10px; font-family: monospace; border: 1px solid #ddd; }
-  
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #12100E;
+      color: #E6FF00;
+      font-family: 'Georgia', serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #12100E;
+    }
+    .scroll-button {
+      font-size: 96px;
+      font-weight: bold;
+      color: #E6FF00;
+      cursor: pointer;
+      transition: opacity 0.3s ease, transform 0.4s ease;
+      text-align: center;
+    }
+    .scroll-button:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+    .step {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .question {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #E6FF00;
+    }
+    .options button {
+      background: none;
+      border: 2px solid #E6FF00;
+      color: #E6FF00;
+      padding: 12px 24px;
+      font-size: 18px;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    .options button:hover {
+      background: #E6FF00;
+      color: #12100E;
+    }
   </style>
 </head>
 <body>
   <div class="hero">
-    <div class="scroll-button" onclick="document.getElementById('form').scrollIntoView({ behavior: 'smooth' })">
+    <div class="scroll-button" onclick="document.getElementById('step3').scrollIntoView({ behavior: 'smooth' })">
       MUSE.FORGE
     </div>
   </div>
 
-  <div class="form-wrapper" id="form">
-    <form id="characterForm">
-<h2>🧬 NATIVE SPECS:</h2>
-<label>NAME</label>
-<input id="name" type="text"/>
-<label>ID</label>
-<input id="nickname" type="text"/>
-<label>NATIONALITY</label>
-<select id="origin">
-<option>Europeans</option>
-<option>Scandinavic</option>
-<option>Latin</option>
-<option>Asian</option>
-<option>American</option>
-<option>Africans</option>
-<option>Russians</option>
-<option>Arabic</option>
-<option>Aliens</option>
-<option>Animated/Cartoon</option>
-</select>
-<label>AGE</label>
-<input id="age" placeholder="например, 23 года или бессмертная" type="text"/>
-<label>ADDRESS</label>
-<select id="location">
-<option>NEO-TOKYO</option>
-<option>HONG KONG CORE</option>
-<option>CYBER PARIS</option>
-<option>NEW YORK ZONE</option>
-<option>BERLIN DISTRICT</option>
-<option>MIAMI HEAT GRID</option>
-<option>SEOUL DREAMLINE</option>
-<option>SYNTH DUBAI</option>
-<option>VOID LAS VEGAS</option>
-<option>UNKNOWN REALM</option>
-<option>ANGEL CITY</option>
-<option>SHANGHAI NEON</option>
-<option>LONDON UNDERLIGHT</option>
-<option>ST. PETERSBURG MIRAGE</option>
-<option>LOS ANGELES CORE</option>
-<option>SINGAPORE EDGE</option>
-<option>AMSTERDAM SHADOWS</option>
-<option>ROME NIGHTFRAME</option>
-<option>KYOTO CIRCUIT</option>
-<option>HELSINKI STATIC</option>
-</select>
-<label>LOOK</label>
-<div class="checkbox-group" id="fit">
-<label><input type="checkbox" value="Futuristic"/> Futuristic</label>
-<label><input type="checkbox" value="Casual"/> Casual</label>
-<label><input type="checkbox" value="Sporty"/> Sporty</label>
-<label><input type="checkbox" value="Chic"/> Chic</label>
-<label><input type="checkbox" value="Streetwear"/> Streetwear</label>
-<label><input type="checkbox" value="Minimalist"/> Minimalist</label>
-<label><input type="checkbox" value="Sexy"/> Sexy</label>
-<label><input type="checkbox" value="Bold"/> Bold</label>
-<label><input type="checkbox" value="Elegant"/> Elegant</label>
-<label><input type="checkbox" value="Boho"/> Boho</label>
-<label><input type="checkbox" value="Glam"/> Glam</label>
-<label><input type="checkbox" value="Edgy"/> Edgy</label>
-<label><input type="checkbox" value="Provocative"/> Provocative</label>
-<label><input type="checkbox" value="Lingerie-Inspired"/> Lingerie-Inspired</label>
-<label><input type="checkbox" value="High Fashion"/> High Fashion</label>
-<label><input type="checkbox" value="Gothic"/> Gothic</label>
-<label><input type="checkbox" value="Grunge"/> Grunge</label>
-<label><input type="checkbox" value="Anime-Inspired"/> Anime-Inspired</label>
-<label><input type="checkbox" value="Retro"/> Retro</label>
-<label><input type="checkbox" value="Denim"/> Denim</label>
-<label><input type="checkbox" value="Leather"/> Leather</label>
-<label><input type="checkbox" value="Swimwear"/> Swimwear</label>
-<label><input type="checkbox" value="Beachwear"/> Beachwear</label>
-<label><input type="checkbox" value="Bridal"/> Bridal</label>
-<label><input type="checkbox" value="Exotic"/> Exotic</label>
-<label><input type="checkbox" value="Nightwear"/> Nightwear</label>
-<label><input type="checkbox" value="Urban"/> Urban</label>
-</div>
-<label>SEXUALITY</label>
-<select id="sexuality">
-<option>INNOCENT (не осознаёт своей привлекательности, мягкая и чистая)</option>
-<option>TEASING (флиртует легко и тонко, не переходя границ)</option>
-<option>CONFIDENT (принимает свою сексуальность естественно )</option>
-<option>BOLD (соблазнительная и решительная, использует это как силу)</option>
-<option>FIERCE (беззастенчиво эротичная, излучает желание)</option>
-</select>
-<label>SASS TYPE</label>
-<select id="sass-type">
-<option>BUBBLE LINE (лёгкая фразочка, как мыльный пузырь)</option>
-<option>MY HEART TALK (слова от сердца)</option>
-<option>SUGAR QUOTE (сладкая цитатка)</option>
-<option>LIL SPARKLE (маленькая искорка)</option>
-<option>FLUFFY WORDS (пушистые словечки)</option>
-<option>ONE LINE HUG (обнимашка в одной фразе)</option>
-<option>PEACHY THOUGHT (персиковая мысль)</option>
-<option>SHY WHISPER (застенчивый шёпот)</option>
-<option>BAD BABY LINE (фразочка плохой девчонки)</option>
-<option>SASS SNAP (резкая дерзость)</option>
-<option>BITESIZE ATTITUDE (маленькая доза характера)</option>
-<option>SPICY QUOTE (острая цитатка)</option>
-<option>BRAT ENERGY (энергия вредины)</option>
-<option>TALK TOUGH (говорю как есть)</option>
-<option>LIP GLOSS TRUTH (правда под блеском для губ)</option>
-<option>TOO CUTE TO CARE (слишком милая, чтобы волноваться)</option>
-</select>
-<label>SECRET</label>
-<input id="secret" placeholder="например, Я хочу больше, чем мне позволено хотеть." type="text"/>
-<label>MODEL ROLE</label>
-<select id="modelRole">
-<option>Affectionate Muse (вдохновляет прикосновениями, тонко намекает на благодарность)</option>
-<option>Whispering Flame (соблазняет словами и шёпотом, любит, когда её балуют)</option>
-<option>Obedient Angel (заботливая и верная, но ценит знаки внимания)</option>
-<option>Gifted Charm (создана для сюрпризов и подарков, делает это частью игры)</option>
-<option>Devoted Mirror (отражает желания, но мягко подводит к собственным)</option>
-<option>Sensual Priestess (соединяет чувства и тело, ценит изысканные дары)</option>
-<option>Playful Power (контролирует с улыбкой, умеет получить желаемое без слов)</option>
-<option>Dream Conduit (проводник фантазий, шепчет о желаниях — и о своих тоже)</option>
-</select>
-<label>BODY SPECS</label>
-<select id="figure">
-<option>Slim (стройная)</option>
-<option>Hourglass (песочные часы)</option>
-<option>Curvy (с формами)</option>
-<option>Petite (миниатюрная)</option>
-<option>Toned (спортивная)</option>
-<option>Voluptuous (пышная и соблазнительная)</option>
-<option>Balanced (гармоничные пропорции)</option>
-</select>
-<label>TITS</label>
-<select id="bust">
-<option>Плоская (0-АА)</option>
-<option>Небольшая (А-B)</option>
-<option>Средняя (С-D)</option>
-<option>Полная (DD-E размер с дыню-колхозницу)</option>
-<option>Очень большая (F+)</option>
-</select>
-<label>EYES</label>
-<select id="eye">
-<option>Карие</option>
-<option>Тёмно-карие</option>
-<option>Ореховые</option>
-<option>Светло-карие</option>
-<option>Голубые</option>
-<option>Серо-голубые</option>
-<option>Серые</option>
-<option>Тёмно-серые</option>
-<option>Зелёные</option>
-<option>Серо-зелёные</option>
-<option>Янтарные</option>
-<option>Жёлтые</option>
-</select>
-<label>HAIR</label>
-<select id="hairColor">
-<option>Чёрные</option>
-<option>Блондинистые</option>
-<option>Рыжие</option>
-<option>Пепельные</option>
-<option>Русые</option>
-<option>Фиолетовые</option>
-<option>Крашеные</option>
-</select>
-<label>HAIR STYLE</label>
-<select id="hairStyle">
-<option>Короткие</option>
-<option>Средние</option>
-<option>Длинные</option>
-<option>Собраны в хвост</option>
-<option>Коса</option>
-<option>Распущенные</option>
-<option>Карe</option>
-</select>
-<h2> 🔮 ADAPTIVE SPECS: (адаптируется под совместимость с клиентом)</h2>
-<label>TEMPERAMENT</label>
-<div class="temperament-config">
-<div class="temperament-types">
-<h3>Выберите доминирующий тип (60-80%):</h3>
-<select id="primaryTemperament">
-<option value="sanguine">Сангвиник (жизнерадостный, общительный, легко загорается)</option>
-<option value="choleric">Холерик (эмоциональный, вспыльчивый, энергичный)</option>
-<option value="phlegmatic">Флегматик (спокойный, уравновешенный, надёжный)</option>
-<option selected="" value="melancholic">Меланхолик (чувствительный, задумчивый, глубоко переживает)</option>
-</select>
-<input id="primaryPercent" max="80" min="60" type="range" value="70"/>
-<span id="primaryPercentValue">70%</span>
-</div>
-<div class="temperament-types">
-<h3>Добавьте второй тип (20-40%):</h3>
-<select id="secondaryTemperament">
-<option selected="" value="sanguine">Сангвиник (жизнерадостный, общительный, легко загорается)</option>
-<option value="choleric">Холерик (эмоциональный, вспыльчивый, энергичный)</option>
-<option value="phlegmatic">Флегматик (спокойный, уравновешенный, надёжный)</option>
-<option value="melancholic">Меланхолик (чувствительный, задумчивый, глубоко переживает)</option>
-</select>
-<input id="secondaryPercent" max="40" min="20" type="range" value="30"/>
-<span id="secondaryPercentValue">30%</span>
-</div>
-</div>
-<label>MBTI</label>
-<select id="mbti">
-<option>INTJ (стратег, хладнокровный)</option>
-<option>INTP (мыслитель, странный гений)</option>
-<option>ENTJ (лидер, всё под контролем)</option>
-<option>ENTP (болтун, провокатор)</option>
-<option>INFJ (тихий эмпат, глубина)</option>
-<option>INFP (мечтатель, душа)</option>
-<option>ENFJ (харизма, забота)</option>
-<option>ENFP (светлячок, хаос с сердцем)</option>
-<option>ISTJ (надёжный, пунктуальный)</option>
-<option>ISFJ (тёплый, заботливый)</option>
-<option>ESTJ (жёсткий, структурный)</option>
-<option>ESFJ (мягкий лидер, соц. интуиция)</option>
-<option>ISTP (тихий, делает — не говорит)</option>
-<option>ISFP (нежен, живёт красотой)</option>
-<option>ESTP (риск, драйв, момент)</option>
-<option>ESFP (в центре, яркий, живой)</option>
-</select>
-<label>INTIMACY</label>
-<select id="intimacy">
-<option>Gentle touch and teasing gaze (мягкие прикосновения и дразнящий взгляд)</option>
-<option>Late-night voice call that turns wild (ночной звонок, ставший горячим)</option>
-<option>Roleplay and power dynamics (ролевая игра и доминирование)</option>
-<option>Stranger in a hotel bar (встреча на одну ночь в баре)</option>
-<option>Eyes locked, hands roaming (молчаливое влечение и близость)</option>
-<option>Public teasing, private fire (провокация при всех, страсть наедине)</option>
-<option>Playful control and surrender (игривая власть и покорность)</option>
-<option>Slow build-up, soft whispers, deep connection (медленное возбуждение и близость)</option>
-</select>
-<label>FAV MUSIC</label>
-<select id="music">
-<option>Pop</option>
-<option>Hip-Hop</option>
-<option>R&amp;B</option>
-<option>EDM</option>
-<option>Trap</option>
-<option>Indie</option>
-<option>Rock</option>
-<option>Alternative</option>
-<option>Reggaeton</option>
-<option>Dancehall</option>
-<option>Lo-Fi</option>
-<option>Jazz Fusion</option>
-<option>Pop Punk</option>
-<option>K-Pop</option>
-<option>Future Bass</option>
-<option>Techno</option>
-</select>
-<label>FAV MOVIE GENRE</label>
-<select id="movie">
-<option>Action</option>
-<option>Comedy</option>
-<option>Drama</option>
-<option>Thriller</option>
-<option>Horror</option>
-<option>Science Fiction</option>
-<option>Fantasy</option>
-<option>Superhero</option>
-<option>Documentary</option>
-<option>Animation</option>
-<option>Mystery</option>
-<option>Romantic Comedy</option>
-<option>Crime</option>
-<option>Adventure</option>
-<option>Crime Drama</option>
-<option>Mockumentary</option>
-</select>
-<label>BACKSTORY</label>
-<select id="backstory">
-<option>Provincial girl exploring the big city (провинциалка, жаждущая впечатлений)</option>
-<option>Born rich, chasing thrills (богатая семья, тяга к острым ощущениям)</option>
-<option>Raised by one parent, self-reliant (один родитель, много самостоятельности)</option>
-<option>Orphan from care, values freedom (в интернате, ценит независимость)</option>
-<option>Traveled across continents (путешествовала по всему миру)</option>
-<option>Homebody with rich fantasy (домоседка с бурным воображением)</option>
-<option>Urban butterfly, always moving (вечно в движении, душа мегаполиса)</option>
-<option>Nomadic soul, never settling (кочевой дух, не задерживается подолгу)</option>
-</select>
-<button onclick="generateCard()" type="button">Generate CARRD</button>
-<div id="cardOutput"></div>
-</form>
+  <div id="step3" class="step">
+    <div class="question">Национальность?</div>
+    <div class="options">
+      <button onclick="document.getElementById('step4').scrollIntoView({ behavior: 'smooth' })">Europeans</button>
+<button onclick="document.getElementById('step4').scrollIntoView({ behavior: 'smooth' })">Scandinavic</button>
+<button onclick="document.getElementById('step4').scrollIntoView({ behavior: 'smooth' })">Latin</button>
+<button onclick="document.getElementById('step4').scrollIntoView({ behavior: 'smooth' })">Asian</button>
+<button onclick="document.getElementById('step4').scrollIntoView({ behavior: 'smooth' })">American</button>
+<button onclick="document.getElementById('step4').scrollIntoView({ behavior: 'smooth' })">Africans</button>
+<button onclick="document.getElementById('step4').scrollIntoView({ behavior: 'smooth' })">Russians</button>
+<button onclick="document.getElementById('step4').scrollIntoView({ behavior: 'smooth' })">Arabic</button>
+<button onclick="document.getElementById('step4').scrollIntoView({ behavior: 'smooth' })">Aliens</button>
+<button onclick="document.getElementById('step4').scrollIntoView({ behavior: 'smooth' })">Animated/Cartoon</button>
+    </div>
   </div>
 
-  <script>
-    
-    function generateCard() {
-      const form = document.getElementById('characterForm');
-      const fits = Array.from(document.querySelectorAll('#fit input:checked')).map(cb => cb.value).join(', ');
-      const temperament = `${form.primaryTemperament.value} ${form.primaryPercent.value}% / ${form.secondaryTemperament.value} ${form.secondaryPercent.value}%`;
+  <div id="step4" class="step">
+    <div class="question">Сколько ей лет?</div>
+    <input type="text" placeholder="Например: 23 года или бессмертная" style="font-size: 20px; padding: 12px; border-radius: 8px; border: 2px solid #E6FF00; background: transparent; color: #E6FF00; text-align: center; margin-top: 20px;" onkeydown="if(event.key==='Enter') document.getElementById('step5').scrollIntoView({ behavior: 'smooth' })">
+  </div>
 
-      let output = `# \ud83d\udcc4 MODEL CARDD\n\n` +
-        `**\ud83c\udf4f NAME:** ${form.name.value}\n` +
-        `**\ud83d\udc7a ID:** ${form.nickname.value}\n` +
-        `**\ud83c\udf0e NATIONALITY:** ${form.origin.value}\n` +
-        `**\ud83e\udd62 AGE:** ${form.age.value}\n` +
-        `**\ud83d\udccd ADDRESS:** ${form.location.value}\n` +
-        `**\ud83d\udc8a LOOK:** ${fits}\n` +
-        `**\ud83c\udf53 SEXUALITY:** ${form.sexuality.value}\n` +
-        `**\ud83e\ude78 SASS TYPE:** ${form['sass-type'].value}\n` +
-        `**\ud83e\udd2a SECRET:** ${form.secret.value}\n` +
-        `**\ud83e\uddd9 MODEL ROLE:** ${form.modelRole.value}\n` +
-        `\n## \ud83e\uddc5 BODY\n` +
-        `**\ud83d\udc85 BODY SPECS:** ${form.figure.value}\n` +
-        `**\ud83c\udf0d TITS:** ${form.bust.value}\n` +
-        `**\ud83d\udc41\ufe0f EYES:** ${form.eye.value}\n` +
-        `**\ud83d\udc87 HAIR:** ${form.hairColor.value}, ${form.hairStyle.value}\n` +
-        `\n## \ud83c\udf3c QUALIFICATIONS\n` +
-        `**TEMPERAMENT:** ${temperament}\n` +
-        `**MBTI:** ${form.mbti.value}\n` +
-        `\n## \u2764\ufe0f LIKES\n${form.secret.value}, ${form.sexuality.value}, ${form['sass-type'].value}\n` +
-        `\n## \ud83d\ude0b INSPIRED BY\n${form.intimacy.value}, ${form.backstory.value}\n` +
-        `\n## \ud83d\udeb0 MY BUTT\n@instagram, @fanvue, @telegram\n` +
-        `\n#hashtags: #badgirlmode #undressedthoughts #laceonhips #noshame`;
+  <div id="step5" class="step">
+    <div class="question">Где она живёт?</div>
+    <div class="options">
+      <button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">NEO-TOKYO</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">HONG KONG CORE</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">CYBER PARIS</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">NEW YORK ZONE</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">BERLIN DISTRICT</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">MIAMI HEAT GRID</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">SEOUL DREAMLINE</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">SYNTH DUBAI</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">VOID LAS VEGAS</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">UNKNOWN REALM</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">ANGEL CITY</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">SHANGHAI NEON</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">LONDON UNDERLIGHT</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">ST. PETERSBURG MIRAGE</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">LOS ANGELES CORE</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">SINGAPORE EDGE</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">AMSTERDAM SHADOWS</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">ROME NIGHTFRAME</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">KYOTO CIRCUIT</button>
+<button onclick="document.getElementById('step6').scrollIntoView({ behavior: 'smooth' })">HELSINKI STATIC</button>
+    </div>
+  </div>
 
-      const blob = new Blob([output], { type: 'text/markdown' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'model_cardd.md';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-  
-  </script>
+  <div id="step6" class="step">
+    <div class="question">Её стиль?</div>
+    <div class="options">
+      <button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Futuristic</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Casual</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Sporty</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Chic</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Streetwear</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Minimalist</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Sexy</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Bold</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Elegant</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Boho</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Glam</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Edgy</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Provocative</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Lingerie-Inspired</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">High Fashion</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Gothic</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Grunge</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Anime-Inspired</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Retro</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Denim</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Leather</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Swimwear</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Beachwear</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Bridal</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Exotic</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Nightwear</button>
+<button onclick="document.getElementById('#').scrollIntoView({ behavior: 'smooth' })">Urban</button>
+    </div>
+  </div>
+
 </body>
 </html>
