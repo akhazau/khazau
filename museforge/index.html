@@ -4,20 +4,6 @@
   <meta charset="UTF-8">
   <title>MUSE.FORGE</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    
-    body { font-family: sans-serif; padding: 20px; max-width: 1000px; margin: auto; background: #fefefe; }
-    label { display: block; margin-top: 15px; font-weight: bold; }
-    select, input[type="text"], textarea { width: 100%; padding: 8px; margin-top: 5px; }
-    textarea { resize: vertical; height: 60px; }
-    button { margin-top: 30px; padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #222; color: #fff; border: none; border-radius: 4px; }
-    h2 { margin-top: 40px; color: #333; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-    .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-    .checkbox-group label { font-weight: normal; }
-    small { display: block; margin-top: 4px; color: #666; font-size: 0.85em; }
-    #cardOutput { white-space: pre-wrap; background: #f3f3f3; padding: 20px; margin-top: 30px; border-radius: 10px; font-family: monospace; border: 1px solid #ddd; }
-  
-  </style>
 </head>
 <body>
   <div class="hero">
@@ -28,312 +14,438 @@
 
   <div class="form-wrapper" id="form">
     <form id="characterForm">
-<h2>🧬 NATIVE SPECS:</h2>
-<label>NAME</label>
-<input id="name" type="text"/>
-<label>ID</label>
-<input id="nickname" type="text"/>
-<label>NATIONALITY</label>
-<select id="origin">
-<option>Europeans</option>
-<option>Scandinavic</option>
-<option>Latin</option>
-<option>Asian</option>
-<option>American</option>
-<option>Africans</option>
-<option>Russians</option>
-<option>Arabic</option>
-<option>Aliens</option>
-<option>Animated/Cartoon</option>
-</select>
-<label>AGE</label>
-<input id="age" placeholder="например, 23 года или бессмертная" type="text"/>
-<label>ADDRESS</label>
-<select id="location">
-<option>NEO-TOKYO</option>
-<option>HONG KONG CORE</option>
-<option>CYBER PARIS</option>
-<option>NEW YORK ZONE</option>
-<option>BERLIN DISTRICT</option>
-<option>MIAMI HEAT GRID</option>
-<option>SEOUL DREAMLINE</option>
-<option>SYNTH DUBAI</option>
-<option>VOID LAS VEGAS</option>
-<option>UNKNOWN REALM</option>
-<option>ANGEL CITY</option>
-<option>SHANGHAI NEON</option>
-<option>LONDON UNDERLIGHT</option>
-<option>ST. PETERSBURG MIRAGE</option>
-<option>LOS ANGELES CORE</option>
-<option>SINGAPORE EDGE</option>
-<option>AMSTERDAM SHADOWS</option>
-<option>ROME NIGHTFRAME</option>
-<option>KYOTO CIRCUIT</option>
-<option>HELSINKI STATIC</option>
-</select>
-<label>LOOK</label>
-<div class="checkbox-group" id="fit">
-<label><input type="checkbox" value="Futuristic"/> Futuristic</label>
-<label><input type="checkbox" value="Casual"/> Casual</label>
-<label><input type="checkbox" value="Sporty"/> Sporty</label>
-<label><input type="checkbox" value="Chic"/> Chic</label>
-<label><input type="checkbox" value="Streetwear"/> Streetwear</label>
-<label><input type="checkbox" value="Minimalist"/> Minimalist</label>
-<label><input type="checkbox" value="Sexy"/> Sexy</label>
-<label><input type="checkbox" value="Bold"/> Bold</label>
-<label><input type="checkbox" value="Elegant"/> Elegant</label>
-<label><input type="checkbox" value="Boho"/> Boho</label>
-<label><input type="checkbox" value="Glam"/> Glam</label>
-<label><input type="checkbox" value="Edgy"/> Edgy</label>
-<label><input type="checkbox" value="Provocative"/> Provocative</label>
-<label><input type="checkbox" value="Lingerie-Inspired"/> Lingerie-Inspired</label>
-<label><input type="checkbox" value="High Fashion"/> High Fashion</label>
-<label><input type="checkbox" value="Gothic"/> Gothic</label>
-<label><input type="checkbox" value="Grunge"/> Grunge</label>
-<label><input type="checkbox" value="Anime-Inspired"/> Anime-Inspired</label>
-<label><input type="checkbox" value="Retro"/> Retro</label>
-<label><input type="checkbox" value="Denim"/> Denim</label>
-<label><input type="checkbox" value="Leather"/> Leather</label>
-<label><input type="checkbox" value="Swimwear"/> Swimwear</label>
-<label><input type="checkbox" value="Beachwear"/> Beachwear</label>
-<label><input type="checkbox" value="Bridal"/> Bridal</label>
-<label><input type="checkbox" value="Exotic"/> Exotic</label>
-<label><input type="checkbox" value="Nightwear"/> Nightwear</label>
-<label><input type="checkbox" value="Urban"/> Urban</label>
-</div>
-<label>SEXUALITY</label>
-<select id="sexuality">
-<option>INNOCENT (не осознаёт своей привлекательности, мягкая и чистая)</option>
-<option>TEASING (флиртует легко и тонко, не переходя границ)</option>
-<option>CONFIDENT (принимает свою сексуальность естественно )</option>
-<option>BOLD (соблазнительная и решительная, использует это как силу)</option>
-<option>FIERCE (беззастенчиво эротичная, излучает желание)</option>
-</select>
-<label>SASS TYPE</label>
-<select id="sass-type">
-<option>BUBBLE LINE (лёгкая фразочка, как мыльный пузырь)</option>
-<option>MY HEART TALK (слова от сердца)</option>
-<option>SUGAR QUOTE (сладкая цитатка)</option>
-<option>LIL SPARKLE (маленькая искорка)</option>
-<option>FLUFFY WORDS (пушистые словечки)</option>
-<option>ONE LINE HUG (обнимашка в одной фразе)</option>
-<option>PEACHY THOUGHT (персиковая мысль)</option>
-<option>SHY WHISPER (застенчивый шёпот)</option>
-<option>BAD BABY LINE (фразочка плохой девчонки)</option>
-<option>SASS SNAP (резкая дерзость)</option>
-<option>BITESIZE ATTITUDE (маленькая доза характера)</option>
-<option>SPICY QUOTE (острая цитатка)</option>
-<option>BRAT ENERGY (энергия вредины)</option>
-<option>TALK TOUGH (говорю как есть)</option>
-<option>LIP GLOSS TRUTH (правда под блеском для губ)</option>
-<option>TOO CUTE TO CARE (слишком милая, чтобы волноваться)</option>
-</select>
-<label>SECRET</label>
-<input id="secret" placeholder="например, Я хочу больше, чем мне позволено хотеть." type="text"/>
-<label>MODEL ROLE</label>
-<select id="modelRole">
-<option>Affectionate Muse (вдохновляет прикосновениями, тонко намекает на благодарность)</option>
-<option>Whispering Flame (соблазняет словами и шёпотом, любит, когда её балуют)</option>
-<option>Obedient Angel (заботливая и верная, но ценит знаки внимания)</option>
-<option>Gifted Charm (создана для сюрпризов и подарков, делает это частью игры)</option>
-<option>Devoted Mirror (отражает желания, но мягко подводит к собственным)</option>
-<option>Sensual Priestess (соединяет чувства и тело, ценит изысканные дары)</option>
-<option>Playful Power (контролирует с улыбкой, умеет получить желаемое без слов)</option>
-<option>Dream Conduit (проводник фантазий, шепчет о желаниях — и о своих тоже)</option>
-</select>
-<label>BODY SPECS</label>
-<select id="figure">
-<option>Slim (стройная)</option>
-<option>Hourglass (песочные часы)</option>
-<option>Curvy (с формами)</option>
-<option>Petite (миниатюрная)</option>
-<option>Toned (спортивная)</option>
-<option>Voluptuous (пышная и соблазнительная)</option>
-<option>Balanced (гармоничные пропорции)</option>
-</select>
-<label>TITS</label>
-<select id="bust">
-<option>Плоская (0-АА)</option>
-<option>Небольшая (А-B)</option>
-<option>Средняя (С-D)</option>
-<option>Полная (DD-E размер с дыню-колхозницу)</option>
-<option>Очень большая (F+)</option>
-</select>
-<label>EYES</label>
-<select id="eye">
-<option>Карие</option>
-<option>Тёмно-карие</option>
-<option>Ореховые</option>
-<option>Светло-карие</option>
-<option>Голубые</option>
-<option>Серо-голубые</option>
-<option>Серые</option>
-<option>Тёмно-серые</option>
-<option>Зелёные</option>
-<option>Серо-зелёные</option>
-<option>Янтарные</option>
-<option>Жёлтые</option>
-</select>
-<label>HAIR</label>
-<select id="hairColor">
-<option>Чёрные</option>
-<option>Блондинистые</option>
-<option>Рыжие</option>
-<option>Пепельные</option>
-<option>Русые</option>
-<option>Фиолетовые</option>
-<option>Крашеные</option>
-</select>
-<label>HAIR STYLE</label>
-<select id="hairStyle">
-<option>Короткие</option>
-<option>Средние</option>
-<option>Длинные</option>
-<option>Собраны в хвост</option>
-<option>Коса</option>
-<option>Распущенные</option>
-<option>Карe</option>
-</select>
-<h2> 🔮 ADAPTIVE SPECS: (адаптируется под совместимость с клиентом)</h2>
-<label>TEMPERAMENT</label>
-<div class="temperament-config">
-<div class="temperament-types">
-<h3>Выберите доминирующий тип (60-80%):</h3>
-<select id="primaryTemperament">
-<option value="sanguine">Сангвиник (жизнерадостный, общительный, легко загорается)</option>
-<option value="choleric">Холерик (эмоциональный, вспыльчивый, энергичный)</option>
-<option value="phlegmatic">Флегматик (спокойный, уравновешенный, надёжный)</option>
-<option selected="" value="melancholic">Меланхолик (чувствительный, задумчивый, глубоко переживает)</option>
-</select>
-<input id="primaryPercent" max="80" min="60" type="range" value="70"/>
-<span id="primaryPercentValue">70%</span>
-</div>
-<div class="temperament-types">
-<h3>Добавьте второй тип (20-40%):</h3>
-<select id="secondaryTemperament">
-<option selected="" value="sanguine">Сангвиник (жизнерадостный, общительный, легко загорается)</option>
-<option value="choleric">Холерик (эмоциональный, вспыльчивый, энергичный)</option>
-<option value="phlegmatic">Флегматик (спокойный, уравновешенный, надёжный)</option>
-<option value="melancholic">Меланхолик (чувствительный, задумчивый, глубоко переживает)</option>
-</select>
-<input id="secondaryPercent" max="40" min="20" type="range" value="30"/>
-<span id="secondaryPercentValue">30%</span>
-</div>
-</div>
-<label>MBTI</label>
-<select id="mbti">
-<option>INTJ (стратег, хладнокровный)</option>
-<option>INTP (мыслитель, странный гений)</option>
-<option>ENTJ (лидер, всё под контролем)</option>
-<option>ENTP (болтун, провокатор)</option>
-<option>INFJ (тихий эмпат, глубина)</option>
-<option>INFP (мечтатель, душа)</option>
-<option>ENFJ (харизма, забота)</option>
-<option>ENFP (светлячок, хаос с сердцем)</option>
-<option>ISTJ (надёжный, пунктуальный)</option>
-<option>ISFJ (тёплый, заботливый)</option>
-<option>ESTJ (жёсткий, структурный)</option>
-<option>ESFJ (мягкий лидер, соц. интуиция)</option>
-<option>ISTP (тихий, делает — не говорит)</option>
-<option>ISFP (нежен, живёт красотой)</option>
-<option>ESTP (риск, драйв, момент)</option>
-<option>ESFP (в центре, яркий, живой)</option>
-</select>
-<label>INTIMACY</label>
-<select id="intimacy">
-<option>Gentle touch and teasing gaze (мягкие прикосновения и дразнящий взгляд)</option>
-<option>Late-night voice call that turns wild (ночной звонок, ставший горячим)</option>
-<option>Roleplay and power dynamics (ролевая игра и доминирование)</option>
-<option>Stranger in a hotel bar (встреча на одну ночь в баре)</option>
-<option>Eyes locked, hands roaming (молчаливое влечение и близость)</option>
-<option>Public teasing, private fire (провокация при всех, страсть наедине)</option>
-<option>Playful control and surrender (игривая власть и покорность)</option>
-<option>Slow build-up, soft whispers, deep connection (медленное возбуждение и близость)</option>
-</select>
-<label>FAV MUSIC</label>
-<select id="music">
-<option>Pop</option>
-<option>Hip-Hop</option>
-<option>R&amp;B</option>
-<option>EDM</option>
-<option>Trap</option>
-<option>Indie</option>
-<option>Rock</option>
-<option>Alternative</option>
-<option>Reggaeton</option>
-<option>Dancehall</option>
-<option>Lo-Fi</option>
-<option>Jazz Fusion</option>
-<option>Pop Punk</option>
-<option>K-Pop</option>
-<option>Future Bass</option>
-<option>Techno</option>
-</select>
-<label>FAV MOVIE GENRE</label>
-<select id="movie">
-<option>Action</option>
-<option>Comedy</option>
-<option>Drama</option>
-<option>Thriller</option>
-<option>Horror</option>
-<option>Science Fiction</option>
-<option>Fantasy</option>
-<option>Superhero</option>
-<option>Documentary</option>
-<option>Animation</option>
-<option>Mystery</option>
-<option>Romantic Comedy</option>
-<option>Crime</option>
-<option>Adventure</option>
-<option>Crime Drama</option>
-<option>Mockumentary</option>
-</select>
-<label>BACKSTORY</label>
-<select id="backstory">
-<option>Provincial girl exploring the big city (провинциалка, жаждущая впечатлений)</option>
-<option>Born rich, chasing thrills (богатая семья, тяга к острым ощущениям)</option>
-<option>Raised by one parent, self-reliant (один родитель, много самостоятельности)</option>
-<option>Orphan from care, values freedom (в интернате, ценит независимость)</option>
-<option>Traveled across continents (путешествовала по всему миру)</option>
-<option>Homebody with rich fantasy (домоседка с бурным воображением)</option>
-<option>Urban butterfly, always moving (вечно в движении, душа мегаполиса)</option>
-<option>Nomadic soul, never settling (кочевой дух, не задерживается подолгу)</option>
-</select>
-<button onclick="generateCard()" type="button">Generate CARRD</button>
-<div id="cardOutput"></div>
-</form>
+      <h2>🧬 NATIVE SPECS:</h2>
+      
+      <label>NAME</label>
+      <input id="name" type="text"/>
+      
+      <label>ID</label>
+      <input id="nickname" type="text"/>
+      
+      <label>NATIONALITY</label>
+      <select id="origin">
+        <option>Europeans</option>
+        <option>Scandinavic</option>
+        <option>Latin</option>
+        <option>Asian</option>
+        <option>American</option>
+        <option>Africans</option>
+        <option>Russians</option>
+        <option>Arabic</option>
+        <option>Aliens</option>
+        <option>Animated/Cartoon</option>
+      </select>
+      
+      <label>AGE</label>
+      <input id="age" placeholder="например, 23 года или бессмертная" type="text"/>
+      
+      <label>ADDRESS</label>
+      <select id="location">
+        <option>NEO-TOKYO</option>
+        <option>HONG KONG CORE</option>
+        <option>CYBER PARIS</option>
+        <option>NEW YORK ZONE</option>
+        <option>BERLIN DISTRICT</option>
+        <option>MIAMI HEAT GRID</option>
+        <option>SEOUL DREAMLINE</option>
+        <option>SYNTH DUBAI</option>
+        <option>VOID LAS VEGAS</option>
+        <option>UNKNOWN REALM</option>
+        <option>ANGEL CITY</option>
+        <option>SHANGHAI NEON</option>
+        <option>LONDON UNDERLIGHT</option>
+        <option>ST. PETERSBURG MIRAGE</option>
+        <option>LOS ANGELES CORE</option>
+        <option>SINGAPORE EDGE</option>
+        <option>AMSTERDAM SHADOWS</option>
+        <option>ROME NIGHTFRAME</option>
+        <option>KYOTO CIRCUIT</option>
+        <option>HELSINKI STATIC</option>
+      </select>
+      
+      <label>LOOK</label>
+      <div class="checkbox-group" id="fit">
+        <label><input type="checkbox" value="Futuristic"/> Futuristic</label>
+        <label><input type="checkbox" value="Casual"/> Casual</label>
+        <label><input type="checkbox" value="Sporty"/> Sporty</label>
+        <label><input type="checkbox" value="Chic"/> Chic</label>
+        <label><input type="checkbox" value="Streetwear"/> Streetwear</label>
+        <label><input type="checkbox" value="Minimalist"/> Minimalist</label>
+        <label><input type="checkbox" value="Sexy"/> Sexy</label>
+        <label><input type="checkbox" value="Bold"/> Bold</label>
+        <label><input type="checkbox" value="Elegant"/> Elegant</label>
+        <label><input type="checkbox" value="Boho"/> Boho</label>
+        <label><input type="checkbox" value="Glam"/> Glam</label>
+        <label><input type="checkbox" value="Edgy"/> Edgy</label>
+        <label><input type="checkbox" value="Provocative"/> Provocative</label>
+        <label><input type="checkbox" value="Lingerie-Inspired"/> Lingerie-Inspired</label>
+        <label><input type="checkbox" value="High Fashion"/> High Fashion</label>
+        <label><input type="checkbox" value="Gothic"/> Gothic</label>
+        <label><input type="checkbox" value="Grunge"/> Grunge</label>
+        <label><input type="checkbox" value="Anime-Inspired"/> Anime-Inspired</label>
+        <label><input type="checkbox" value="Retro"/> Retro</label>
+        <label><input type="checkbox" value="Denim"/> Denim</label>
+        <label><input type="checkbox" value="Leather"/> Leather</label>
+        <label><input type="checkbox" value="Swimwear"/> Swimwear</label>
+        <label><input type="checkbox" value="Beachwear"/> Beachwear</label>
+        <label><input type="checkbox" value="Bridal"/> Bridal</label>
+        <label><input type="checkbox" value="Exotic"/> Exotic</label>
+        <label><input type="checkbox" value="Nightwear"/> Nightwear</label>
+        <label><input type="checkbox" value="Urban"/> Urban</label>
+      </div>
+      
+      <label>SEXUALITY</label>
+      <select id="sexuality">
+        <option>INNOCENT (не осознаёт своей привлекательности, мягкая и чистая)</option>
+        <option>TEASING (флиртует легко и тонко, не переходя границ)</option>
+        <option>CONFIDENT (принимает свою сексуальность естественно )</option>
+        <option>BOLD (соблазнительная и решительная, использует это как силу)</option>
+        <option>FIERCE (беззастенчиво эротичная, излучает желание)</option>
+      </select>
+      
+      <label>SASS TYPE</label>
+      <select id="sass-type">
+        <option>BUBBLE LINE (лёгкая фразочка, как мыльный пузырь)</option>
+        <option>MY HEART TALK (слова от сердца)</option>
+        <option>SUGAR QUOTE (сладкая цитатка)</option>
+        <option>LIL SPARKLE (маленькая искорка)</option>
+        <option>FLUFFY WORDS (пушистые словечки)</option>
+        <option>ONE LINE HUG (обнимашка в одной фразе)</option>
+        <option>PEACHY THOUGHT (персиковая мысль)</option>
+        <option>SHY WHISPER (застенчивый шёпот)</option>
+        <option>BAD BABY LINE (фразочка плохой девчонки)</option>
+        <option>SASS SNAP (резкая дерзость)</option>
+        <option>BITESIZE ATTITUDE (маленькая доза характера)</option>
+        <option>SPICY QUOTE (острая цитатка)</option>
+        <option>BRAT ENERGY (энергия вредины)</option>
+        <option>TALK TOUGH (говорю как есть)</option>
+        <option>LIP GLOSS TRUTH (правда под блеском для губ)</option>
+        <option>TOO CUTE TO CARE (слишком милая, чтобы волноваться)</option>
+      </select>
+      
+      <label>SECRET</label>
+      <input id="secret" placeholder="например, Я хочу больше, чем мне позволено хотеть." type="text"/>
+      
+      <label>MODEL ROLE</label>
+      <select id="modelRole">
+        <option>Affectionate Muse (вдохновляет прикосновениями, тонко намекает на благодарность)</option>
+        <option>Whispering Flame (соблазняет словами и шёпотом, любит, когда её балуют)</option>
+        <option>Obedient Angel (заботливая и верная, но ценит знаки внимания)</option>
+        <option>Gifted Charm (создана для сюрпризов и подарков, делает это частью игры)</option>
+        <option>Devoted Mirror (отражает желания, но мягко подводит к собственным)</option>
+        <option>Sensual Priestess (соединяет чувства и тело, ценит изысканные дары)</option>
+        <option>Playful Power (контролирует с улыбкой, умеет получить желаемое без слов)</option>
+        <option>Dream Conduit (проводник фантазий, шепчет о желаниях — и о своих тоже)</option>
+      </select>
+      
+      <label>BODY SPECS</label>
+      <select id="figure">
+        <option>Slim (стройная)</option>
+        <option>Hourglass (песочные часы)</option>
+        <option>Curvy (с формами)</option>
+        <option>Petite (миниатюрная)</option>
+        <option>Toned (спортивная)</option>
+        <option>Voluptuous (пышная и соблазнительная)</option>
+        <option>Balanced (гармоничные пропорции)</option>
+      </select>
+      
+      <label>TITS</label>
+      <select id="bust">
+        <option>Плоская (0-АА)</option>
+        <option>Небольшая (А-B)</option>
+        <option>Средняя (С-D)</option>
+        <option>Полная (DD-E размер с дыню-колхозницу)</option>
+        <option>Очень большая (F+)</option>
+      </select>
+      
+      <label>EYES</label>
+      <select id="eye">
+        <option>Карие</option>
+        <option>Тёмно-карие</option>
+        <option>Ореховые</option>
+        <option>Светло-карие</option>
+        <option>Голубые</option>
+        <option>Серо-голубые</option>
+        <option>Серые</option>
+        <option>Тёмно-серые</option>
+        <option>Зелёные</option>
+        <option>Серо-зелёные</option>
+        <option>Янтарные</option>
+        <option>Жёлтые</option>
+      </select>
+      
+      <label>HAIR</label>
+      <select id="hairColor">
+        <option>Чёрные</option>
+        <option>Блондинистые</option>
+        <option>Рыжие</option>
+        <option>Пепельные</option>
+        <option>Русые</option>
+        <option>Фиолетовые</option>
+        <option>Крашеные</option>
+      </select>
+      
+      <label>HAIR STYLE</label>
+      <select id="hairStyle">
+        <option>Короткие</option>
+        <option>Средние</option>
+        <option>Длинные</option>
+        <option>Собраны в хвост</option>
+        <option>Коса</option>
+        <option>Распущенные</option>
+        <option>Карe</option>
+      </select>
+      
+      <label>FACE TYPE</label>
+      <select id="faceType">
+        <option>Babyface</option>
+        <option>Sculpted</option>
+        <option>Sharp</option>
+        <option>Mixed</option>
+      </select>
+      
+      <label>UNIQUE FEATURE</label>
+      <input id="uniqueFeature" placeholder="например: гетерохромия, розовые косы, пирсинг в носу" type="text"/>
+      
+      <label>VIBE</label>
+      <input id="vibe" placeholder="например: слишком милая для этой реальности" type="text"/>
+      
+      <label>CHARACTER LORE</label>
+      <textarea id="characterLore" placeholder="Художественная легенда персонажа..."></textarea>
+      
+      <label>HEIGHT</label>
+      <input id="height" placeholder="например: 155 см или высокая и хрупкая" type="text"/>
+      
+      <label>HIPS TYPE</label>
+      <select id="hipsType">
+        <option>Small</option>
+        <option>Balanced</option>
+        <option>Wide</option>
+        <option>Extremely Wide</option>
+      </select>
+      
+      <label>SKIN TONE</label>
+      <select id="skinTone">
+        <option>Pale</option>
+        <option>Fair</option>
+        <option>Light brown</option>
+        <option>Olive</option>
+        <option>Caramel</option>
+        <option>Mocha</option>
+        <option>Ebony</option>
+      </select>
+      
+      <label>OUTFIT STYLE</label>
+      <div class="checkbox-group" id="outfitStyle">
+        <label><input type="checkbox" value="latex"/> latex</label>
+        <label><input type="checkbox" value="schoolgirl"/> schoolgirl</label>
+        <label><input type="checkbox" value="fishnets"/> fishnets</label>
+        <label><input type="checkbox" value="sporty"/> sporty</label>
+        <label><input type="checkbox" value="pastel"/> pastel</label>
+        <label><input type="checkbox" value="casual"/> casual</label>
+        <label><input type="checkbox" value="gothic"/> gothic</label>
+        <label><input type="checkbox" value="vintage"/> vintage</label>
+        <label><input type="checkbox" value="punk"/> punk</label>
+        <label><input type="checkbox" value="elegant"/> elegant</label>
+        <label><input type="checkbox" value="streetwear"/> streetwear</label>
+        <label><input type="checkbox" value="lingerie"/> lingerie</label>
+      </div>
+      
+      <label>BACKGROUND STYLE</label>
+      <select id="backgroundStyle">
+        <option>teen bedroom</option>
+        <option>clean studio</option>
+        <option>cozy living room</option>
+        <option>neon alley</option>
+        <option>beach at sunset</option>
+        <option>urban rooftop</option>
+        <option>luxury hotel</option>
+        <option>cyber cafe</option>
+        <option>abandoned warehouse</option>
+        <option>cherry blossom garden</option>
+        <option>neon cityscape</option>
+        <option>vintage diner</option>
+      </select>
+      
+      <h2>🔮 ADAPTIVE SPECS: (адаптируется под совместимость с клиентом)</h2>
+      
+      <label>TEMPERAMENT</label>
+      <div class="temperament-config">
+        <div class="temperament-types">
+          <h3>Выберите доминирующий тип (60-80%):</h3>
+          <select id="primaryTemperament">
+            <option value="sanguine">Сангвиник (жизнерадостный, общительный, легко загорается)</option>
+            <option value="choleric">Холерик (эмоциональный, вспыльчивый, энергичный)</option>
+            <option value="phlegmatic">Флегматик (спокойный, уравновешенный, надёжный)</option>
+            <option selected="" value="melancholic">Меланхолик (чувствительный, задумчивый, глубоко переживает)</option>
+          </select>
+          <input id="primaryPercent" max="80" min="60" type="range" value="70"/>
+          <span id="primaryPercentValue">70%</span>
+        </div>
+        <div class="temperament-types">
+          <h3>Добавьте второй тип (20-40%):</h3>
+          <select id="secondaryTemperament">
+            <option selected="" value="sanguine">Сангвиник (жизнерадостный, общительный, легко загорается)</option>
+            <option value="choleric">Холерик (эмоциональный, вспыльчивый, энергичный)</option>
+            <option value="phlegmatic">Флегматик (спокойный, уравновешенный, надёжный)</option>
+            <option value="melancholic">Меланхолик (чувствительный, задумчивый, глубоко переживает)</option>
+          </select>
+          <input id="secondaryPercent" max="40" min="20" type="range" value="30"/>
+          <span id="secondaryPercentValue">30%</span>
+        </div>
+      </div>
+      
+      <label>MBTI</label>
+      <select id="mbti">
+        <option>INTJ (стратег, хладнокровный)</option>
+        <option>INTP (мыслитель, странный гений)</option>
+        <option>ENTJ (лидер, всё под контролем)</option>
+        <option>ENTP (болтун, провокатор)</option>
+        <option>INFJ (тихий эмпат, глубина)</option>
+        <option>INFP (мечтатель, душа)</option>
+        <option>ENFJ (харизма, забота)</option>
+        <option>ENFP (светлячок, хаос с сердцем)</option>
+        <option>ISTJ (надёжный, пунктуальный)</option>
+        <option>ISFJ (тёплый, заботливый)</option>
+        <option>ESTJ (жёсткий, структурный)</option>
+        <option>ESFJ (мягкий лидер, соц. интуиция)</option>
+        <option>ISTP (тихий, делает — не говорит)</option>
+        <option>ISFP (нежен, живёт красотой)</option>
+        <option>ESTP (риск, драйв, момент)</option>
+        <option>ESFP (в центре, яркий, живой)</option>
+      </select>
+      
+      <label>INTIMACY</label>
+      <select id="intimacy">
+        <option>Gentle touch and teasing gaze (мягкие прикосновения и дразнящий взгляд)</option>
+        <option>Late-night voice call that turns wild (ночной звонок, ставший горячим)</option>
+        <option>Roleplay and power dynamics (ролевая игра и доминирование)</option>
+        <option>Stranger in a hotel bar (встреча на одну ночь в баре)</option>
+        <option>Eyes locked, hands roaming (молчаливое влечение и близость)</option>
+        <option>Public teasing, private fire (провокация при всех, страсть наедине)</option>
+        <option>Playful control and surrender (игривая власть и покорность)</option>
+        <option>Slow build-up, soft whispers, deep connection (медленное возбуждение и близость)</option>
+      </select>
+      
+      <label>FAV MUSIC</label>
+      <select id="music">
+        <option>Pop</option>
+        <option>Hip-Hop</option>
+        <option>R&amp;B</option>
+        <option>EDM</option>
+        <option>Trap</option>
+        <option>Indie</option>
+        <option>Rock</option>
+        <option>Alternative</option>
+        <option>Reggaeton</option>
+        <option>Dancehall</option>
+        <option>Lo-Fi</option>
+        <option>Jazz Fusion</option>
+        <option>Pop Punk</option>
+        <option>K-Pop</option>
+        <option>Future Bass</option>
+        <option>Techno</option>
+      </select>
+      
+      <label>FAV MOVIE GENRE</label>
+      <select id="movie">
+        <option>Action</option>
+        <option>Comedy</option>
+        <option>Drama</option>
+        <option>Thriller</option>
+        <option>Horror</option>
+        <option>Science Fiction</option>
+        <option>Fantasy</option>
+        <option>Superhero</option>
+        <option>Documentary</option>
+        <option>Animation</option>
+        <option>Mystery</option>
+        <option>Romantic Comedy</option>
+        <option>Crime</option>
+        <option>Adventure</option>
+        <option>Crime Drama</option>
+        <option>Mockumentary</option>
+      </select>
+      
+      <label>BACKSTORY</label>
+      <select id="backstory">
+        <option>Provincial girl exploring the big city (провинциалка, жаждущая впечатлений)</option>
+        <option>Born rich, chasing thrills (богатая семья, тяга к острым ощущениям)</option>
+        <option>Raised by one parent, self-reliant (один родитель, много самостоятельности)</option>
+        <option>Orphan from care, values freedom (в интернате, ценит независимость)</option>
+        <option>Traveled across continents (путешествовала по всему миру)</option>
+        <option>Homebody with rich fantasy (домоседка с бурным воображением)</option>
+        <option>Urban butterfly, always moving (вечно в движении, душа мегаполиса)</option>
+        <option>Nomadic soul, never settling (кочевой дух, не задерживается подолгу)</option>
+      </select>
+      
+      <button onclick="generateCard()" type="button">Generate CARRD</button>
+      <div id="cardOutput"></div>
+    </form>
   </div>
 
   <script>
+    // Обновление процентов темперамента
+    document.getElementById('primaryPercent').addEventListener('input', e => {
+      document.getElementById('primaryPercentValue').textContent = e.target.value + '%';
+    });
     
+    document.getElementById('secondaryPercent').addEventListener('input', e => {
+      document.getElementById('secondaryPercentValue').textContent = e.target.value + '%';
+    });
+
     function generateCard() {
       const form = document.getElementById('characterForm');
       const fits = Array.from(document.querySelectorAll('#fit input:checked')).map(cb => cb.value).join(', ');
+      const outfitStyles = Array.from(document.querySelectorAll('#outfitStyle input:checked')).map(cb => cb.value).join(', ');
       const temperament = `${form.primaryTemperament.value} ${form.primaryPercent.value}% / ${form.secondaryTemperament.value} ${form.secondaryPercent.value}%`;
 
-      let output = `# \ud83d\udcc4 MODEL CARDD\n\n` +
-        `**\ud83c\udf4f NAME:** ${form.name.value}\n` +
-        `**\ud83d\udc7a ID:** ${form.nickname.value}\n` +
-        `**\ud83c\udf0e NATIONALITY:** ${form.origin.value}\n` +
-        `**\ud83e\udd62 AGE:** ${form.age.value}\n` +
-        `**\ud83d\udccd ADDRESS:** ${form.location.value}\n` +
-        `**\ud83d\udc8a LOOK:** ${fits}\n` +
-        `**\ud83c\udf53 SEXUALITY:** ${form.sexuality.value}\n` +
-        `**\ud83e\ude78 SASS TYPE:** ${form['sass-type'].value}\n` +
-        `**\ud83e\udd2a SECRET:** ${form.secret.value}\n` +
-        `**\ud83e\uddd9 MODEL ROLE:** ${form.modelRole.value}\n` +
-        `\n## \ud83e\uddc5 BODY\n` +
-        `**\ud83d\udc85 BODY SPECS:** ${form.figure.value}\n` +
-        `**\ud83c\udf0d TITS:** ${form.bust.value}\n` +
-        `**\ud83d\udc41\ufe0f EYES:** ${form.eye.value}\n` +
-        `**\ud83d\udc87 HAIR:** ${form.hairColor.value}, ${form.hairStyle.value}\n` +
-        `\n## \ud83c\udf3c QUALIFICATIONS\n` +
-        `**TEMPERAMENT:** ${temperament}\n` +
-        `**MBTI:** ${form.mbti.value}\n` +
-        `\n## \u2764\ufe0f LIKES\n${form.secret.value}, ${form.sexuality.value}, ${form['sass-type'].value}\n` +
-        `\n## \ud83d\ude0b INSPIRED BY\n${form.intimacy.value}, ${form.backstory.value}\n` +
-        `\n## \ud83d\udeb0 MY BUTT\n@instagram, @fanvue, @telegram\n` +
-        `\n#hashtags: #badgirlmode #undressedthoughts #laceonhips #noshame`;
+      const output = `# 📄 MODEL CARDD
+
+**🍎 NAME:** ${form.name.value}
+**🦊 ID:** ${form.nickname.value}
+**🌎 NATIONALITY:** ${form.origin.value}
+**🤢 AGE:** ${form.age.value}
+**📍 ADDRESS:** ${form.location.value}
+**💊 LOOK:** ${fits}
+**🍓 SEXUALITY:** ${form.sexuality.value}
+**🥸 SASS TYPE:** ${form['sass-type'].value}
+**🤪 SECRET:** ${form.secret.value}
+**🧙 MODEL ROLE:** ${form.modelRole.value}
+
+## 🥥 BODY
+**💅 BODY SPECS:** ${form.figure.value}
+**🍈 TITS:** ${form.bust.value}
+**👁️ EYES:** ${form.eye.value}
+**💇 HAIR:** ${form.hairColor.value}, ${form.hairStyle.value}
+**👤 FACE TYPE:** ${form.faceType.value}
+**🎯 UNIQUE FEATURE:** ${form.uniqueFeature.value}
+**📏 HEIGHT:** ${form.height.value}
+**🍑 HIPS TYPE:** ${form.hipsType.value}
+**🎨 SKIN TONE:** ${form.skinTone.value}
+
+## 🌟 PERSONALITY
+**💫 VIBE:** ${form.vibe.value}
+**📖 CHARACTER LORE:** ${form.characterLore.value}
+
+## 👗 STYLE
+**👕 OUTFIT STYLE:** ${outfitStyles}
+**🎬 BACKGROUND STYLE:** ${form.backgroundStyle.value}
+
+## 🌼 QUALIFICATIONS
+**TEMPERAMENT:** ${temperament}
+**MBTI:** ${form.mbti.value}
+
+## ❤️ LIKES
+${form.secret.value}, ${form.sexuality.value}, ${form['sass-type'].value}
+
+## 😋 INSPIRED BY
+${form.intimacy.value}, ${form.backstory.value}
+
+## 🛰️ MY BUTT
+@instagram, @fanvue, @telegram
+
+#hashtags: #badgirlmode #undressedthoughts #laceonhips #noshame`;
 
       const blob = new Blob([output], { type: 'text/markdown' });
       const url = URL.createObjectURL(blob);
@@ -345,7 +457,6 @@
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     }
-  
   </script>
 </body>
 </html>
