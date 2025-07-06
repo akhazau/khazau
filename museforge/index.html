@@ -387,11 +387,21 @@
   <script>
     // Обновление процентов темперамента
     document.getElementById('primaryPercent').addEventListener('input', e => {
-      document.getElementById('primaryPercentValue').textContent = e.target.value + '%';
+      const primaryValue = parseInt(e.target.value);
+      const secondaryValue = 100 - primaryValue;
+      
+      document.getElementById('primaryPercentValue').textContent = primaryValue + '%';
+      document.getElementById('secondaryPercent').value = secondaryValue;
+      document.getElementById('secondaryPercentValue').textContent = secondaryValue + '%';
     });
     
     document.getElementById('secondaryPercent').addEventListener('input', e => {
-      document.getElementById('secondaryPercentValue').textContent = e.target.value + '%';
+      const secondaryValue = parseInt(e.target.value);
+      const primaryValue = 100 - secondaryValue;
+      
+      document.getElementById('secondaryPercentValue').textContent = secondaryValue + '%';
+      document.getElementById('primaryPercent').value = primaryValue;
+      document.getElementById('primaryPercentValue').textContent = primaryValue + '%';
     });
 
     function generateCard() {
