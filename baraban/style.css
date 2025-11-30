@@ -1,0 +1,480 @@
+/* style.css — минималистичный современный стиль для раздела baraban */
+
+:root {
+  --bg: #0b0c10;
+  --card: #15171e;
+  --text: #e5e7eb;
+  --muted: #9aa3af;
+  --primary: #3b82f6;
+  --primary-700: #2563eb;
+  --accent: #22d3ee;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  /* более плавные радиальные градиенты + дизеринг поверх для устранения бэндинга */
+  background:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.05"/></svg>'),
+    radial-gradient(1200px 700px at 10% 0%,
+      color-mix(in oklab, var(--accent) 14%, var(--bg)) 0%,
+      color-mix(in oklab, var(--accent) 8%, var(--bg)) 40%,
+      color-mix(in oklab, var(--accent) 0%, var(--bg)) 72%),
+    radial-gradient(900px 500px at 85% 12%,
+      color-mix(in oklab, var(--primary) 12%, var(--bg)) 0%,
+      color-mix(in oklab, var(--primary) 6%, var(--bg)) 36%,
+      color-mix(in oklab, var(--primary) 0%, var(--bg)) 70%),
+    var(--bg);
+  background-blend-mode: soft-light, normal, normal, normal;
+  background-size: 256px 256px, auto, auto, auto;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: saturate(150%) blur(6px);
+  background: rgba(11, 12, 16, 0.6);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.08);
+  z-index: 20;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.logo {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.nav a:hover {
+  opacity: 1;
+}
+
+.hero { padding: 64px 0 24px; }
+.features { padding: 24px 0 64px; }
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)), var(--card);
+  border: 1px solid rgba(229, 231, 235, 0.08);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.card h2 { margin-top: 0; }
+.card p { color: var(--muted); }
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid rgba(229, 231, 235, 0.1);
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
+}
+
+.btn.primary {
+  color: white;
+  background: linear-gradient(180deg, var(--primary), var(--primary-700));
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.35);
+}
+
+.btn.primary:hover { transform: translateY(-1px); }
+.btn.ghost { color: var(--text); background: transparent; }
+.btn.ghost:hover { background: rgba(255,255,255,0.05); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.feature {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(229, 231, 235, 0.08);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.feature h3 { margin-top: 0; }
+.feature p { color: var(--muted); }
+
+.site-footer {
+  border-top: 1px solid rgba(229, 231, 235, 0.08);
+  color: var(--muted);
+}
+
+.site-footer .container {
+  padding: 18px 0;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+.pulse { animation: pulse 0.9s ease-in-out; }
+
+/* Адаптивность */
+
+
+/* Picker (UIPickerView-like) */
+.picker {
+  position: relative;
+  height: 180px; /* было 280px — теперь видно 5 вариантов по 40px */
+  border-radius: 16px;
+  border: 1px solid rgba(229, 231, 235, 0.08);
+  background: rgba(255,255,255,0.03);
+}
+/* Растягиваем picker на всю ширину карточки барабана */
+.baraban-box .picker {
+  width: 100%;
+  display: block;
+}
+
+.picker-scroll {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.picker-item, .picker-spacer {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.picker-highlight {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  height: 40px;
+  border-top: 1px solid rgba(255,255,255,0.25);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.03);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.picker-mask {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(11,12,16,0.65), rgba(11,12,16,0.0) 30%),
+    linear-gradient(to top, rgba(11,12,16,0.65), rgba(11,12,16,0.0) 30%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.value-badge {
+  display: inline-block;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(229, 231, 235, 0.08);
+}
+
+/* Доп. утилити-класс */
+.muted { color: var(--muted); }
+
+.dna-baraban .chip {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(229, 231, 235, 0.12);
+  background: rgba(255,255,255,0.04);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 18px 0;
+}
+
+.seg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(229, 231, 235, 0.12);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+}
+
+.dna-baraban .dna-genres .seg-btn:hover { background: rgba(255,255,255,0.04); }
+.dna-baraban .dna-langs .seg-btn:hover,
+.dna-baraban .dna-length .seg-btn:hover { background: transparent; border-color: var(--accent); box-shadow: 0 4px 14px var(--accent); }
+.dna-baraban .dna-genres .seg-btn.active { background: var(--accent); color: #000; border-color: var(--accent); box-shadow: 0 6px 16px color-mix(in oklab, var(--accent) 60%, transparent); }
+.dna-baraban .dna-langs .seg-btn.active,
+.dna-baraban .dna-length .seg-btn.active { background: transparent; color: var(--accent); border-color: var(--accent); box-shadow: none; }
+.seg-btn.large { font-size: 15px; padding: 10px 16px; }
+
+.baraban-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 210px); /* было 256px, чуть уже */
+  justify-content: center; /* центрируем, чтобы не тянулось от края до края */
+  gap: 14px;
+  margin: 24px auto 10px; /* авто поля по бокам */
+}
+
+
+
+.baraban-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(229, 231, 235, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.baraban-title {
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+  color: #ffde59; /* жёлтый акцент */
+}
+
+.baraban-select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(229, 231, 235, 0.12);
+  background: rgba(0,0,0,0.25);
+  color: var(--text);
+}
+
+.actions.mid {
+  justify-content: center;
+}
+
+.btn.brand {
+  color: #111;
+  background: #ffde59;
+  border-color: #ffde59;
+  font-weight: 800;
+}
+
+.btn.brand.big {
+  padding: 12px 18px;
+  font-size: 16px;
+}
+
+/* Темы режимов — влияют на акцентные элементы */
+.dna-baraban.theme-neighbor { --accent: #469D7E; --primary: #469D7E; --primary-700: #469D7E; }
+.dna-baraban.theme-hitch { --accent: #E6A64A; --primary: #E6A64A; --primary-700: #E6A64A; }
+.dna-baraban.theme-soviet {
+  --accent: #918BE6;
+  --primary: #918BE6;
+  --primary-700: #918BE6;
+}
+/* Hover glow should match the hovered button's own theme */
+.seg-btn.mode-neighbor:hover { border-color: #469D7E; box-shadow: 0 4px 14px #469D7E; }
+.seg-btn.mode-hitch:hover { border-color: #E6A64A; box-shadow: 0 4px 14px #E6A64A; }
+.seg-btn.mode-soviet:hover { border-color: #918BE6; box-shadow: 0 4px 14px #918BE6; }
+
+/* Типографика для nav-кнопок — пропорционально уменьшенным паддингам */
+/* Жанры: большие кнопки */
+.dna-baraban .dna-genres .seg-btn.large { font-size: 20px; }
+/* Языки: малые кнопки — уменьшаем наполовину */
+.dna-baraban .dna-langs .seg-btn { font-size: 11px; }
+/* RANDOM = как языковая: контур и текст по теме, без заливки; свечение при наведении */
+/* RANDOM: outline-only with accent and glow, no fill */
+.btn.brand { background: transparent; color: var(--accent); border-color: var(--accent); }
+.btn.brand:hover { box-shadow: 0 4px 14px var(--accent); }
+
+/* MAKE STORY = в 2 раза больше текущей языковой: заливка темой; свечение при наведении */
+.btn.brand.big { font-size: 22px; }
+.btn.brand.big { background: var(--accent); color: #000; border-color: var(--accent); }
+/* scarlet glow on hover */
+.btn.brand.big:hover { box-shadow: 0 12px 28px #ff0033; }
+
+/* Длина текста: размер как у языковых кнопок */
+.dna-baraban .dna-length .seg-btn { font-size: 9px; }
+
+/* Заголовки барабанов: цвет темы */
+.dna-baraban .baraban-title { color: var(--accent) !important; }
+
+/* Пункты списка внутри колес — оттенок под тему */
+.dna-baraban .picker-item { color: white; font-size: 14px; }
+
+/* Размытое пятно фона под тему */
+.dna-baraban::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(600px 400px at 8% 10%, color-mix(in oklab, var(--accent) 35%, transparent), transparent 60%);
+  pointer-events: none;
+  filter: blur(60px);
+  opacity: 0.25;
+}
+.dna-baraban .baraban-box {
+  min-height: 260px; /* высота под заголовок + паддинги + колесо 200px */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* центрируем по горизонтали */
+  justify-content: center; /* центрируем по вертикали */
+  gap: 8px; /* расстояние между заголовком и picker */
+}
+.dna-baraban .baraban-box .picker {
+  width: 107%; /* было 107%, увеличено на 20% */
+  margin: 4px -3.5% 0; /* было -1% */
+  display: block;
+}
+.dna-baraban .value-badge { border-width: 0.5px; }
+.dna-baraban .chip { border-width: 0.5px; }
+.dna-baraban .picker-highlight {
+  border-top-width: 0.5px;
+  border-bottom-width: 0.5px;
+}
+
+/* Центрируем picker внутри карточки барабана */
+.dna-baraban .baraban-box {
+  min-height: 260px; /* высота под заголовок + паддинги + колесо 200px */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* центрируем по горизонтали */
+  justify-content: center; /* центрируем по вертикали */
+  gap: 8px; /* расстояние между заголовком и picker */
+}
+.dna-baraban .baraban-box .picker {
+  width: 107%; /* было 102% */
+  margin: 4px -3.5% 0; /* было -1% */
+  display: block;
+}
+.dna-baraban .value-badge { border-width: 0.5px; }
+.dna-baraban .chip { border-width: 0.5px; }
+.dna-baraban .picker-highlight {
+  border-top-width: 0.5px;
+  border-bottom-width: 0.5px;
+}
+
+/* Вертикальные интервалы между строками блоков внутри main */
+.dna-baraban > * + * {
+  margin-top: 12px; /* небольшие промежутки по высоте */
+}
+/* Заголовок над основным смещением main — возвращаем обычный отступ */
+.dna-baraban .dna-header {
+  margin-top: 0;
+  margin-bottom: 0 !important; /* переопределяем inline margin-bottom:16px, расстояние даёт правило .dna-baraban > * + * */
+  padding-block: 24px; /* вертикальные пэддинги для заголовка */
+}
+/* Типографика для nav-кнопок — пропорционально увеличенным паддингам */
+/* Жанры: большие кнопки */
+.dna-baraban .dna-genres .seg-btn.large { font-size: 20px; }
+/* Языки: малые кнопки — уменьшаем наполовину */
+.dna-baraban .dna-langs .seg-btn { font-size: 11px; }
+/* Длина: размер как у языковых кнопок */
+.dna-baraban .dna-length .seg-btn { font-size: 11px; }
+.dna-baraban {
+  width: min(1200px, 92%);
+  margin: 0 auto; /* убрано смещение на 20vh, чтобы не двигать весь блок */
+  padding-inline: 24px; /* пространство по бокам */
+}
+
+/* Узкие рамки для карточек, хайлайта и бейджей внутри dna-baraban */
+.dna-baraban .baraban-box {
+  border-width: 0.5px;
+  border-color: rgba(229, 231, 235, 0.10);
+}
+.dna-baraban .value-badge { border-width: 0.5px; }
+.dna-baraban .chip { border-width: 0.5px; }
+.dna-baraban .picker-highlight {
+  border-top-width: 0.5px;
+  border-bottom-width: 0.5px;
+}
+
+/* Центрируем picker внутри карточки барабана */
+.dna-baraban .baraban-box {
+  min-height: 260px; /* высота под заголовок + паддинги + колесо 200px */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* центрируем по горизонтали */
+  justify-content: center; /* центрируем по вертикали */
+  gap: 8px; /* расстояние между заголовком и picker */
+}
+.dna-baraban .baraban-box .picker {
+  width: 107%; /* было 102% */
+  margin: 4px -3.5% 0; /* было -1% */
+  display: block;
+}
+.dna-baraban .value-badge { border-width: 0.5px; }
+.dna-baraban .chip { border-width: 0.5px; }
+.dna-baraban .picker-highlight {
+  border-top-width: 0.5px;
+  border-bottom-width: 0.5px;
+}
+
+/* Вертикальные интервалы между строками блоков внутри main */
+.dna-baraban > * + * {
+  margin-top: 12px; /* небольшие промежутки по высоте */
+}
+/* Заголовок над основным смещением main — возвращаем обычный отступ */
+.dna-baraban .dna-header {
+  margin-top: 0;
+  margin-bottom: 0 !important; /* переопределяем inline margin-bottom:16px, расстояние даёт правило .dna-baraban > * + * */
+}
+/* Градиентный цвет надписи DNA BARABAN из трёх фирменных цветов */
+.dna-baraban .dna-header span {
+  background: linear-gradient(90deg, #469D7E 0%, #E6A64A 50%, #918BE6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.picker-item { color: #fff; }
+.picker-item.selected { color: var(--accent); font-weight: 400; }

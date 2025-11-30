@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Baraban · Главная</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+
+    <main id="dna" class="dna-baraban max-w-[900px] w-[90%] mx-auto px-6 space-y-3 pt-[28px]">
+      <p class="dna-header text-center py-[16px]">
+        <span>DNA BARABAN</span>
+      </p>
+
+      <nav class="group dna-genres flex flex-wrap justify-center gap-[12px] py-[22px]" data-name="genre" aria-label="Выбор жанра">
+        <button type="button" class="seg-btn large active mode-neighbor px-[24px] py-[20px] rounded-lg transition">Neighbor Revenge</button>
+        <button type="button" class="seg-btn large mode-hitch px-[24px] py-[20px] rounded-lg transition">Confession Of Hitchhikers</button>
+        <button type="button" class="seg-btn large mode-soviet px-[24px] py-[20px] rounded-lg transition">Soviet True Crime</button>
+      </nav>
+
+      <nav class="group dna-langs flex flex-wrap justify-center gap-[12px] py-[22px]" data-name="language" aria-label="Выбор языка">
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">French</button>
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Finnish</button>
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Portuguese</button>
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition active">English</button>
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">German</button>
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Arabic</button>
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Polish</button>
+      </nav>
+
+      <ul class="baraban-grid grid justify-center gap-[14px] mx-auto mt-[24px] mb-[10px] py-[16px]" role="list">
+        <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
+          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">SETTING</span>
+          <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="1" aria-label="BARABAN 1"></figure>
+        </li>
+        <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
+          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">HERO</span>
+          <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="2" aria-label="BARABAN 2"></figure>
+        </li>
+        <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
+          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">ANTAGONIST</span>
+          <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="3" aria-label="BARABAN 3"></figure>
+        </li>
+        <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
+          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">MOTIVE</span>
+          <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="4" aria-label="BARABAN 4"></figure>
+        </li>
+        <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
+          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">TRIGGER</span>
+          <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="5" aria-label="BARABAN 5"></figure>
+        </li>
+        <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
+          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">COUNTERMOVE</span>
+          <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="6" aria-label="BARABAN 6"></figure>
+        </li>
+        <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
+          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">FINALE</span>
+          <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="7" aria-label="BARABAN 7"></figure>
+        </li>
+      </ul>
+
+      <p class="actions mid flex justify-center">
+        <button class="btn brand px-[11px] py-[9px] rounded-md border border-[var(--accent)] text-[var(--accent)] transition hover:shadow-[0_4px_14px_var(--accent)]" id="btn-random">RANDOM</button>
+      </p>
+
+      <nav class="group dna-length flex flex-wrap justify-center gap-[10px] py-[22px]" data-name="length" aria-label="Длина текста">
+        <button type="button" class="seg-btn px-[9px] py-[7px] rounded-md transition">6,000 characters</button>
+        <button type="button" class="seg-btn px-[9px] py-[7px] rounded-md transition">30,000 characters</button>
+        <button type="button" class="seg-btn px-[9px] py-[7px] rounded-md transition">60,000 characters</button>
+        <button type="button" class="seg-btn active px-[9px] py-[7px] rounded-md transition">more than 100,000</button>
+      </nav>
+
+      <p class="actions flex justify-center py-[20px]">
+        <button class="btn brand big px-[30px] py-[22px] rounded-lg bg-[var(--accent)] text-black border border-[var(--accent)] transition hover:shadow-[0_10px_24px_var(--accent)]" id="btn-make">MAKE STORY</button>
+      </p>
+    </main>
+
+
+    <script>
+
+      // DNA BARABAN — UIPickerView-like для вариантов 1..11
+      (function(){
+        const main = document.getElementById('dna');
+
+        function applyThemeByBtn(btn){
+          const map = {
+            'mode-neighbor': 'neighbor',
+            'mode-hitch': 'hitch',
+            'mode-soviet': 'soviet'
+          };
+          const key = Object.keys(map).find(k=>btn.classList.contains(k));
+          if (!key) return;
+          ['theme-neighbor','theme-hitch','theme-soviet'].forEach(cls=>main.classList.remove(cls));
+          main.classList.add('theme-'+map[key]);
+        }
+
+        function makeActive(groupEl, btn){
+          groupEl.querySelectorAll('.seg-btn').forEach(b=>{
+            b.classList.remove('active');
+          });
+          btn.classList.add('active');
+          if (groupEl.classList.contains('dna-genres')){
+            applyThemeByBtn(btn);
+            if (typeof window !== 'undefined' && window.__pickersReady) {
+              resetPickers();
+              // обновляем пункты пикеров по активному жанру
+              const genreKey = getActiveGenreKey();
+              if (typeof pickers !== 'undefined') {
+                pickers.forEach((picker)=>{
+                  const sectionIdx = (parseInt(picker.dataset.id || picker.getAttribute('data-id') || '0', 10) - 1) || 0;
+                  const items = getSectionItems(genreKey, sectionIdx);
+                  updatePickerItems(picker, items);
+                });
+              }
+            }
+          }
+        }
+        document.querySelectorAll('.group').forEach(group=>{
+          group.addEventListener('click', (e)=>{
+            const btn = e.target.closest('.seg-btn');
+            if (!btn) return;
+            makeActive(group, btn);
+          });
+        });
+
+        // Инициализация темы по активной кнопке жанра
+        const initialGenreBtn = document.querySelector('.dna-genres .seg-btn.active');
+        if (initialGenreBtn) applyThemeByBtn(initialGenreBtn);
+        // Применяем Tailwind-стили к уже активным кнопкам во всех группах
+        ['.dna-genres','.dna-langs','.dna-length'].forEach(sel=>{
+          const group = document.querySelector(sel);
+          const btn = group?.querySelector('.seg-btn.active');
+          if (group && btn) makeActive(group, btn);
+        });
+
+        const NUM_OPTIONS = 11;
+        const ITEM_HEIGHT = 40;
+
+        // Контент для каждого жанра и каждого барабана (7 секций по 11 вариантов)
+        const CONTENT = {
+          neighbor: [
+            // 1. SETTING
+            [
+              'Соседский спор',
+              'Дом на окраине',
+              'HOA-район',
+              'Большая многоэтажка',
+              'Дачный посёлок',
+              'Тихая деревня',
+              'Старый подъезд',
+              'Соседи сверху',
+              'Новые жильцы',
+              'Шумный двор',
+              'Спокойный район'
+            ],
+            // 2. HERO
+            [
+              'Тихий интроверт',
+              'Одинокий отец',
+              'Одинокая мать',
+              'Пожилой хозяин',
+              'Скромный новосёл',
+              'Неприметный рабочий',
+              'Тихий айтишник',
+              'Аккуратный бухгалтер',
+              'Молчаливый наблюдатель',
+              'Честный арендатор',
+              'Недооценённый человек'
+            ],
+            // 3. ANTAGONIST
+            [
+              'Сосед сверху',
+              'Сосед снизу',
+              'Люди напротив',
+              'Правление HOA',
+              'Жадный хозяин',
+              'Дворовая сплетница',
+              'Алчный арендодатель',
+              'Проблемная семья',
+              'Громкий собачник',
+              'Молодые тусовщики',
+              'Фальшивые друзья'
+            ],
+            // 4. MOTIVE
+            [
+              'Моё парковочное',
+              'Кусок земли',
+              'Ложные штрафы',
+              'Мою квартиру',
+              'Взять дом',
+              'Личная месть',
+              'Общий двор',
+              'Новые правила',
+              'Тише жить',
+              'Мои животные',
+              'Ложная жалоба'
+            ],
+            // 5. TRIGGER
+            [
+              'Подслушанный разговор',
+              'Запись камеры',
+              'Сосед проговорился',
+              'Чат подъезда',
+              'Компрометирующее фото',
+              'Анонимное письмо',
+              'Фальшивая жалоба',
+              'Ошибка документов',
+              'Вызов полиции',
+              'Аудиозапись спора',
+              'Утечка переписки'
+            ],
+            // 6. COUNTERMOVE
+            [
+              'Скрытые камеры',
+              'Сбор доказательств',
+              'Умный юрист',
+              'Жалоба в город',
+              'Участковый визит',
+              'Контрольная проверка',
+              'Бумаги-доказательства',
+              'Полное разоблачение',
+              'Тайная запись',
+              'Письмо в совет',
+              'Юридический удар'
+            ],
+            // 7. FINALE
+            [
+              'Штраф для соседа',
+              'HOA сняли',
+              'Соседа выселили',
+              'Земля за мной',
+              'Суд выигран',
+              'Публичные извинения',
+              'Сосед изгнан',
+              'Двор за меня',
+              'Антагонист съехал',
+              'Контроль HOA',
+              'Наконец тишина'
+            ]
+          ],
+          hitch: [
+            // 1. SETTING
+            [
+              'Лунная трасса',
+              'Туманная дорога',
+              'Глухое шоссе',
+              'Старый серпантин',
+              'Заброшенный мост',
+              'Лесная кромка',
+              'Пустой перевал',
+              'Тёмный просёлок',
+              'Холодный дождь',
+              'Пустая стоянка',
+              'Городское безмолвие'
+            ],
+            // 2. HERO
+            [
+              'Девушка-водитель',
+              'Еду одина',
+              'Бегущая от прошлого',
+              'Ночная леди',
+              'Тихая интровертка',
+              'Уставшая студентка',
+              'Девушка после смены',
+              'Болезненно расставшаяся',
+              'Те, кто ищет себя',
+              'Новая эмигрантка',
+              'Девушка со страхами'
+            ],
+            // 3. ANTAGONIST
+            [
+              'Девочка в плаще',
+              'Странный путник',
+              'Мокрый парень',
+              'Бледная женщина',
+              'Молчаливый подросток',
+              'Раненая девушка',
+              'Старушка с сумкой',
+              'Мужчина без обуви',
+              'Девушка в крови',
+              'Нервный путешественник',
+              'Слишком тихий человек'
+            ],
+            // 4. MOTIVE
+            [
+              'Пропавший родственник',
+              'Ночная трагедия',
+              'Тайный побег',
+              'Опасная привязка',
+              'Семейная месть',
+              'Потерянная любовь',
+              'Жуткая находка',
+              'Старое проклятие',
+              'Скрытый преступник',
+              'Сектантский обряд',
+              'Пережитое насилие'
+            ],
+            // 5. TRIGGER
+            [
+              'Взгляд в зеркало',
+              'Странная тень',
+              'Упавшая вещь',
+              'Неправильная улыбка',
+              'Лишний голос',
+              'Дрожащие руки',
+              'Разорванный документ',
+              'Глухой шёпот',
+              'Не тот запах',
+              'Сбой телефона',
+              'Нечеловеческий холод'
+            ],
+            // 6. COUNTERMOVE
+            [
+              'Ускоряю машину',
+              'Резко торможу',
+              'Меняю дорогу',
+              'Звоню кому-то',
+              'Говорю прямо',
+              'Держу дистанцию',
+              'Притворяюсь спокойной',
+              'Считаю секунды',
+              'Скрываю страх',
+              'Готовлюсь бежать',
+              'Прошу объяснений'
+            ],
+            // 7. FINALE
+            [
+              'Исчез без следа',
+              'Вышел в темноту',
+              'Спасла жизнь',
+              'Нашла правду',
+              'Избежала беды',
+              'Помогла незнакомцу',
+              'Вмешалась полиция',
+              'Судьба повернулась',
+              'Попутчик признался',
+              'Правильный выбор',
+              'Больше не езжу одна'
+            ]
+          ],
+          soviet: [
+            // 1. SETTING
+            [
+              'Коммунальная квартира',
+              'Заводская общага',
+              'Двор пятиэтажек',
+              'Подъезд «хрущёвки»',
+              'Колхозная деревня',
+              'Пустая железная дорога',
+              'Дом культуры',
+              'Ночной райцентр',
+              'Очередь в магазине',
+              'Квартира исчезновения',
+              'Служебное общежитие'
+            ],
+            // 2. HERO
+            [
+              'Рабочий завода',
+              'Советская медсестра',
+              'Учительница школы',
+              'Одинокая мать',
+              'Водитель автобуса',
+              'Пожилой сосед',
+              'Журналист райгазеты',
+              'Молодой милиционер',
+              'Студент-практикант',
+              'Соседка с третьего',
+              'Случайный свидетель'
+            ],
+            // 3. ANTAGONIST
+            [
+              'Пьяный сосед',
+              'Ревнивый муж',
+              'Заводской бригадир',
+              'Молчаливый квартирант',
+              'Сестра по комнате',
+              'Мутный собутыльник',
+              'Соседка-сплетница',
+              'Хулиган из двора',
+              'Семейный тиран',
+              'Пропавший родственник',
+              'Директор с властью'
+            ],
+            // 4. MOTIVE
+            [
+              'Пьяная ревность',
+              'Бытовой конфликт',
+              'Деньги на выпивку',
+              'Долг по кооперативу',
+              'Наглая кража',
+              'Очередной роман',
+              'Заводские разборки',
+              'Семейная тайна',
+              'Холодная зависть',
+              'Месть за отказ',
+              'Тайное наследство'
+            ],
+            // 5. TRIGGER
+            [
+              'Письмо из тумбочки',
+              'Соседский шёпот',
+              'Записка в кармане',
+              'Свидетель из двора',
+              'Следы в подъезде',
+              'Бросили улики',
+              'Ошибка в показаниях',
+              'Старый дневник',
+              'Телефонный звонок',
+              'Больничная справка',
+              'Лишняя фотография'
+            ],
+            // 6. COUNTERMOVE
+            [
+              'Идёт в милицию',
+              'Скрывает улики',
+              'Ищет свидетелей',
+              'Поднимает архивы',
+              'Следит за соседями',
+              'Опрос подъезда',
+              'Проверяет документы',
+              'Едет на место',
+              'Распутывает связи',
+              'Находит эксперта',
+              'Делает контрольный визит'
+            ],
+            // 7. FINALE
+            [
+              'Виновник найден',
+              'Убийца задержан',
+              'Преступление раскрыто',
+              'Сосед осуждён',
+              'Дело закрыто',
+              'Покой восстановлен',
+              'Вся правда всплыла',
+              'Семейная тайна раскрыта',
+              'Невиновный оправдан',
+              'Герой спасён',
+              'Больше так не бывает'
+            ]
+          ]
+        };
+
+        function getActiveGenreKey(){
+          const btn = document.querySelector('.dna-genres .seg-btn.active');
+          if (!btn) return 'neighbor';
+          if (btn.classList.contains('mode-neighbor')) return 'neighbor';
+          if (btn.classList.contains('mode-hitch')) return 'hitch';
+          if (btn.classList.contains('mode-soviet')) return 'soviet';
+          return 'neighbor';
+        }
+
+        function getSectionItems(genreKey, index){
+          const arr = CONTENT[genreKey] || CONTENT['neighbor'];
+          return arr[index] || [];
+        }
+
+        function updatePickerItems(picker, items){
+          const scroll = picker.querySelector('.picker-scroll');
+          const nodes = Array.from(scroll.querySelectorAll('.picker-item'));
+          for (let i=0; i<NUM_OPTIONS; i++){
+            if (nodes[i]) nodes[i].textContent = items?.[i] || `Вариант ${i+1}`;
+          }
+        }
+
+        function buildPicker(picker, label){
+          const scroll = document.createElement('ul');
+          scroll.className = 'picker-scroll';
+          scroll.setAttribute('role','listbox');
+          if (label) scroll.setAttribute('aria-label', label);
+          // Tailwind стили для списка прокрутки
+          scroll.classList.add('h-[200px]','overflow-y-auto','scroll-smooth');
+
+          // две пустые строки сверху
+          const topPad1 = document.createElement('li');
+          topPad1.className = 'picker-spacer';
+          topPad1.classList.add('h-10');
+          const topPad2 = document.createElement('li');
+          topPad2.className = 'picker-spacer';
+          topPad2.classList.add('h-10');
+
+          // две пустые строки снизу
+          const bottomPad1 = document.createElement('li');
+          bottomPad1.className = 'picker-spacer';
+          bottomPad1.classList.add('h-10');
+          const bottomPad2 = document.createElement('li');
+          bottomPad2.className = 'picker-spacer';
+          bottomPad2.classList.add('h-10');
+
+          scroll.append(topPad1, topPad2);
+          // заполняем элементы согласно активному жанру и секции
+          const genreKey = getActiveGenreKey();
+          const sectionIdx = (parseInt(picker.dataset.id || picker.getAttribute('data-id') || '0', 10) - 1) || 0;
+          const items = getSectionItems(genreKey, sectionIdx);
+          for (let i=1;i<=NUM_OPTIONS;i++){
+            const li = document.createElement('li');
+            li.className = 'picker-item';
+            li.setAttribute('role','option');
+            li.textContent = items[i-1] || `Вариант ${i}`;
+            // Tailwind стили для элемента
+            li.classList.add('h-10','flex','items-center','justify-center','select-none','cursor-pointer','text-white');
+            scroll.appendChild(li);
+          }
+          scroll.append(bottomPad1, bottomPad2);
+
+          const highlight = document.createElement('span');
+          highlight.className = 'picker-highlight';
+          // Tailwind стили подсветки активной строки
+          highlight.classList.add('pointer-events-none','absolute','inset-x-0','top-1/2','-translate-y-1/2','h-10','border-t-[0.5px]','border-b-[0.5px]','border-white/25','bg-white/5');
+          const mask = document.createElement('span');
+          mask.className = 'picker-mask';
+          // Tailwind стили маски исчезания краёв
+          mask.classList.add('pointer-events-none','absolute','inset-0','bg-gradient-to-b','from-[rgba(11,12,16,0.65)]','via-transparent','to-[rgba(11,12,16,0.65)]');
+
+          // контейнер picker уже имеет relative
+          picker.append(scroll, highlight, mask);
+
+          picker.dataset.count = String(NUM_OPTIONS);
+          picker.dataset.index = '0';
+
+          function baseOffset(){
+            const firstItem = scroll.querySelector('.picker-item');
+            return firstItem ? firstItem.offsetTop : 2*ITEM_HEIGHT; // по умолчанию 2 строки сверху
+          }
+
+          function snap(){
+            const base = baseOffset();
+            const centerOffset = Math.max(0, (scroll.clientHeight - ITEM_HEIGHT) / 2);
+            const i = Math.round((scroll.scrollTop + centerOffset - base) / ITEM_HEIGHT);
+            const bounded = Math.max(0, Math.min(NUM_OPTIONS-1, i));
+            picker.dataset.index = String(bounded);
+            // update selected item styling
+            const items = Array.from(scroll.querySelectorAll('.picker-item'));
+            items.forEach(el=>el.classList.remove('selected'));
+            const sel = items[bounded];
+            if (sel) sel.classList.add('selected');
+            const target = base + bounded * ITEM_HEIGHT - centerOffset;
+            scroll.scrollTo({ top: target, behavior: 'smooth' });
+          }
+          let snapTimer;
+          scroll.addEventListener('scroll', ()=>{
+            clearTimeout(snapTimer);
+            snapTimer = setTimeout(snap, 120);
+          });
+          scroll.addEventListener('click', (e)=>{
+            const li = e.target.closest('.picker-item');
+            if (!li) return;
+            const items = Array.from(scroll.querySelectorAll('.picker-item'));
+            const idx = items.indexOf(li);
+            const base = baseOffset();
+            const centerOffset = Math.max(0, (scroll.clientHeight - ITEM_HEIGHT) / 2);
+            picker.dataset.index = String(idx);
+            // update selected immediately
+            items.forEach(el=>el.classList.remove('selected'));
+            if (items[idx]) items[idx].classList.add('selected');
+            const target = base + idx * ITEM_HEIGHT - centerOffset;
+            scroll.scrollTo({ top: target, behavior: 'smooth' });
+          });
+
+          // initial center
+          snap();
+        }
+
+        function getPickerValue(picker){
+          const i = parseInt(picker.dataset.index || '0', 10);
+          const items = Array.from(picker.querySelectorAll('.picker-item'));
+          const el = items[i];
+          return el ? el.textContent : `Вариант ${i+1}`;
+        }
+        function setPickerIndex(picker, i){
+          const scroll = picker.querySelector('.picker-scroll');
+          const base = (function(){
+            const firstItem = scroll.querySelector('.picker-item');
+            return firstItem ? firstItem.offsetTop : 2*ITEM_HEIGHT;
+          })();
+          const count = parseInt(picker.dataset.count || String(NUM_OPTIONS), 10);
+          const bounded = Math.max(0, Math.min(count-1, i));
+          picker.dataset.index = String(bounded);
+          // update selected item styling
+          const items = Array.from(scroll.querySelectorAll('.picker-item'));
+          items.forEach(el=>el.classList.remove('selected'));
+          const sel = items[bounded];
+          if (sel) sel.classList.add('selected');
+          const centerOffset = Math.max(0, (scroll.clientHeight - ITEM_HEIGHT) / 2);
+          scroll.scrollTo({ top: base + bounded * ITEM_HEIGHT - centerOffset, behavior: 'smooth' });
+        }
+
+        const pickers = Array.from(document.querySelectorAll('.baraban-box .picker'));
+        pickers.forEach((picker, idx)=>{
+          const label = picker.parentElement.querySelector('.baraban-title')?.textContent?.trim() || `BARABAN ${idx+1}`;
+          buildPicker(picker, label);
+        });
+        // флаг готовности пикеров для безопасного сброса при смене жанра
+        if (typeof window !== 'undefined') { window.__pickersReady = true; }
+
+        function randomize(){
+          pickers.forEach(picker=>{
+            const i = Math.floor(Math.random()*NUM_OPTIONS);
+            setPickerIndex(picker, i);
+          });
+        }
+
+        function resetPickers(){
+          // При смене жанра сбрасываем выбор всех барабанов на первый вариант
+          pickers.forEach(picker=> setPickerIndex(picker, 0));
+        }
+
+        document.getElementById('btn-random')?.addEventListener('click', randomize);
+
+        document.getElementById('btn-make')?.addEventListener('click', ()=>{
+          const genre = Array.from(document.querySelectorAll('.dna-genres .seg-btn')).find(b=>b.classList.contains('active'))?.textContent?.trim();
+          const language = Array.from(document.querySelectorAll('.dna-langs .seg-btn')).find(b=>b.classList.contains('active'))?.textContent?.trim();
+          const length = Array.from(document.querySelectorAll('.dna-length .seg-btn')).find(b=>b.classList.contains('active'))?.textContent?.trim();
+          const bars = pickers.map((picker, idx)=>({ id: idx+1, value: getPickerValue(picker) }));
+          const payload = { genre, language, length, bars };
+          console.log('MAKE STORY payload:', payload);
+          alert('Собран UI-пакет (см. консоль):\n'+JSON.stringify(payload, null, 2));
+        });
+      })();
+    </script>
+  </body>
+</html>
