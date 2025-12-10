@@ -17,18 +17,27 @@
 
       <nav class="group dna-genres flex flex-wrap justify-center gap-[12px] py-[22px]" data-name="genre" aria-label="Выбор жанра">
         <button type="button" class="seg-btn large active mode-neighbor px-[24px] py-[20px] rounded-lg transition">Neighbor Revenge</button>
-        <button type="button" class="seg-btn large mode-hitch px-[24px] py-[20px] rounded-lg transition">Confession Of Hitchhikers</button>
+        <button type="button" class="seg-btn large mode-hitch px-[24px] py-[20px] rounded-lg transition">Hitchhiker Confessions</button>
         <button type="button" class="seg-btn large mode-soviet px-[24px] py-[20px] rounded-lg transition">Soviet True Crime</button>
       </nav>
 
       <nav class="group dna-langs flex flex-wrap justify-center gap-[12px] py-[22px]" data-name="language" aria-label="Выбор языка">
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition active">Russian</button>
         <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">French</button>
         <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Finnish</button>
         <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Portuguese</button>
-        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition active">English</button>
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">English</button>
         <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">German</button>
         <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Arabic</button>
         <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Polish</button>
+      </nav>
+
+      <nav class="group dna-location flex flex-wrap justify-center gap-[12px] py-[22px]" data-name="location" aria-label="Выбор локации">
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition active">Локация 1</button>
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Локация 2</button>
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Локация 3</button>
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Локация 4</button>
+        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Локация 5</button>
       </nav>
 
       <ul class="baraban-grid grid justify-center gap-[14px] mx-auto mt-[24px] mb-[10px] py-[16px]" role="list">
@@ -67,16 +76,30 @@
       </p>
 
       <nav class="group dna-length flex flex-wrap justify-center gap-[10px] py-[22px]" data-name="length" aria-label="Длина текста">
-        <button type="button" class="seg-btn px-[9px] py-[7px] rounded-md transition">6,000 characters</button>
+        <button type="button" class="seg-btn active px-[9px] py-[7px] rounded-md transition">6,000 characters</button>
         <button type="button" class="seg-btn px-[9px] py-[7px] rounded-md transition">30,000 characters</button>
         <button type="button" class="seg-btn px-[9px] py-[7px] rounded-md transition">60,000 characters</button>
-        <button type="button" class="seg-btn active px-[9px] py-[7px] rounded-md transition">more than 100,000</button>
+        <button type="button" class="seg-btn px-[9px] py-[7px] rounded-md transition">more than 100,000</button>
       </nav>
 
       <p class="actions flex justify-center py-[20px]">
         <button class="btn brand big px-[30px] py-[22px] rounded-lg bg-[var(--accent)] text-black border border-[var(--accent)] transition hover:shadow-[0_10px_24px_var(--accent)]" id="btn-make">MAKE STORY</button>
       </p>
     </main>
+
+    <div id="result-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
+      <div class="absolute inset-0 bg-black/60" id="modal-overlay"></div>
+      <div class="relative max-w-[900px] w-[90%] mx-auto bg-[#0b0c10] border border-white/20 rounded-xl shadow-xl p-4">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-sm font-extrabold tracking-[0.6px] text-[#ffde59]">RESULT (JSON)</h2>
+          <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition" id="btn-close-modal">Close</button>
+        </div>
+        <pre id="result-json" class="w-full max-h-[50vh] overflow-auto bg-black/30 text-white text-xs p-3 rounded-md"></pre>
+        <div class="flex justify-end gap-2 mt-3">
+          <button type="button" class="btn brand px-[11px] py-[9px] rounded-md border border-[var(--accent)] text-[var(--accent)] transition hover:shadow-[0_4px_14px_var(--accent)]" id="btn-copy-json">Copy JSON</button>
+        </div>
+      </div>
+    </div>
 
 
     <script>
@@ -130,7 +153,7 @@
         const initialGenreBtn = document.querySelector('.dna-genres .seg-btn.active');
         if (initialGenreBtn) applyThemeByBtn(initialGenreBtn);
         // Применяем Tailwind-стили к уже активным кнопкам во всех группах
-        ['.dna-genres','.dna-langs','.dna-length'].forEach(sel=>{
+        ['.dna-genres','.dna-langs','.dna-location','.dna-length'].forEach(sel=>{
           const group = document.querySelector(sel);
           const btn = group?.querySelector('.seg-btn.active');
           if (group && btn) makeActive(group, btn);
@@ -609,14 +632,58 @@
 
         document.getElementById('btn-random')?.addEventListener('click', randomize);
 
+        const modal = document.getElementById('result-modal');
+        const resultPre = document.getElementById('result-json');
+        const btnCopyJson = document.getElementById('btn-copy-json');
+        const btnClose = document.getElementById('btn-close-modal');
+        const overlay = document.getElementById('modal-overlay');
+
+        function openModal(){
+          if (modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+          }
+        }
+        function closeModal(){
+          if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+          }
+        }
+        function copyText(text){
+          if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+            navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); } catch(e) {}
+            ta.remove();
+          }
+        }
+        btnCopyJson?.addEventListener('click', ()=>{
+          const text = resultPre?.textContent || '';
+          copyText(text);
+        });
+        btnClose?.addEventListener('click', closeModal);
+        overlay?.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeModal(); });
+
+        
+
         document.getElementById('btn-make')?.addEventListener('click', ()=>{
           const genre = Array.from(document.querySelectorAll('.dna-genres .seg-btn')).find(b=>b.classList.contains('active'))?.textContent?.trim();
           const language = Array.from(document.querySelectorAll('.dna-langs .seg-btn')).find(b=>b.classList.contains('active'))?.textContent?.trim();
           const length = Array.from(document.querySelectorAll('.dna-length .seg-btn')).find(b=>b.classList.contains('active'))?.textContent?.trim();
-          const bars = pickers.map((picker, idx)=>({ id: idx+1, value: getPickerValue(picker) }));
-          const payload = { genre, language, length, bars };
-          console.log('MAKE STORY payload:', payload);
-          alert('Собран UI-пакет (см. консоль):\n'+JSON.stringify(payload, null, 2));
+          const labels = pickers.map((picker, idx)=> picker.parentElement.querySelector('.baraban-title')?.textContent?.trim() || `BARABAN ${idx+1}`);
+          const values = pickers.map((picker)=> getPickerValue(picker));
+          const sections = labels.reduce((acc, name, i)=>{ acc[name] = values[i]; return acc; }, {});
+          const payload = { genre, language, length, sections };
+          const jsonText = JSON.stringify(payload, null, 2);
+          if (resultPre) resultPre.textContent = jsonText;
+          console.log('MAKE STORY payload (compact):', payload);
+          openModal();
         });
       })();
     </script>
