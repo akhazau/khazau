@@ -1,0 +1,106 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: white;
+  font-family: 'Bowlby One', cursive;
+}
+
+.showcase {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+}
+
+.logo {
+  font-size: 4rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #8360c3, #2ebf91);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto; /* Добавьте это свойство */
+  animation: moveGradient 5s infinite linear;
+}
+
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: -100% 50%; } /* Измените на -100% для создания эффекта "перемещения" */
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.text p {
+  text-align: center;
+  /* Остальные стили */
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.social {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.social li {
+  margin: 0 15px; /* Увеличенный промежуток между иконками */
+}
+
+.social li a {
+  display: inline-block;
+  transition: all 0.3s ease; /* Плавный переход для анимации */
+}
+
+.social li a img {
+  width: 20px; /* Или любой другой размер, который вам нужен */
+  height: auto;
+  filter: grayscale(100%); /* Черно-белый фильтр для эффекта при наведении */
+}
+
+.social li a:hover img {
+  filter: grayscale(0) hue-rotate(20deg); /* Цветное изображение при наведении */
+  transform: scale(1.1); /* Небольшое увеличение размера */
+}
+
+.social {
+  transform: translateX(-10px); /* Подвинуть влево на 10px */
+}
+
+.social li a:hover img {
+  /* ...предыдущие стили... */
+  position: relative;
+  animation: glitch 0.3s linear infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
