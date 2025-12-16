@@ -379,7 +379,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  height: 26px;
+  height: 28px;
   gap: 14px;
   width: 100%;
 }
@@ -387,8 +387,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 8px;
   border: 1px solid rgba(229, 231, 235, 0.12);
   background: rgba(255,255,255,0.03);
@@ -409,8 +409,9 @@ body {
   font-size: 18px !important;
   display: inline-flex;
   align-items: center;
-  height: 26px;
-  line-height: 26px;
+  justify-content: center;
+  height: 28px;
+  line-height: 28px;
   text-align: center;
 }
 .dna-baraban .baraban-box .picker {
