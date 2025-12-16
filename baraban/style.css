@@ -375,10 +375,13 @@ body {
   gap: 8px; /* расстояние между заголовком и picker */
 }
 .baraban-head {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  flex-wrap: nowrap;
+  height: 26px;
+  gap: 14px;
+  width: 100%;
 }
 .shuffle-btn {
   display: inline-flex;
@@ -390,6 +393,7 @@ body {
   border: 1px solid rgba(229, 231, 235, 0.12);
   background: rgba(255,255,255,0.03);
   color: var(--accent);
+  line-height: 1;
 }
 .shuffle-btn:hover {
   border-color: var(--accent);
@@ -399,6 +403,15 @@ body {
   width: 14px;
   height: 14px;
   display: block;
+}
+/* Увеличенный размер заголовка барабана и выравнивание по центру */
+.dna-baraban .baraban-title {
+  font-size: 18px !important;
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
 }
 .dna-baraban .baraban-box .picker {
   width: 107%; /* было 107%, увеличено на 20% */
