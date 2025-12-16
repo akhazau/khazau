@@ -21,7 +21,7 @@
         <button type="button" class="seg-btn large mode-soviet px-[24px] py-[20px] rounded-lg transition">Cheating Revenge</button>
       </nav>
 
-      <nav class="group dna-langs flex justify-center py-[22px]" data-name="language" aria-label="Выбор языка">
+      <nav class="group dna-langs flex flex-wrap items-center justify-center gap-[12px] py-[22px]" data-name="language" aria-label="Выбор языка и длина">
         <label for="lang-select" class="sr-only">Выбор языка</label>
         <select id="lang-select" class="px-[11px] py-[9px] rounded-md border border-[rgba(229,231,235,0.20)] bg-[rgba(255,255,255,0.05)] text-white">
           <option selected>Russian</option>
@@ -32,6 +32,13 @@
           <option>German</option>
           <option>Arabic</option>
           <option>Polish</option>
+        </select>
+        <label for="length-select" class="sr-only">Длина текста</label>
+        <select id="length-select" class="px-[11px] py-[9px] rounded-md border border-[rgba(229,231,235,0.20)] bg-[rgba(255,255,255,0.05)] text-white">
+          <option selected>6,000 characters</option>
+          <option>30,000 characters</option>
+          <option>60,000 characters</option>
+          <option>more than 100,000</option>
         </select>
       </nav>
 
@@ -66,12 +73,7 @@
         <button class="btn brand px-[11px] py-[9px] rounded-md border border-[var(--accent)] text-[var(--accent)] transition hover:shadow-[0_4px_14px_var(--accent)]" id="btn-random">RANDOM</button>
       </p>
 
-      <nav class="group dna-length flex flex-wrap justify-center gap-[10px] py-[22px]" data-name="length" aria-label="Длина текста">
-        <button type="button" class="seg-btn active px-[9px] py-[7px] rounded-md transition">6,000 characters</button>
-        <button type="button" class="seg-btn px-[9px] py-[7px] rounded-md transition">30,000 characters</button>
-        <button type="button" class="seg-btn px-[9px] py-[7px] rounded-md transition">60,000 characters</button>
-        <button type="button" class="seg-btn px-[9px] py-[7px] rounded-md transition">more than 100,000</button>
-      </nav>
+      
 
       <p class="actions flex justify-center py-[20px]">
         <button class="btn brand big px-[30px] py-[22px] rounded-lg bg-[var(--accent)] text-black border border-[var(--accent)] transition hover:shadow-[0_10px_24px_var(--accent)]" id="btn-make">MAKE STORY</button>
@@ -666,7 +668,7 @@
         document.getElementById('btn-make')?.addEventListener('click', ()=>{
           const genre = Array.from(document.querySelectorAll('.dna-genres .seg-btn')).find(b=>b.classList.contains('active'))?.textContent?.trim();
           const language = document.getElementById('lang-select')?.value?.trim();
-          const length = Array.from(document.querySelectorAll('.dna-length .seg-btn')).find(b=>b.classList.contains('active'))?.textContent?.trim();
+          const length = document.getElementById('length-select')?.value?.trim();
           const labels = pickers.map((picker, idx)=> picker.parentElement.querySelector('.baraban-title')?.textContent?.trim() || `BARABAN ${idx+1}`);
           const values = pickers.map((picker)=> getPickerValue(picker));
           const sections = labels.reduce((acc, name, i)=>{ acc[name] = values[i]; return acc; }, {});
