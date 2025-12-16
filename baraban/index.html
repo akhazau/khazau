@@ -18,10 +18,10 @@
       <nav class="group dna-genres flex flex-wrap justify-center gap-[12px] py-[22px]" data-name="genre" aria-label="Выбор жанра">
         <button type="button" class="seg-btn large active mode-neighbor px-[24px] py-[20px] rounded-lg transition">Neighbor Revenge</button>
         <button type="button" class="seg-btn large mode-hitch px-[24px] py-[20px] rounded-lg transition">Hitchhiker Confessions</button>
-        <button type="button" class="seg-btn large mode-soviet px-[24px] py-[20px] rounded-lg transition">Cheating Revenge</button>
+        <button type="button" class="seg-btn large mode-soviet px-[24px] py-[20px] rounded-lg transition">Cheating</button>
       </nav>
 
-      <nav class="group dna-langs flex flex-wrap items-center justify-center gap-[12px] py-[22px]" data-name="language" aria-label="Выбор языка и длина">
+      <nav class="group dna-langs flex flex-wrap items-center justify-center gap-[12px] py-[12px]" data-name="language" aria-label="Выбор языка и длина">
         <label for="lang-select" class="sr-only">Выбор языка</label>
         <select id="lang-select" class="px-[11px] py-[9px] rounded-md border border-[rgba(229,231,235,0.20)] bg-[rgba(255,255,255,0.05)] text-white">
           <option selected>Russian</option>
@@ -152,8 +152,8 @@
           if (group && btn) makeActive(group, btn);
         });
 
-        const NUM_OPTIONS = 11;
         const ITEM_HEIGHT = 40;
+        const DEFAULT_REPEAT = 7;
 
         // Контент для каждого жанра и каждого барабана (7 секций по 11 вариантов)
         const CONTENT = {
@@ -475,10 +475,28 @@
 
         function updatePickerItems(picker, items){
           const scroll = picker.querySelector('.picker-scroll');
-          const nodes = Array.from(scroll.querySelectorAll('.picker-item'));
-          for (let i=0; i<NUM_OPTIONS; i++){
-            if (nodes[i]) nodes[i].textContent = items?.[i] || `Вариант ${i+1}`;
+          if (!scroll) return;
+          const count = Array.isArray(items) ? items.length : 0;
+          const repeat = DEFAULT_REPEAT;
+          scroll.innerHTML = '';
+          for (let r=0; r<repeat; r++){
+            for (let i=0; i<count; i++){
+              const li = document.createElement('li');
+              li.className = 'picker-item';
+              li.setAttribute('role','option');
+              li.textContent = items[i] || `Вариант ${i+1}`;
+              li.classList.add('h-10','flex','items-center','justify-center','select-none','cursor-pointer','text-white');
+              scroll.appendChild(li);
+            }
           }
+          picker.dataset.count = String(count);
+          picker.dataset.repeat = String(repeat);
+          const centerStart = Math.floor(repeat/2) * count;
+          const centerOffset = Math.max(0, (scroll.clientHeight - ITEM_HEIGHT) / 2);
+          const base = 0;
+          const currentLogical = parseInt(picker.dataset.index || '0', 10) || 0;
+          const target = base + (centerStart + currentLogical) * ITEM_HEIGHT - centerOffset;
+          scroll.scrollTo({ top: target });
         }
 
         function buildPicker(picker, label){
@@ -486,74 +504,69 @@
           scroll.className = 'picker-scroll';
           scroll.setAttribute('role','listbox');
           if (label) scroll.setAttribute('aria-label', label);
-          // Tailwind стили для списка прокрутки
           scroll.classList.add('h-[200px]','overflow-y-auto','scroll-smooth');
 
-          // две пустые строки сверху
-          const topPad1 = document.createElement('li');
-          topPad1.className = 'picker-spacer';
-          topPad1.classList.add('h-10');
-          const topPad2 = document.createElement('li');
-          topPad2.className = 'picker-spacer';
-          topPad2.classList.add('h-10');
-
-          // две пустые строки снизу
-          const bottomPad1 = document.createElement('li');
-          bottomPad1.className = 'picker-spacer';
-          bottomPad1.classList.add('h-10');
-          const bottomPad2 = document.createElement('li');
-          bottomPad2.className = 'picker-spacer';
-          bottomPad2.classList.add('h-10');
-
-          scroll.append(topPad1, topPad2);
-          // заполняем элементы согласно активному жанру и секции
           const genreKey = getActiveGenreKey();
           const sectionIdx = (parseInt(picker.dataset.id || picker.getAttribute('data-id') || '0', 10) - 1) || 0;
           const items = getSectionItems(genreKey, sectionIdx);
-          for (let i=1;i<=NUM_OPTIONS;i++){
-            const li = document.createElement('li');
-            li.className = 'picker-item';
-            li.setAttribute('role','option');
-            li.textContent = items[i-1] || `Вариант ${i}`;
-            // Tailwind стили для элемента
-            li.classList.add('h-10','flex','items-center','justify-center','select-none','cursor-pointer','text-white');
-            scroll.appendChild(li);
+          const count = Array.isArray(items) ? items.length : 0;
+          const repeat = DEFAULT_REPEAT;
+          for (let r=0; r<repeat; r++){
+            for (let i=0; i<count; i++){
+              const li = document.createElement('li');
+              li.className = 'picker-item';
+              li.setAttribute('role','option');
+              li.textContent = items[i] || `Вариант ${i+1}`;
+              li.classList.add('h-10','flex','items-center','justify-center','select-none','cursor-pointer','text-white');
+              scroll.appendChild(li);
+            }
           }
-          scroll.append(bottomPad1, bottomPad2);
 
           const highlight = document.createElement('span');
           highlight.className = 'picker-highlight';
-          // Tailwind стили подсветки активной строки
           highlight.classList.add('pointer-events-none','absolute','inset-x-0','top-1/2','-translate-y-1/2','h-10','border-t-[0.5px]','border-b-[0.5px]','border-white/25','bg-white/5');
           const mask = document.createElement('span');
           mask.className = 'picker-mask';
-          // Tailwind стили маски исчезания краёв
           mask.classList.add('pointer-events-none','absolute','inset-0','bg-gradient-to-b','from-[rgba(11,12,16,0.65)]','via-transparent','to-[rgba(11,12,16,0.65)]');
 
-          // контейнер picker уже имеет relative
           picker.append(scroll, highlight, mask);
 
-          picker.dataset.count = String(NUM_OPTIONS);
+          picker.dataset.count = String(count);
+          picker.dataset.repeat = String(repeat);
           picker.dataset.index = '0';
 
-          function baseOffset(){
-            const firstItem = scroll.querySelector('.picker-item');
-            return firstItem ? firstItem.offsetTop : 2*ITEM_HEIGHT; // по умолчанию 2 строки сверху
-          }
-
-          function snap(){
-            const base = baseOffset();
+          function logicalIndexFromScrollTop(){
             const centerOffset = Math.max(0, (scroll.clientHeight - ITEM_HEIGHT) / 2);
-            const i = Math.round((scroll.scrollTop + centerOffset - base) / ITEM_HEIGHT);
-            const bounded = Math.max(0, Math.min(NUM_OPTIONS-1, i));
+            const visibleIndex = Math.round((scroll.scrollTop + centerOffset) / ITEM_HEIGHT);
+            const logicalCount = parseInt(picker.dataset.count || String(count), 10) || count || 1;
+            const bounded = ((visibleIndex % logicalCount) + logicalCount) % logicalCount;
+            return { visibleIndex, bounded };
+          }
+          function recenterIfNeeded(){
+            const logicalCount = parseInt(picker.dataset.count || String(count), 10) || count || 1;
+            const repeatNum = parseInt(picker.dataset.repeat || String(repeat), 10) || repeat || 5;
+            const total = logicalCount * repeatNum;
+            const centerStart = Math.floor(repeatNum/2) * logicalCount;
+            const centerOffset = Math.max(0, (scroll.clientHeight - ITEM_HEIGHT) / 2);
+            const { visibleIndex, bounded } = logicalIndexFromScrollTop();
+            const threshold = logicalCount;
+            if (visibleIndex < threshold || visibleIndex > total - threshold){
+              const targetIndex = centerStart + bounded;
+              const targetTop = targetIndex * ITEM_HEIGHT - centerOffset;
+              scroll.scrollTo({ top: targetTop });
+            }
+          }
+          function applySelection(){
+            const { visibleIndex, bounded } = logicalIndexFromScrollTop();
             picker.dataset.index = String(bounded);
-            // update selected item styling
-            const items = Array.from(scroll.querySelectorAll('.picker-item'));
-            items.forEach(el=>el.classList.remove('selected'));
-            const sel = items[bounded];
+            const itemsEls = Array.from(scroll.querySelectorAll('.picker-item'));
+            itemsEls.forEach(el=>el.classList.remove('selected'));
+            const sel = itemsEls[visibleIndex];
             if (sel) sel.classList.add('selected');
-            const target = base + bounded * ITEM_HEIGHT - centerOffset;
-            scroll.scrollTo({ top: target, behavior: 'smooth' });
+          }
+          function snap(){
+            recenterIfNeeded();
+            applySelection();
           }
           let snapTimer;
           scroll.addEventListener('scroll', ()=>{
@@ -563,44 +576,46 @@
           scroll.addEventListener('click', (e)=>{
             const li = e.target.closest('.picker-item');
             if (!li) return;
-            const items = Array.from(scroll.querySelectorAll('.picker-item'));
-            const idx = items.indexOf(li);
-            const base = baseOffset();
+            const itemsEls = Array.from(scroll.querySelectorAll('.picker-item'));
+            const idx = itemsEls.indexOf(li);
             const centerOffset = Math.max(0, (scroll.clientHeight - ITEM_HEIGHT) / 2);
-            picker.dataset.index = String(idx);
-            // update selected immediately
-            items.forEach(el=>el.classList.remove('selected'));
-            if (items[idx]) items[idx].classList.add('selected');
-            const target = base + idx * ITEM_HEIGHT - centerOffset;
-            scroll.scrollTo({ top: target, behavior: 'smooth' });
+            const logicalCount = parseInt(picker.dataset.count || String(count), 10) || count || 1;
+            const repeatNum = parseInt(picker.dataset.repeat || String(repeat), 10) || repeat || 5;
+            const centerStart = Math.floor(repeatNum/2) * logicalCount;
+            const bounded = ((idx % logicalCount) + logicalCount) % logicalCount;
+            picker.dataset.index = String(bounded);
+            const targetIndex = centerStart + bounded;
+            const targetTop = targetIndex * ITEM_HEIGHT - centerOffset;
+            itemsEls.forEach(el=>el.classList.remove('selected'));
+            if (itemsEls[idx]) itemsEls[idx].classList.add('selected');
+            scroll.scrollTo({ top: targetTop, behavior: 'smooth' });
           });
 
-          // initial center
-          snap();
+          const centerStart = Math.floor(repeat/2) * (count || 1);
+          const centerOffset = Math.max(0, (scroll.clientHeight - ITEM_HEIGHT) / 2);
+          scroll.scrollTo({ top: centerStart * ITEM_HEIGHT - centerOffset });
+          applySelection();
         }
 
         function getPickerValue(picker){
           const i = parseInt(picker.dataset.index || '0', 10);
-          const items = Array.from(picker.querySelectorAll('.picker-item'));
-          const el = items[i];
-          return el ? el.textContent : `Вариант ${i+1}`;
+          const genreKey = getActiveGenreKey();
+          const sectionIdx = (parseInt(picker.dataset.id || picker.getAttribute('data-id') || '0', 10) - 1) || 0;
+          const items = getSectionItems(genreKey, sectionIdx);
+          return items[i] || `Вариант ${i+1}`;
         }
         function setPickerIndex(picker, i){
           const scroll = picker.querySelector('.picker-scroll');
-          const base = (function(){
-            const firstItem = scroll.querySelector('.picker-item');
-            return firstItem ? firstItem.offsetTop : 2*ITEM_HEIGHT;
-          })();
-          const count = parseInt(picker.dataset.count || String(NUM_OPTIONS), 10);
-          const bounded = Math.max(0, Math.min(count-1, i));
+          const count = parseInt(picker.dataset.count || '0', 10) || 1;
+          const repeatNum = parseInt(picker.dataset.repeat || String(DEFAULT_REPEAT), 10) || DEFAULT_REPEAT;
+          const bounded = ((i % count) + count) % count;
           picker.dataset.index = String(bounded);
-          // update selected item styling
-          const items = Array.from(scroll.querySelectorAll('.picker-item'));
-          items.forEach(el=>el.classList.remove('selected'));
-          const sel = items[bounded];
-          if (sel) sel.classList.add('selected');
+          const centerStart = Math.floor(repeatNum/2) * count;
           const centerOffset = Math.max(0, (scroll.clientHeight - ITEM_HEIGHT) / 2);
-          scroll.scrollTo({ top: base + bounded * ITEM_HEIGHT - centerOffset, behavior: 'smooth' });
+          const targetTop = (centerStart + bounded) * ITEM_HEIGHT - centerOffset;
+          const itemsEls = Array.from(scroll.querySelectorAll('.picker-item'));
+          itemsEls.forEach(el=>el.classList.remove('selected'));
+          scroll.scrollTo({ top: targetTop, behavior: 'smooth' });
         }
 
         const pickers = Array.from(document.querySelectorAll('.baraban-box .picker'));
@@ -613,7 +628,8 @@
 
         function randomize(){
           pickers.forEach(picker=>{
-            const i = Math.floor(Math.random()*NUM_OPTIONS);
+            const count = parseInt(picker.dataset.count || '0', 10) || 1;
+            const i = Math.floor(Math.random()*count);
             setPickerIndex(picker, i);
           });
         }
