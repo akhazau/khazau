@@ -10,18 +10,18 @@
   </head>
   <body>
 
-    <main id="dna" class="dna-baraban max-w-[900px] w-[90%] mx-auto px-6 space-y-3 pt-[28px]">
+    <main id="dna" class="dna-baraban max-w-[900px] w-[90%] mx-auto px-6 space-y-3 pt-[8px]">
       <p class="dna-header text-center py-[16px]">
         <span>DNA BARABAN</span>
       </p>
 
-      <nav class="group dna-genres flex flex-wrap justify-center gap-[12px] py-[22px]" data-name="genre" aria-label="Выбор жанра">
+      <nav class="group dna-genres flex flex-wrap justify-center gap-[12px] py-[12px]" data-name="genre" aria-label="Выбор жанра">
         <button type="button" class="seg-btn large active mode-neighbor px-[24px] py-[20px] rounded-lg transition">Neighbor Revenge</button>
         <button type="button" class="seg-btn large mode-hitch px-[24px] py-[20px] rounded-lg transition">Hitchhiker Confessions</button>
         <button type="button" class="seg-btn large mode-soviet px-[24px] py-[20px] rounded-lg transition">Cheating Revenge</button>
       </nav>
 
-      <nav class="group dna-langs flex flex-wrap items-center justify-center gap-[12px] py-[12px]" data-name="language" aria-label="Выбор языка и длина">
+      <nav class="group dna-langs flex flex-wrap items-center justify-center gap-[12px] py-[8px]" data-name="language" aria-label="Выбор языка и длина">
         <label for="lang-select" class="sr-only">Выбор языка</label>
         <select id="lang-select" class="px-[11px] py-[9px] rounded-md border border-[rgba(229,231,235,0.20)] bg-[rgba(255,255,255,0.05)] text-white">
           <option selected>Russian</option>
@@ -40,38 +40,79 @@
           <option>60,000 characters</option>
           <option>more than 100,000</option>
         </select>
+        <button class="btn brand px-[11px] py-[9px] rounded-md border border-[var(--accent)] text-[var(--accent)] transition hover:shadow-[0_4px_14px_var(--accent)]" id="btn-random">RANDOM</button>
       </nav>
 
       <ul class="baraban-grid grid grid-cols-3 justify-center gap-[14px] mx-auto mt-[24px] mb-[10px] py-[16px]" role="list">
         <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
-          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">SETTING</span>
+          <div class="baraban-head mb-[6px]">
+            <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59]">SETTING</span>
+            <button type="button" class="shuffle-btn" data-id="1" aria-label="Shuffle SETTING">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h5l5 8h6"/><path d="M4 20h5l5-8h6"/><path d="M18 4l4 4-4 4"/><path d="M18 12l4 4-4 4"/>
+              </svg>
+            </button>
+          </div>
           <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="1" aria-label="BARABAN 1"></figure>
         </li>
         <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
-          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">HERO</span>
+          <div class="baraban-head mb-[6px]">
+            <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59]">HERO</span>
+            <button type="button" class="shuffle-btn" data-id="2" aria-label="Shuffle HERO">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h5l5 8h6"/><path d="M4 20h5l5-8h6"/><path d="M18 4l4 4-4 4"/><path d="M18 12l4 4-4 4"/>
+              </svg>
+            </button>
+          </div>
           <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="2" aria-label="BARABAN 2"></figure>
         </li>
         <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
-          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">ANTAGONIST</span>
+          <div class="baraban-head mb-[6px]">
+            <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59]">ANTAGONIST</span>
+            <button type="button" class="shuffle-btn" data-id="3" aria-label="Shuffle ANTAGONIST">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h5l5 8h6"/><path d="M4 20h5l5-8h6"/><path d="M18 4l4 4-4 4"/><path d="M18 12l4 4-4 4"/>
+              </svg>
+            </button>
+          </div>
           <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="3" aria-label="BARABAN 3"></figure>
         </li>
         <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
-          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">MOTIVE</span>
+          <div class="baraban-head mb-[6px]">
+            <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59]">MOTIVE</span>
+            <button type="button" class="shuffle-btn" data-id="4" aria-label="Shuffle MOTIVE">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h5l5 8h6"/><path d="M4 20h5l5-8h6"/><path d="M18 4l4 4-4 4"/><path d="M18 12l4 4-4 4"/>
+              </svg>
+            </button>
+          </div>
           <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="4" aria-label="BARABAN 4"></figure>
         </li>
         <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
-          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">TRIGGER</span>
+          <div class="baraban-head mb-[6px]">
+            <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59]">TRIGGER</span>
+            <button type="button" class="shuffle-btn" data-id="5" aria-label="Shuffle TRIGGER">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h5l5 8h6"/><path d="M4 20h5l5-8h6"/><path d="M18 4l4 4-4 4"/><path d="M18 12l4 4-4 4"/>
+              </svg>
+            </button>
+          </div>
           <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="5" aria-label="BARABAN 5"></figure>
         </li>
         <li class="baraban-box flex flex-col items-center justify-center gap-[8px] min-h-[260px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[16px]">
-          <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] mb-[10px]">COUNTERMOVE</span>
+          <div class="baraban-head mb-[6px]">
+            <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59]">COUNTERMOVE</span>
+            <button type="button" class="shuffle-btn" data-id="6" aria-label="Shuffle COUNTERMOVE">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h5l5 8h6"/><path d="M4 20h5l5-8h6"/><path d="M18 4l4 4-4 4"/><path d="M18 12l4 4-4 4"/>
+              </svg>
+            </button>
+          </div>
           <figure class="picker relative w-[112%] h-[200px] mt-[4px] mx-[-3.5%] block" data-id="6" aria-label="BARABAN 6"></figure>
         </li>
       </ul>
 
-      <p class="actions mid flex justify-center">
-        <button class="btn brand px-[11px] py-[9px] rounded-md border border-[var(--accent)] text-[var(--accent)] transition hover:shadow-[0_4px_14px_var(--accent)]" id="btn-random">RANDOM</button>
-      </p>
+      
 
       
 
@@ -848,6 +889,16 @@
         }
 
         document.getElementById('btn-random')?.addEventListener('click', randomize);
+        document.addEventListener('click', (e)=>{
+          const btn = e.target.closest('.shuffle-btn');
+          if (!btn) return;
+          const id = parseInt(btn.dataset.id || btn.getAttribute('data-id') || '0', 10);
+          const picker = document.querySelector(`.baraban-box .picker[data-id="${id}"]`);
+          if (!picker) return;
+          const count = parseInt(picker.dataset.count || '0', 10) || 1;
+          const i = Math.floor(Math.random()*count);
+          setPickerIndex(picker, i);
+        });
 
         const modal = document.getElementById('result-modal');
         const resultPre = document.getElementById('result-json');
