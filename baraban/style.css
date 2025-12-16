@@ -165,6 +165,7 @@ body {
   border-radius: 16px;
   border: 1px solid rgba(229, 231, 235, 0.08);
   background: rgba(255,255,255,0.03);
+  cursor: grab;
 }
 /* Растягиваем picker на всю ширину карточки барабана */
 .baraban-box .picker {
@@ -182,6 +183,9 @@ body {
   margin: 0;
   padding: 0;
 }
+.picker-scroll::-webkit-scrollbar { width: 0; height: 0; display: none; }
+.picker-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+.picker.grabbing { cursor: grabbing; }
 
 .picker-item, .picker-spacer {
   height: 40px;
