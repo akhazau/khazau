@@ -21,15 +21,18 @@
         <button type="button" class="seg-btn large mode-soviet px-[24px] py-[20px] rounded-lg transition">Cheating Revenge</button>
       </nav>
 
-      <nav class="group dna-langs flex flex-wrap justify-center gap-[12px] py-[22px]" data-name="language" aria-label="Выбор языка">
-        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition active">Russian</button>
-        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">French</button>
-        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Finnish</button>
-        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Portuguese</button>
-        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">English</button>
-        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">German</button>
-        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Arabic</button>
-        <button type="button" class="seg-btn px-[11px] py-[9px] rounded-md transition">Polish</button>
+      <nav class="group dna-langs flex justify-center py-[22px]" data-name="language" aria-label="Выбор языка">
+        <label for="lang-select" class="sr-only">Выбор языка</label>
+        <select id="lang-select" class="px-[11px] py-[9px] rounded-md border border-[rgba(229,231,235,0.20)] bg-[rgba(255,255,255,0.05)] text-white">
+          <option selected>Russian</option>
+          <option>French</option>
+          <option>Finnish</option>
+          <option>Portuguese</option>
+          <option>English</option>
+          <option>German</option>
+          <option>Arabic</option>
+          <option>Polish</option>
+        </select>
       </nav>
 
       <ul class="baraban-grid grid grid-cols-3 justify-center gap-[14px] mx-auto mt-[24px] mb-[10px] py-[16px]" role="list">
@@ -662,7 +665,7 @@
 
         document.getElementById('btn-make')?.addEventListener('click', ()=>{
           const genre = Array.from(document.querySelectorAll('.dna-genres .seg-btn')).find(b=>b.classList.contains('active'))?.textContent?.trim();
-          const language = Array.from(document.querySelectorAll('.dna-langs .seg-btn')).find(b=>b.classList.contains('active'))?.textContent?.trim();
+          const language = document.getElementById('lang-select')?.value?.trim();
           const length = Array.from(document.querySelectorAll('.dna-length .seg-btn')).find(b=>b.classList.contains('active'))?.textContent?.trim();
           const labels = pickers.map((picker, idx)=> picker.parentElement.querySelector('.baraban-title')?.textContent?.trim() || `BARABAN ${idx+1}`);
           const values = pickers.map((picker)=> getPickerValue(picker));
