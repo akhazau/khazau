@@ -161,7 +161,7 @@ body {
 /* Picker (UIPickerView-like) */
 .picker {
   position: relative;
-  height: 180px; /* было 280px — теперь видно 5 вариантов по 40px */
+  height: 120px; /* 3 варианта по 40px */
   border-radius: 16px;
   border: 1px solid rgba(229, 231, 235, 0.08);
   background: rgba(255,255,255,0.03);
@@ -211,9 +211,7 @@ body {
 .picker-mask {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(11,12,16,0.65), rgba(11,12,16,0.0) 30%),
-    linear-gradient(to top, rgba(11,12,16,0.65), rgba(11,12,16,0.0) 30%);
+  background: none;
   pointer-events: none;
   z-index: 1;
 }
@@ -367,7 +365,7 @@ body {
   opacity: 0.25;
 }
 .dna-baraban .baraban-box {
-  min-height: 260px; /* высота под заголовок + паддинги + колесо 200px */
+  min-height: auto;
   display: flex;
   flex-direction: column;
   align-items: center; /* центрируем по горизонтали */
@@ -428,7 +426,7 @@ body {
 
 /* Центрируем picker внутри карточки барабана */
 .dna-baraban .baraban-box {
-  min-height: 260px; /* высота под заголовок + паддинги + колесо 200px */
+  min-height: auto;
   display: flex;
   flex-direction: column;
   align-items: center; /* центрируем по горизонтали */
