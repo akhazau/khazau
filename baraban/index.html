@@ -11,7 +11,7 @@
   <body>
 
     <main id="dna" class="dna-baraban max-w-[900px] w-[90%] mx-auto px-6 space-y-3 pt-[8px]">
-      <p class="dna-header text-center py-[6px]">
+      <p class="dna-header text-center py-[16px]">
         <span>DNA BARABAN</span>
       </p>
 
@@ -21,21 +21,10 @@
         <button type="button" class="seg-btn large mode-soviet px-[24px] py-[20px] rounded-lg transition">Cheating Revenge</button>
       </nav>
 
-      <nav class="group dna-langs flex flex-wrap items-center justify-center gap-[12px] py-[8px]" data-name="language" aria-label="Выбор языка и длина">
-        <label for="lang-select" class="sr-only">Выбор языка</label>
-        <select id="lang-select" class="px-[11px] py-[9px] rounded-md border border-[rgba(229,231,235,0.20)] bg-[rgba(255,255,255,0.05)] text-white">
-          <option selected>Russian</option>
-          <option>French</option>
-          <option>Finnish</option>
-          <option>Portuguese</option>
-          <option>English</option>
-          <option>German</option>
-          <option>Arabic</option>
-          <option>Polish</option>
-        </select>
+      <nav class="group dna-langs flex flex-wrap items-center justify-center gap-[12px] py-[8px]" data-name="language" aria-label="Выбор длины">
         <label for="length-select" class="sr-only">Длина текста</label>
         <select id="length-select" class="px-[11px] py-[9px] rounded-md border border-[rgba(229,231,235,0.20)] bg-[rgba(255,255,255,0.05)] text-white">
-          <option selected>6,000 characters</option>
+          <option selected>15,000 characters</option>
           <option>30,000 characters</option>
           <option>60,000 characters</option>
           <option>more than 100,000</option>
@@ -43,73 +32,8 @@
         <button class="btn brand px-[11px] py-[6px] rounded-md border border-[var(--accent)] text-[var(--accent)] transition hover:shadow-[0_4px_14px_var(--accent)]" id="btn-random">RANDOM</button>
       </nav>
 
-      <ul class="baraban-grid grid grid-cols-3 justify-center gap-[14px] mx-auto mt-[24px] mb-[10px] py-[16px]" role="list">
-        <li class="baraban-box flex flex-col items-center justify-center gap-[4px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[8px]">
-          <div class="baraban-head mb-[2px]">
-            <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] pt-3 pl-10">SETTING</span>
-            <button type="button" class="shuffle-btn justify-center" data-id="1" aria-label="Shuffle SETTING">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h5l5 8h6"/><path d="M4 20h5l5-8h6"/><path d="M18 4l4 4-4 4"/><path d="M18 12l4 4-4 4"/>
-              </svg>
-            </button>
-          </div>
-          <figure class="picker relative w-[112%] h-[120px] mt-[2px] mx-[-3.5%] block" data-id="1" aria-label="BARABAN 1"></figure>
-        </li>
-        <li class="baraban-box flex flex-col items-center justify-center gap-[4px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[8px]">
-          <div class="baraban-head mb-[2px]">
-            <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] pt-3 pl-10">HERO</span>
-            <button type="button" class="shuffle-btn" data-id="2" aria-label="Shuffle HERO">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h5l5 8h6"/><path d="M4 20h5l5-8h6"/><path d="M18 4l4 4-4 4"/><path d="M18 12l4 4-4 4"/>
-              </svg>
-            </button>
-          </div>
-          <figure class="picker relative w-[112%] h-[120px] mt-[2px] mx-[-3.5%] block" data-id="2" aria-label="BARABAN 2"></figure>
-        </li>
-        <li class="baraban-box flex flex-col items-center justify-center gap-[4px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[8px]">
-          <div class="baraban-head mb-[2px]">
-            <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] pt-3 pl-10">ANTAGONIST</span>
-            <button type="button" class="shuffle-btn" data-id="3" aria-label="Shuffle ANTAGONIST">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h5l5 8h6"/><path d="M4 20h5l5-8h6"/><path d="M18 4l4 4-4 4"/><path d="M18 12l4 4-4 4"/>
-              </svg>
-            </button>
-          </div>
-          <figure class="picker relative w-[112%] h-[120px] mt-[2px] mx-[-3.5%] block" data-id="3" aria-label="BARABAN 3"></figure>
-        </li>
-        <li class="baraban-box flex flex-col items-center justify-center gap-[4px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[8px]">
-          <div class="baraban-head mb-[2px]">
-            <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] pt-3 pl-10">MOTIVE</span>
-            <button type="button" class="shuffle-btn" data-id="4" aria-label="Shuffle MOTIVE">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h5l5 8h6"/><path d="M4 20h5l5-8h6"/><path d="M18 4l4 4-4 4"/><path d="M18 12l4 4-4 4"/>
-              </svg>
-            </button>
-          </div>
-          <figure class="picker relative w-[112%] h-[120px] mt-[2px] mx-[-3.5%] block" data-id="4" aria-label="BARABAN 4"></figure>
-        </li>
-        <li class="baraban-box flex flex-col items-center justify-center gap-[4px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[8px]">
-          <div class="baraban-head mb-[2px]">
-            <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] pt-3 pl-10">TRIGGER</span>
-            <button type="button" class="shuffle-btn" data-id="5" aria-label="Shuffle TRIGGER">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h5l5 8h6"/><path d="M4 20h5l5-8h6"/><path d="M18 4l4 4-4 4"/><path d="M18 12l4 4-4 4"/>
-              </svg>
-            </button>
-          </div>
-          <figure class="picker relative w-[112%] h-[120px] mt-[2px] mx-[-3.5%] block" data-id="5" aria-label="BARABAN 5"></figure>
-        </li>
-        <li class="baraban-box flex flex-col items-center justify-center gap-[4px] rounded-[14px] border border-[rgba(229,231,235,0.10)] bg-[rgba(255,255,255,0.03)] p-[8px]">
-          <div class="baraban-head mb-[2px]">
-            <span class="baraban-title text-sm font-extrabold tracking-[0.6px] text-[#ffde59] pt-3 pl-10">COUNTERMOVE</span>
-            <button type="button" class="shuffle-btn" data-id="6" aria-label="Shuffle COUNTERMOVE">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h5l5 8h6"/><path d="M4 20h5l5-8h6"/><path d="M18 4l4 4-4 4"/><path d="M18 12l4 4-4 4"/>
-              </svg>
-            </button>
-          </div>
-          <figure class="picker relative w-[112%] h-[120px] mt-[2px] mx-[-3.5%] block" data-id="6" aria-label="BARABAN 6"></figure>
-        </li>
+      <ul class="baraban-grid grid grid-cols-3 justify-center gap-[14px] mx-auto mt-[24px] mb-[10px] py-[16px] pt-[64px]" role="list">
+        <!-- Drums will be generated by JS -->
       </ul>
 
       
@@ -161,17 +85,8 @@
           btn.classList.add('active');
           if (groupEl.classList.contains('dna-genres')){
             applyThemeByBtn(btn);
-            if (typeof window !== 'undefined' && window.__pickersReady) {
-              resetPickers();
-              // обновляем пункты пикеров по активному жанру
-              const genreKey = getActiveGenreKey();
-              if (typeof pickers !== 'undefined') {
-                pickers.forEach((picker)=>{
-                  const sectionIdx = (parseInt(picker.dataset.id || picker.getAttribute('data-id') || '0', 10) - 1) || 0;
-                  const items = getSectionItems(genreKey, sectionIdx);
-                  updatePickerItems(picker, items);
-                });
-              }
+            if (typeof renderDrums === 'function' && typeof CONTENT !== 'undefined') {
+              renderDrums(getActiveGenreKey());
             }
           }
         }
@@ -183,15 +98,7 @@
           });
         });
 
-        // Инициализация темы по активной кнопке жанра
-        const initialGenreBtn = document.querySelector('.dna-genres .seg-btn.active');
-        if (initialGenreBtn) applyThemeByBtn(initialGenreBtn);
-        // Применяем Tailwind-стили к уже активным кнопкам во всех группах
-        ['.dna-genres','.dna-langs','.dna-location','.dna-length'].forEach(sel=>{
-          const group = document.querySelector(sel);
-          const btn = group?.querySelector('.seg-btn.active');
-          if (group && btn) makeActive(group, btn);
-        });
+
 
         const ITEM_HEIGHT = 40;
         const DEFAULT_REPEAT = 7;
@@ -199,35 +106,6 @@
         // Контент для каждого жанра и каждого барабана (7 секций по 11 вариантов)
         const CONTENT = {
           neighbor: [
-            [
-              'Переднее крыльцо',
-              'Общий драйвей',
-              'Тихий cul-de-sac',
-              'Парковка авто',
-              'Сетка между домами',
-              'Лужайка новичка',
-              'Тропинка к почте',
-              'Огороженный рай для питомцев',
-              'Визит свекрови',
-              'Подростковая любовная драма',
-              'Заросшая изгородь-разделитель',
-              'Спорная стена с штукатуркой',
-              'Балконы в трех метрах',
-              'Хаос ремонта',
-              'Ловушка воришек с крыльца',
-              'Остановка школьного автобуса',
-              'Война праздничных огней',
-              'Кольцо сплетен на крыльце',
-              'Граница парка для собак',
-              'День вывоза мусора',
-              'Граница плеска в бассейне',
-              'Гул гаражной мастерской',
-              'Скутеры на тропинке',
-              'Улица кражи почты',
-              'Задний двор курильщика',
-              'Расписание разбрызгивателя',
-              'Алтарь посылок крыльца'
-            ],
             [
               'Тихий айтишник',
               'Пожилой педант',
@@ -342,61 +220,6 @@
               'Защитить подругу племянницы',
               'Сохранить выходные тихими',
               'Небесные счета'
-            ],
-            [
-              'Брошенная записка',
-              'Камера на столбе',
-              'Отнял парковку',
-              'Подслушан спор',
-              'Фото на заборе',
-              'Мусор под дверью',
-              'Обозвали в чате',
-              'Окно подглядывает',
-              'Занял мой драйвей',
-              'Запах из подвала',
-              'Ветки на моём',
-              'Дым в окно',
-              'Следы у камеры',
-              'Вторжение дрона',
-              'Украденная реликвия',
-              'Утренние вопли',
-              'Жалобы на подглядывание',
-              'Записи лая собак',
-              'Утечка свадебной клятвы',
-              'Штраф за окрашенный забор',
-              'Вызов полиции',
-              'Фото нашлись онлайн',
-              'Камера поймала лицо',
-              'Фейковые сплетни в постах',
-              'Сорняки выше окон',
-              'Фейковый визит полиции',
-              'Публичный позорящий текст',
-              'Дрон сбит',
-              'Ребенок сбит',
-              'Вечеринка накануне',
-              'Мяч в окно',
-              'Тень от яблони'
-            ],
-            [
-              'Юридический ход',
-              'Контрольный визит',
-              'Умная камера',
-              'Публичный запрос',
-              'Соседский митинг',
-              'Бумажная атака',
-              'Ночной мониторинг',
-              'Звонок инспектору',
-              'Игра по правилам',
-              'Взлом с разоблачениями',
-              'Подлый учебный план',
-              'Вирус в GPS',
-              'Почтовые бомбы с ароматом',
-              'Фото отправлены в колледж',
-              'Выключатель щелкает ночами',
-              'Утечка ДНК-теста',
-              'Утечка группового чата',
-              'Монтаж с камеры звонка',
-              'Рейд со звукометром'
             ]
           ],
           hitch: [
@@ -549,6 +372,18 @@
               'Следователь на пенсии'
             ],
             [
+              'Жена героя',
+              'Муж героя',
+              'Партнер по бизнесу',
+              'Невеста',
+              'Лучший друг',
+              'Давний партнер',
+              'Супруга-домохозяйка',
+              'Муж-карьерист',
+              'Школьная любовь',
+              'Сожитель'
+            ],
+            [
               'Молодая секретарша',
               'Наглый босс',
               'Лучшая подруга',
@@ -609,21 +444,24 @@
               'Скрыть двойную жизнь'
             ],
             [
+              'Соблазнительные встречи на работе',
+              'Секс в машине',
+              'Тайная переписка',
+              'Свидания в отеле',
+              'Интимные фото',
+              'Флирт на корпоративе',
+              'Связь в командировке',
+              'Виртуальный роман',
+              'Свидания на даче',
+              'Поцелуй в лифте',
+              'Прикосновения под столом'
+            ],
+            [
               'Ошибка доставки',
               'Забытый пароль',
               'Чужие духи',
               'Ночной звонок',
               'Смс на экране',
-              'Волос на одежде',
-              'Фото в корзине',
-              'Лишний билет',
-              'Странный кэшбэк',
-              'Пятно на сиденье',
-              'Смена пароля',
-              'Поздний «отчет»',
-              'Внезапный подарок',
-              'Лайк от незнакомки',
-              'Звук уведомления',
               'Незнакомый номер',
               'Внезапная командировка',
               'Выключенный телефон',
@@ -652,8 +490,27 @@
               'Срыв свадьбы',
               'Вскрытие сейфа',
               'Отмена билетов'
+            ],
+            [
+              'Публичное разоблачение',
+              'Развод и делёж',
+              'Примирение ради детей',
+              'Убийство в аффекте',
+              'Тюремный срок',
+              'Побег с любовником',
+              'Полное разорение',
+              'Новая жизнь',
+              'Месть удалась',
+              'Свадьба с любовницей',
+              'Одиночество'
             ]
           ]
+        };
+
+        const TITLES = {
+          neighbor: ['HERO', 'ANTAGONIST', 'CONFLICT'],
+          hitch: ['SETTING', 'HERO', 'ANTAGONIST', 'MOTIVE', 'TRIGGER', 'COUNTERMOVE', 'FINALE'],
+          soviet: ['SETTING', 'HERO', 'BETRAYER', 'ANTAGONIST', 'MOTIVE', 'SEXUAL_ELEMENT', 'TRIGGER', 'COUNTERMOVE', 'FINALE']
         };
 
         function getActiveGenreKey(){
@@ -670,31 +527,7 @@
           return arr[index] || [];
         }
 
-        function updatePickerItems(picker, items){
-          const scroll = picker.querySelector('.picker-scroll');
-          if (!scroll) return;
-          const count = Array.isArray(items) ? items.length : 0;
-          const repeat = DEFAULT_REPEAT;
-          scroll.innerHTML = '';
-          for (let r=0; r<repeat; r++){
-            for (let i=0; i<count; i++){
-              const li = document.createElement('li');
-              li.className = 'picker-item';
-              li.setAttribute('role','option');
-              li.textContent = items[i] || `Вариант ${i+1}`;
-              li.classList.add('h-10','flex','items-center','justify-center','select-none','cursor-pointer','text-white');
-              scroll.appendChild(li);
-            }
-          }
-          picker.dataset.count = String(count);
-          picker.dataset.repeat = String(repeat);
-          const centerStart = Math.floor(repeat/2) * count;
-          const centerOffset = Math.max(0, (scroll.clientHeight - ITEM_HEIGHT) / 2);
-          const base = 0;
-          const currentLogical = parseInt(picker.dataset.index || '0', 10) || 0;
-          const target = base + (centerStart + currentLogical) * ITEM_HEIGHT - centerOffset;
-          scroll.scrollTo({ top: target });
-        }
+
 
         function buildPicker(picker, label){
           const scroll = document.createElement('ul');
@@ -872,25 +705,58 @@
           scroll.scrollTo({ top: targetTop, behavior: 'smooth' });
         }
 
-        const pickers = Array.from(document.querySelectorAll('.baraban-box .picker'));
-        pickers.forEach((picker, idx)=>{
-          const label = picker.parentElement.querySelector('.baraban-title')?.textContent?.trim() || `BARABAN ${idx+1}`;
-          buildPicker(picker, label);
-        });
-        // флаг готовности пикеров для безопасного сброса при смене жанра
-        if (typeof window !== 'undefined') { window.__pickersReady = true; }
+        function renderDrums(genreKey){
+          const grid = document.querySelector('.baraban-grid');
+          if (!grid) return;
+          grid.innerHTML = ''; // Clear existing
+          
+          const sections = CONTENT[genreKey] || CONTENT['neighbor'];
+          const titles = TITLES[genreKey] || TITLES['neighbor'];
+          
+          sections.forEach((items, index) => {
+            const id = index + 1;
+            const title = titles[index] || `BARABAN ${id}`;
+            
+            const li = document.createElement('li');
+            li.className = 'baraban-box relative h-[240px] rounded-2xl bg-[#0b0c10] border border-[rgba(255,255,255,0.08)] flex flex-col items-center justify-between p-4 transition hover:border-[var(--accent)] hover:shadow-[0_0_15px_rgba(255,222,89,0.15)] group';
+            
+            li.innerHTML = `
+              <div class="baraban-header flex items-center justify-between w-full mb-2">
+                <span class="baraban-title text-[10px] font-bold tracking-[1px] text-[rgba(255,255,255,0.4)] uppercase">${title}</span>
+                <span class="baraban-num text-[10px] font-bold text-[rgba(255,255,255,0.2)]">0${id}</span>
+              </div>
+              
+              <div class="picker-container relative w-full flex-1 flex flex-col justify-center overflow-hidden">
+                <div class="picker w-full relative cursor-grab active:cursor-grabbing touch-none" data-id="${id}" role="listbox" aria-label="${title}" tabindex="0">
+                  <!-- JS builds items here -->
+                </div>
+              </div>
+              
+              <div class="baraban-footer w-full mt-3 flex justify-center">
+                <button type="button" class="shuffle-btn group/btn relative flex items-center justify-center gap-2 px-3 py-1.5 rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] transition-all hover:bg-[var(--accent)] hover:border-[var(--accent)] hover:text-black" data-id="${id}">
+                  <svg class="w-3 h-3 text-[rgba(255,255,255,0.6)] transition-colors group-hover/btn:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                  <span class="text-[10px] font-medium tracking-wide text-[rgba(255,255,255,0.6)] transition-colors group-hover/btn:text-black">SHUFFLE</span>
+                </button>
+              </div>
+            `;
+            
+            grid.appendChild(li);
+            
+            const picker = li.querySelector('.picker');
+            buildPicker(picker, title);
+          });
+        }
+
+        // Initialize drums
+        renderDrums(getActiveGenreKey());
 
         function randomize(){
+          const pickers = document.querySelectorAll('.baraban-box .picker');
           pickers.forEach(picker=>{
             const count = parseInt(picker.dataset.count || '0', 10) || 1;
             const i = Math.floor(Math.random()*count);
             setPickerIndex(picker, i);
           });
-        }
-
-        function resetPickers(){
-          // При смене жанра сбрасываем выбор всех барабанов на первый вариант
-          pickers.forEach(picker=> setPickerIndex(picker, 0));
         }
 
         document.getElementById('btn-random')?.addEventListener('click', randomize);
@@ -947,16 +813,28 @@
 
         document.getElementById('btn-make')?.addEventListener('click', ()=>{
           const genre = Array.from(document.querySelectorAll('.dna-genres .seg-btn')).find(b=>b.classList.contains('active'))?.textContent?.trim();
-          const language = document.getElementById('lang-select')?.value?.trim();
           const length = document.getElementById('length-select')?.value?.trim();
+          
+          const pickers = Array.from(document.querySelectorAll('.baraban-box .picker'));
+          
           const labels = pickers.map((picker, idx)=> picker.parentElement.querySelector('.baraban-title')?.textContent?.trim() || `BARABAN ${idx+1}`);
           const values = pickers.map((picker)=> getPickerValue(picker));
           const sections = labels.reduce((acc, name, i)=>{ acc[name] = values[i]; return acc; }, {});
-          const payload = { genre, language, length, sections };
+          const payload = { genre, length, sections };
           const jsonText = JSON.stringify(payload, null, 2);
           if (resultPre) resultPre.textContent = jsonText;
           console.log('MAKE STORY payload (compact):', payload);
           openModal();
+        });
+
+        // Инициализация темы по активной кнопке жанра
+        const initialGenreBtn = document.querySelector('.dna-genres .seg-btn.active');
+        if (initialGenreBtn) applyThemeByBtn(initialGenreBtn);
+        // Применяем Tailwind-стили к уже активным кнопкам во всех группах
+        ['.dna-genres','.dna-langs','.dna-location','.dna-length'].forEach(sel=>{
+          const group = document.querySelector(sel);
+          const btn = group?.querySelector('.seg-btn.active');
+          if (group && btn) makeActive(group, btn);
         });
       })();
     </script>

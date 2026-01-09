@@ -125,7 +125,7 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 8px;
 }
 
 .feature {
@@ -269,10 +269,9 @@ body {
 
 .baraban-grid {
   display: grid;
-  grid-template-columns: repeat(7, 210px); /* было 256px, чуть уже */
-  justify-content: center; /* центрируем, чтобы не тянулось от края до края */
+  justify-content: center;
   gap: 14px;
-  margin: 24px auto 10px; /* авто поля по бокам */
+  margin: 24px auto 10px;
 }
 
 
@@ -281,13 +280,13 @@ body {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(229, 231, 235, 0.08);
   border-radius: 14px;
-  padding: 16px;
+  padding: 0;
 }
 
 .baraban-title {
   font-weight: 800;
   letter-spacing: 0.6px;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   color: #ffde59; /* жёлтый акцент */
 }
 
@@ -364,142 +363,8 @@ body {
   filter: blur(60px);
   opacity: 0.25;
 }
-.dna-baraban .baraban-box {
-  min-height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* центрируем по горизонтали */
-  justify-content: center; /* центрируем по вертикали */
-  gap: 8px; /* расстояние между заголовком и picker */
-}
-.baraban-head {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  height: 28px;
-  gap: 14px;
-  width: 100%;
-}
-.shuffle-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  border: 1px solid rgba(229, 231, 235, 0.12);
-  background: rgba(255,255,255,0.03);
-  color: var(--accent);
-  line-height: 1;
-}
-.shuffle-btn:hover {
-  border-color: var(--accent);
-  box-shadow: 0 4px 14px var(--accent);
-}
-.shuffle-btn svg {
-  width: 14px;
-  height: 14px;
-  display: block;
-}
-/* Увеличенный размер заголовка барабана и выравнивание по центру */
-.dna-baraban .baraban-title {
-  font-size: 18px !important;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 28px;
-  line-height: 28px;
-  text-align: center;
-}
-.dna-baraban .baraban-box .picker {
-  width: 107%; /* было 107%, увеличено на 20% */
-  margin: 4px -3.5% 0; /* было -1% */
-  display: block;
-}
-.dna-baraban .value-badge { border-width: 0.5px; }
-.dna-baraban .chip { border-width: 0.5px; }
-.dna-baraban .picker-highlight {
-  border-top-width: 0.5px;
-  border-bottom-width: 0.5px;
-}
 
-/* Центрируем picker внутри карточки барабана */
-.dna-baraban .baraban-box {
-  min-height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* центрируем по горизонтали */
-  justify-content: center; /* центрируем по вертикали */
-  gap: 8px; /* расстояние между заголовком и picker */
-}
-.dna-baraban .baraban-box .picker {
-  width: 107%; /* было 102% */
-  margin: 4px -3.5% 0; /* было -1% */
-  display: block;
-}
-.dna-baraban .value-badge { border-width: 0.5px; }
-.dna-baraban .chip { border-width: 0.5px; }
-.dna-baraban .picker-highlight {
-  border-top-width: 0.5px;
-  border-bottom-width: 0.5px;
-}
 
-/* Вертикальные интервалы между строками блоков внутри main */
-.dna-baraban > * + * {
-  margin-top: 12px; /* небольшие промежутки по высоте */
-}
-/* Заголовок над основным смещением main — возвращаем обычный отступ */
-.dna-baraban .dna-header {
-  margin-top: 0;
-  margin-bottom: 0 !important; /* переопределяем inline margin-bottom:16px, расстояние даёт правило .dna-baraban > * + * */
-  padding-block: 24px; /* вертикальные пэддинги для заголовка */
-}
-/* Типографика для nav-кнопок — пропорционально увеличенным паддингам */
-/* Жанры: большие кнопки */
-.dna-baraban .dna-genres .seg-btn.large { font-size: 20px; }
-/* Языки: малые кнопки — уменьшаем наполовину */
-.dna-baraban .dna-langs .seg-btn { font-size: 11px; }
-/* Длина: размер как у языковых кнопок */
-.dna-baraban .dna-length .seg-btn { font-size: 11px; }
-.dna-baraban {
-  width: min(1200px, 92%);
-  margin: 0 auto; /* убрано смещение на 20vh, чтобы не двигать весь блок */
-  padding-inline: 24px; /* пространство по бокам */
-}
-
-/* Узкие рамки для карточек, хайлайта и бейджей внутри dna-baraban */
-.dna-baraban .baraban-box {
-  border-width: 0.5px;
-  border-color: rgba(229, 231, 235, 0.10);
-}
-.dna-baraban .value-badge { border-width: 0.5px; }
-.dna-baraban .chip { border-width: 0.5px; }
-.dna-baraban .picker-highlight {
-  border-top-width: 0.5px;
-  border-bottom-width: 0.5px;
-}
-
-/* Центрируем picker внутри карточки барабана */
-.dna-baraban .baraban-box {
-  min-height: 260px; /* высота под заголовок + паддинги + колесо 200px */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* центрируем по горизонтали */
-  justify-content: center; /* центрируем по вертикали */
-  gap: 8px; /* расстояние между заголовком и picker */
-}
-.dna-baraban .baraban-box .picker {
-  width: 107%; /* было 102% */
-  margin: 4px -3.5% 0; /* было -1% */
-  display: block;
-}
-.dna-baraban .value-badge { border-width: 0.5px; }
-.dna-baraban .chip { border-width: 0.5px; }
-.dna-baraban .picker-highlight {
-  border-top-width: 0.5px;
-  border-bottom-width: 0.5px;
-}
 
 /* Вертикальные интервалы между строками блоков внутри main */
 .dna-baraban > * + * {
