@@ -153,14 +153,16 @@
   @media(max-width:720px){
     .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:10px;-webkit-overflow-scrolling:touch}
     .card{flex:0 0 100%;scroll-snap-align:center;padding:12px;display:flex;flex-direction:column}
-    .card-top{grid-template-columns:1.05fr 1fr;gap:10px}
+    .card-top{grid-template-columns:1fr;gap:10px}
     .card-top .pimg{aspect-ratio:4/5;width:100%}
-    .card-spec h3{font-size:21px}
+    .card-spec{flex-direction:row;justify-content:space-between;align-items:flex-start;gap:14px}
+    .card-spec h3{font-size:22px}
     .card-spec .id{font-size:10px}
-    .card-spec dl{font-size:10px;margin-top:10px;gap:4px}
-    .consist{display:flex;overflow-x:auto;gap:8px;margin-top:10px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
-    .consist .pimg{flex:0 0 38%;aspect-ratio:1/1}
-    .consist .wide{flex:0 0 84%;aspect-ratio:16/10}
+    .card-spec dl{margin-top:2px;gap:4px;font-size:10px;flex:0 0 55%}
+    .consist{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+    .consist .pimg{aspect-ratio:1/1}
+    .consist .pimg:nth-child(n+4){display:none}
+    .consist .wide{grid-column:1/-1;aspect-ratio:16/9;display:block}
     .card-foot{font-size:10px;margin-top:10px}
     .roster-nav a.act{color:var(--amber);border-color:var(--amber)}
   }
