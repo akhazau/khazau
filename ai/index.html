@@ -154,7 +154,7 @@
     .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:10px;-webkit-overflow-scrolling:touch}
     .card{flex:0 0 100%;scroll-snap-align:center;padding:12px;display:flex;flex-direction:column}
     .card-top{grid-template-columns:1fr;gap:10px}
-    .card-top .pimg{aspect-ratio:4/5;width:100%}
+    .card-top .pimg{aspect-ratio:1/1;width:100%}
     .card-spec{flex-direction:row;justify-content:space-between;align-items:flex-start;gap:14px}
     .card-spec h3{font-size:22px}
     .card-spec .id{font-size:10px}
@@ -165,6 +165,11 @@
     .consist .wide{grid-column:1/-1;aspect-ratio:16/9;display:block}
     .card-foot{font-size:10px;margin-top:10px}
     .roster-nav a.act{color:var(--amber);border-color:var(--amber)}
+  }
+  .consist .more-wrap{position:relative}
+  .consist .more-wrap .pimg{width:100%;height:100%}
+  @media(max-width:720px){
+    .consist .more-wrap::after{content:attr(data-more);position:absolute;inset:0;background:rgba(10,9,7,.55);display:flex;align-items:center;justify-content:center;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--bone);pointer-events:none;border:1px solid var(--line)}
   }
 </style>
 </head>
@@ -655,6 +660,22 @@ function sync(){
 }
 var raf=false;wrap.addEventListener("scroll",function(){if(!raf){raf=true;requestAnimationFrame(function(){raf=false;sync()})}},{passive:true});
 window.addEventListener("load",sync);
+})();
+(function(){
+document.querySelectorAll("article[id^=c-]").forEach(function(card){
+  var slug=card.id.slice(2),list=(typeof MEDIA!=="undefined"&&MEDIA[slug])||[];
+  var imgs=card.querySelectorAll(".consist .pimg");
+  if(!imgs.length||!list.length)return;
+  var visible=Math.min(3,imgs.length);
+  var n=list.length-visible;
+  if(n<=0)return;
+  var target=imgs[Math.min(2,imgs.length-1)];
+  var wrap=document.createElement("div");
+  wrap.className="more-wrap"+(target.classList.contains("wide")?" wide":"");
+  wrap.setAttribute("data-more","+"+n+" ЕЩЁ");
+  target.parentNode.insertBefore(wrap,target);
+  wrap.appendChild(target);
+});
 })();
 </script>
 </body>
