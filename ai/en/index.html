@@ -171,6 +171,9 @@
   @media(max-width:720px){
     .consist .more-wrap::after{content:attr(data-more);position:absolute;inset:0;background:rgba(10,9,7,.55);display:flex;align-items:center;justify-content:center;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--bone);pointer-events:none;border:1px solid var(--line)}
   }
+  .bible{margin:26px 0 0}
+  .bible .pimg{width:100%;aspect-ratio:auto;max-height:70vh;object-fit:contain;object-position:left;cursor:zoom-in}
+  .bible figcaption{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--muted);margin-top:10px;text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -436,6 +439,10 @@
         <p>Years of grading and retouching applied on top — the output reads photoreal, not synthetic plastic.</p>
       </div>
     </div>
+    <figure class="bible" id="bible-figure">
+      <img loading="lazy" class="pimg" src="../media/stas-bali/bible-id.jpg" alt="Character bible ID sheet">
+      <figcaption>Character bible: Stas ID sheet — angles locked</figcaption>
+    </figure>
   </div>
 </section>
 
