@@ -145,6 +145,11 @@
   #lb img,#lb video{max-width:96vw;max-height:88vh;object-fit:contain;border:1px solid var(--line)}
   #lb .x{position:absolute;top:14px;right:18px;font-family:"Space Mono",monospace;font-size:13px;letter-spacing:.1em;color:var(--bone);border:1px solid var(--line);padding:8px 14px;background:none;cursor:pointer}
   .pimg{cursor:zoom-in}
+  #lb .stage{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+  #lb .nav{position:absolute;top:50%;transform:translateY(-50%);font-size:34px;color:var(--bone);background:none;border:1px solid var(--line);width:46px;height:56px;cursor:pointer;z-index:2}
+  #lb .prev{left:10px}
+  #lb .next{right:10px}
+  #lb .count{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -571,20 +576,52 @@
   </div>
 </footer>
 
-<div id="lb"><button class="x" aria-label="Close">CLOSE ✕</button></div>
+<div id="lb">
+  <button class="x" aria-label="Close">CLOSE ✕</button>
+  <button class="nav prev" aria-label="Previous">‹</button>
+  <button class="nav next" aria-label="Next">›</button>
+  <div class="count"></div>
+  <div class="stage"></div>
+</div>
 <script>
 (function(){
-var lb=document.getElementById("lb");
-function open(node){lb.querySelectorAll("img,video").forEach(function(n){n.remove()});lb.appendChild(node);lb.classList.add("on");document.body.style.overflow="hidden"}
-function close(){lb.classList.remove("on");lb.querySelectorAll("video").forEach(function(v){v.pause()});document.body.style.overflow=""}
+var MEDIA={"marina": ["hero.jpg", "consist-1.jpg", "consist-2.jpg", "consist-3.jpg", "consist-4.jpg", "clip-1.mp4", "clip-2.mp4"], "stas-bali": ["hero.jpg", "consist-1.jpg", "consist-2.jpg", "consist-3.jpg", "consist-4.jpg", "clip-1.mp4", "clip-2.mp4", "clip-3.mp4", "clip-4.mp4", "clip-5.mp4", "clip-6.mp4", "clip-7.mp4"], "leo-levaro": ["hero.jpg", "consist-1.jpg", "clip-1.mp4", "clip-2.mp4"], "xane": ["hero.jpg", "consist-1.jpg", "clip-1.mp4", "clip-2.mp4", "clip-3.mp4", "clip-4.mp4", "clip-5.mp4", "clip-6.mp4", "clip-7.mp4", "clip-8.mp4", "clip-9.mp4", "clip-10.mp4", "clip-11.mp4", "clip-12.mp4", "clip-13.mp4", "clip-14.mp4"], "yan-kir": ["hero.jpg", "consist-1.jpg", "consist-2.jpg", "consist-3.jpg", "consist-4.jpg"], "kim": ["hero.jpg", "consist-1.jpg", "consist-2.jpg", "consist-3.jpg", "consist-4.jpg"], "oxy": ["hero.jpg", "consist-1.jpg", "consist-2.jpg", "consist-3.jpg", "consist-4.jpg", "clip-1.mp4", "clip-2.mp4", "clip-3.mp4", "clip-4.mp4", "clip-5.mp4", "clip-6.mp4"], "cassette-girl": ["hero.jpg", "consist-1.jpg", "clip-1.mp4", "clip-2.mp4", "clip-3.mp4", "clip-4.mp4", "clip-5.mp4", "clip-6.mp4", "clip-7.mp4", "clip-8.mp4"]};
+var lb=document.getElementById("lb"),stage=lb.querySelector(".stage"),count=lb.querySelector(".count");
+var cur={slug:null,i:0};
+function show(){
+  var list=MEDIA[cur.slug]||[];if(!list.length)return;
+  cur.i=(cur.i+list.length)%list.length;
+  var f=list[cur.i],src="media/"+cur.slug+"/"+f,node;
+  stage.innerHTML="";
+  if(/\.mp4$/.test(f)){node=document.createElement("video");node.src=src;node.controls=true;node.autoplay=true;node.playsInline=true;}
+  else{node=document.createElement("img");node.src=src;}
+  stage.appendChild(node);
+  count.textContent=(cur.i+1)+" / "+list.length;
+  lb.classList.add("on");document.body.style.overflow="hidden";
+}
+function close(){lb.classList.remove("on");stage.innerHTML="";document.body.style.overflow="";}
 document.addEventListener("click",function(e){
+  var card=e.target.closest("article[id^=c-]");
   var a=e.target.closest("a.tag");
-  if(a&&/\.mp4$/.test(a.getAttribute("href"))){e.preventDefault();var v=document.createElement("video");v.src=a.getAttribute("href");v.controls=true;v.autoplay=true;v.playsInline=true;open(v);return}
+  if(a&&card){e.preventDefault();cur.slug=card.id.slice(2);var f=a.getAttribute("href").split("/").pop();cur.i=Math.max(0,(MEDIA[cur.slug]||[]).indexOf(f));show();return}
   var im=e.target.closest("img.pimg");
-  if(im&&!e.target.closest("#lb")){var big=document.createElement("img");big.src=im.src;open(big);return}
-  if(e.target.closest("#lb"))close();
+  if(im&&card){cur.slug=card.id.slice(2);var fn=im.getAttribute("src").split("/").pop();cur.i=Math.max(0,(MEDIA[cur.slug]||[]).indexOf(fn));show();return}
+  if(e.target.closest(".prev")){cur.i--;show();return}
+  if(e.target.closest(".next")){cur.i++;show();return}
+  if(e.target.closest(".x")||e.target===lb)close();
 });
-document.addEventListener("keydown",function(e){if(e.key==="Escape")close()});
+document.addEventListener("keydown",function(e){
+  if(!lb.classList.contains("on"))return;
+  if(e.key==="Escape")close();
+  if(e.key==="ArrowLeft"){cur.i--;show()}
+  if(e.key==="ArrowRight"){cur.i++;show()}
+});
+var sx=null;
+lb.addEventListener("touchstart",function(e){sx=e.touches[0].clientX},{passive:true});
+lb.addEventListener("touchend",function(e){
+  if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;sx=null;
+  if(Math.abs(dx)>40){if(dx<0)cur.i++;else cur.i--;show()}
+},{passive:true});
 })();
 </script>
 </body>
