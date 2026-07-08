@@ -162,6 +162,7 @@
   @media(max-width:720px){
     .roster-nav{padding-left:45vw;padding-right:45vw;-webkit-mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)}
   }
+  .roster-nav{scroll-behavior:smooth}
 </style>
 </head>
 <body>
@@ -648,7 +649,7 @@ function sync(){
   chips.forEach(function(ch){
     var on=ch.getAttribute("href")==="#"+best.id;
     ch.classList.toggle("act",on);
-    if(on&&nav)nav.scrollTo({left:ch.offsetLeft-nav.clientWidth/2+ch.offsetWidth/2,behavior:"smooth"});
+    if(on&&nav)requestAnimationFrame(function(){nav.scrollLeft=ch.offsetLeft+ch.offsetWidth/2-nav.clientWidth/2});
   });
 }
 wrap.addEventListener("scroll",function(){clearTimeout(t);t=setTimeout(sync,80)},{passive:true});
