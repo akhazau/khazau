@@ -685,6 +685,14 @@ document.querySelectorAll("article[id^=c-]").forEach(function(card){
   wrap.appendChild(target);
 });
 })();
+(function(){
+var v=document.querySelector("video.hero-portrait");
+if(!v)return;
+v.muted=true;v.setAttribute("muted","");
+function kick(){var p=v.play();if(p&&p.catch)p.catch(function(){})}
+window.addEventListener("load",kick);
+document.addEventListener("touchstart",function once(){kick();document.removeEventListener("touchstart",once)},{passive:true});
+})();
 </script>
 </body>
 </html>
