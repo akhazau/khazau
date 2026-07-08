@@ -86,7 +86,8 @@
   .consist .wide{grid-column:1/-1;aspect-ratio:3/1;object-position:top}
   .card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--muted)}
   .tag{color:var(--amber);border:1px solid var(--amber-dim);padding:3px 8px;text-transform:uppercase}
-  @media.roster-nav{display:flex;gap:8px;overflow-x:auto;margin:-14px 0 26px;padding-bottom:6px;-webkit-mask-image:linear-gradient(90deg,#000 92%,transparent)}
+  @media.roster-nav{overflow:hidden;margin:-14px 0 26px;padding-bottom:6px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+  .rtrack{position:relative;display:flex;gap:8px;width:max-content;transition:transform .35s ease;will-change:transform}
   .roster-nav a{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:7px 12px;text-decoration:none;white-space:nowrap;transition:.2s}
   .roster-nav a:hover{color:var(--amber);border-color:var(--amber-dim)}
   .card{scroll-margin-top:80px}
@@ -159,10 +160,6 @@
     .roster-nav a.act{color:var(--amber);border-color:var(--amber)}
   }
   .roster-nav a.act{color:var(--amber);border-color:var(--amber-dim)}
-  @media(max-width:720px){
-    .roster-nav{padding-left:45vw;padding-right:45vw;-webkit-mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)}
-  }
-  .roster-nav{scroll-behavior:smooth}
 </style>
 </head>
 <body>
@@ -205,9 +202,7 @@
       </div>
       <p>Восемь персонажей, восемь разных миров. Каждый остаётся собой в любом кадре.</p>
     </div>
-    <div class="roster-nav" aria-label="Jump to character">
-      <a href="#c-kim">Kim</a><a href="#c-oxy">Oxy</a><a href="#c-yan-kir">Yan&amp;Kir</a><a href="#c-marina">Marina</a><a href="#c-stas-bali">Stas</a><a href="#c-leo-levaro">Leo</a><a href="#c-xane">Xane</a><a href="#c-cassette-girl">Cassette</a>
-    </div>
+    <div class="roster-nav" aria-label="Jump to character"><div class="rtrack"><a href="#c-kim">Kim</a><a href="#c-oxy">Oxy</a><a href="#c-yan-kir">Yan&amp;Kir</a><a href="#c-marina">Marina</a><a href="#c-stas-bali">Stas</a><a href="#c-leo-levaro">Leo</a><a href="#c-xane">Xane</a><a href="#c-cassette-girl">Cassette</a></div>    </div>
     <div class="cards">
 
       <article class="card" id="c-kim">
@@ -637,7 +632,7 @@ lb.addEventListener("touchend",function(e){
 var wrap=document.querySelector(".cards");
 var chips=Array.prototype.slice.call(document.querySelectorAll(".roster-nav a"));
 if(!wrap||!chips.length)return;
-var nav=document.querySelector(".roster-nav");
+var nav=document.querySelector(".roster-nav"),track=document.querySelector(".rtrack");
 var t=null;
 function sync(){
   var wc=wrap.getBoundingClientRect(),center=wc.left+wc.width/2,best=null,bd=1e9;
@@ -649,7 +644,7 @@ function sync(){
   chips.forEach(function(ch){
     var on=ch.getAttribute("href")==="#"+best.id;
     ch.classList.toggle("act",on);
-    if(on&&nav)requestAnimationFrame(function(){nav.scrollLeft=ch.offsetLeft+ch.offsetWidth/2-nav.clientWidth/2});
+    if(on&&track)track.style.transform="translateX("+(nav.clientWidth/2-ch.offsetLeft-ch.offsetWidth/2)+"px)";
   });
 }
 wrap.addEventListener("scroll",function(){clearTimeout(t);t=setTimeout(sync,80)},{passive:true});
