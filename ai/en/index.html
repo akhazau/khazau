@@ -629,6 +629,7 @@ document.addEventListener("click",function(e){
   if(a&&card){e.preventDefault();cur.slug=card.id.slice(2);var f=a.getAttribute("href").split("/").pop();cur.i=Math.max(0,(MEDIA[cur.slug]||[]).indexOf(f));show();return}
   var im=e.target.closest("img.pimg");
   if(im&&card){cur.slug=card.id.slice(2);var fn=im.getAttribute("src").split("/").pop();cur.i=Math.max(0,(MEDIA[cur.slug]||[]).indexOf(fn));show();return}
+  if(im&&!card&&!e.target.closest("#lb")){stage.innerHTML="";var big=document.createElement("img");big.src=im.src;stage.appendChild(big);count.textContent="";lb.classList.add("on");document.body.style.overflow="hidden";return}
   if(e.target.closest(".prev")){cur.i--;show();return}
   if(e.target.closest(".next")){cur.i++;show();return}
   if(e.target.closest(".x")||e.target===lb)close();
