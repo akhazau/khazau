@@ -91,11 +91,6 @@
   .roster-nav a{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:7px 12px;text-decoration:none;white-space:nowrap;transition:.2s}
   .roster-nav a:hover{color:var(--amber);border-color:var(--amber-dim)}
   .card{scroll-margin-top:80px}
-  @media(max-width:720px){
-    .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:10px;-webkit-overflow-scrolling:touch}
-    .card{flex:0 0 100%;scroll-snap-align:center;padding:12px}
-    .consist .ph,.consist .pimg{aspect-ratio:1/1}
-  }
   .demo{background:var(--panel)}
   .reel{display:flex;gap:8px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory}
   .reel .cell{flex:0 0 clamp(150px,20vw,210px);scroll-snap-align:start}
@@ -153,14 +148,22 @@
   #lb .count{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--muted)}
   .reel .pimg{aspect-ratio:4/5;width:100%}
   .fimg{object-fit:cover;border:1px solid var(--line);background:var(--panel)}
-  @media(max-width:720px){
-    .card-top{grid-template-columns:1fr}
-    .card-top .pimg{aspect-ratio:4/5;width:100%}
-    .consist{grid-template-columns:repeat(2,1fr);gap:8px}
-    .roster-nav a.act{color:var(--amber);border-color:var(--amber)}
-  }
   .roster-nav a.act{color:var(--amber);border-color:var(--amber-dim)}
   .cards,.reel{overscroll-behavior-x:contain}
+  @media(max-width:720px){
+    .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:10px;-webkit-overflow-scrolling:touch}
+    .card{flex:0 0 100%;scroll-snap-align:center;padding:12px;display:flex;flex-direction:column}
+    .card-top{grid-template-columns:1.05fr 1fr;gap:10px}
+    .card-top .pimg{aspect-ratio:4/5;width:100%}
+    .card-spec h3{font-size:21px}
+    .card-spec .id{font-size:10px}
+    .card-spec dl{font-size:10px;margin-top:10px;gap:4px}
+    .consist{display:flex;overflow-x:auto;gap:8px;margin-top:10px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+    .consist .pimg{flex:0 0 38%;aspect-ratio:1/1}
+    .consist .wide{flex:0 0 84%;aspect-ratio:16/10}
+    .card-foot{font-size:10px;margin-top:10px}
+    .roster-nav a.act{color:var(--amber);border-color:var(--amber)}
+  }
 </style>
 </head>
 <body>
